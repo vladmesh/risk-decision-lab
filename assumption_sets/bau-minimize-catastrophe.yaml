@@ -1,0 +1,12 @@
+name: bau-minimize-catastrophe
+description: >-
+  The reading that takes the Delphi numbers at face value: rank domains by how likely
+  experts think catastrophic harm is if nothing changes, and treat mitigation as equally
+  costly everywhere. This is the ranking most readers produce from the repository without
+  noticing they made two assumptions.
+decision_question: Which risk domain is most dangerous if the world keeps acting as it does now?
+objective: catastrophic_probability
+scenario: bau
+level: catastrophic
+default_cost_multiplier: 1.0
+cost_multipliers: {}

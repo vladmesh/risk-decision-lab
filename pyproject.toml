@@ -1,0 +1,17 @@
+[project]
+name = "riskdlab"
+version = "0.1.0"
+description = "A decision-modeling layer on top of the MIT AI Risk Repository"
+requires-python = ">=3.11"
+dependencies = ["pandas", "openpyxl", "rdata", "scipy", "pyyaml"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+riskdlab = "riskdlab.cli:main"
+
+[tool.pytest.ini_options]
+# `experiments/` holds one-off scripts, one of which is named *_test.py and runs on
+# import against raw data that is not in git; the suite lives in tests/ only.
+testpaths = ["tests"]

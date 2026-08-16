@@ -5,8 +5,8 @@ MIT maps the evidence; this project makes competing interpretations of that evid
 explicit, computable, and comparable — and shows which missing parameters actually change
 the conclusions.
 
-Current stage: data reality check. Prototype (assumption sets, ranking diff, sensitivity)
-is next.
+Current stage: prototype skeleton — assumption sets and a ranking diff over the imported
+data. Sensitivity stays a script in `experiments/`.
 
 ## Findings so far
 
@@ -39,6 +39,39 @@ curl -sSL "https://osf.io/download/6d58m/" -o data/raw/delphi.zip && unzip -o da
 ```
 
 All three scripts are deterministic (fixed seed in `sensitivity.py`).
+
+## Prototype
+
+`riskdlab/` imports both datasets into one domain-level table and ranks the 24 domains
+under an **assumption set** — a named file stating the decision question, the scenario,
+the harm level, and the assumed relative mitigation cost per domain. Cost is not in any
+MIT dataset, so it is an assumption by construction; leaving it out is the assumption that
+mitigation costs the same everywhere.
+
+Two assumption sets ship in `assumption_sets/`: `bau-minimize-catastrophe` (which domain
+is most dangerous under business as usual) and `pm-maximize-reduction` (where pragmatic
+mitigations buy the largest reduction per unit of assumed cost).
+
+```bash
+.venv/bin/pip install pyyaml pytest
+.venv/bin/python -m riskdlab rank assumption_sets/bau-minimize-catastrophe.yaml
+.venv/bin/python -m riskdlab compare \
+  assumption_sets/bau-minimize-catastrophe.yaml \
+  assumption_sets/pm-maximize-reduction.yaml
+```
+
+`compare` prints both rankings and the diff: which domains changed relative order, by how
+many positions, and what share of domain pairs kept it — the same measure the sensitivity
+experiment uses, so a disagreement between two readings is comparable to the spread an
+unknown mitigation cost produces. Both commands print the median 95% CI width first.
+`--top N` shortens the tables, `--no-repository` runs on the Delphi file alone (dropping
+the `n_risk_rows` column, which says how many repository risk rows each estimate covers).
+
+Tests run on synthetic fixtures and need no downloaded data:
+
+```bash
+.venv/bin/python -m pytest
+```
 
 Sources: [airisk.mit.edu/risks](https://airisk.mit.edu/risks),
 [osf.io/pj2qr](https://osf.io/pj2qr), [arXiv:2606.04490](https://arxiv.org/abs/2606.04490)
