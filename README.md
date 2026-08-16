@@ -64,8 +64,12 @@ mitigations buy the largest reduction per unit of assumed cost).
 many positions, and what share of domain pairs kept it — the same measure the sensitivity
 experiment uses, so a disagreement between two readings is comparable to the spread an
 unknown mitigation cost produces. Both commands print the median 95% CI width first.
-`--top N` shortens the tables, `--no-repository` runs on the Delphi file alone (dropping
-the `n_risk_rows` column, which says how many repository risk rows each estimate covers).
+
+Each set is ranked on the harm level it states, so two sets in one `compare` may differ in
+that too; `--level` overrides every set in the invocation and is labelled as an override in
+the output. `--top N` shortens the ranking tables (the diff always covers all domains) and
+`--no-repository` runs on the Delphi file alone, dropping the `n_risk_rows` column that
+says how many repository risk rows each single estimate covers.
 
 Tests run on synthetic fixtures and need no downloaded data:
 

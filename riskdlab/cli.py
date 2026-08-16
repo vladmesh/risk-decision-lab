@@ -26,17 +26,29 @@ def format_ranking(ranked: pd.DataFrame, top: int | None = None) -> str:
         columns.append("n_risk_rows")
     table = shown.reset_index()[["domain", *columns]]
     if "n_risk_rows" in table.columns:
-        table["n_risk_rows"] = table["n_risk_rows"].astype("Int64")
+        # a count, printed as one; a domain with no repository rows prints as missing
+        table["n_risk_rows"] = [
+            "-" if pd.isna(value) else str(int(value)) for value in table["n_risk_rows"]
+        ]
     return table.to_string(index=False, float_format=_fmt, na_rep="-")
 
 
-def format_header(assumptions: AssumptionSet) -> str:
+def format_header(
+    assumptions: AssumptionSet,
+    level: str | None = None,
+    source: Path | str | None = None,
+) -> str:
+    """`level` is the level actually ranked on, which `--level` may override."""
+    level = assumptions.level if level is None else level
     lines = [f"# {assumptions.name}"]
+    if source is not None:
+        lines.append(f"source: {source}")
     if assumptions.decision_question:
         lines.append(f"decision question: {assumptions.decision_question}")
+    overridden = "" if level == assumptions.level else f" (--level, set says {assumptions.level})"
     lines.append(
         f"objective: {assumptions.objective} | scenario: {assumptions.scenario} "
-        f"| harm level: {assumptions.level}"
+        f"| harm level: {level}{overridden}"
     )
     if assumptions.cost_multipliers:
         costs = ", ".join(
@@ -79,45 +91,80 @@ def format_diff(diff: pd.DataFrame, agreement: float) -> str:
     return "\n".join(lines)
 
 
-def _load(args: argparse.Namespace) -> pd.DataFrame:
-    repository = None if args.no_repository else args.repository
-    return load_domains(delphi_path=args.delphi, repository_path=repository, level=args.level)
+def effective_level(assumptions: AssumptionSet, override: str | None) -> str:
+    """The harm level a ranking is computed on: the assumption set's, unless overridden.
+
+    The level is part of the interpretation, so it comes from the file; `--level` is an
+    explicit command-line override that applies to every set in the invocation and is
+    labelled as such in the printed header.
+    """
+    return assumptions.level if override is None else override
 
 
-def _cmd_rank(args: argparse.Namespace) -> int:
-    assumptions = AssumptionSet.load(args.assumption_set)
-    domains = _load(args)
+def distinct_labels(left: str, right: str) -> tuple[str, str]:
+    """Column labels for the diff. Names are not unique, so collisions get a suffix."""
+    if left != right:
+        return left, right
+    return f"{left}#1", f"{right}#2"
+
+
+class _DomainSource:
+    """Loads the domain table once per harm level in this invocation."""
+
+    def __init__(self, args: argparse.Namespace) -> None:
+        self._delphi = args.delphi
+        self._repository = None if args.no_repository else args.repository
+        self._cache: dict[str, pd.DataFrame] = {}
+
+    def for_level(self, level: str) -> pd.DataFrame:
+        if level not in self._cache:
+            self._cache[level] = load_domains(
+                delphi_path=self._delphi, repository_path=self._repository, level=level
+            )
+        return self._cache[level]
+
+
+def _render(
+    assumptions: AssumptionSet,
+    source: Path,
+    domains: pd.DataFrame,
+    level: str,
+    top: int | None,
+) -> pd.DataFrame:
     ranked = rank_domains(domains, assumptions)
-    print(format_header(assumptions))
+    print(format_header(assumptions, level=level, source=source))
     note = format_uncertainty(domains, assumptions)
     if note:
         print(note)
     print()
-    print(format_ranking(ranked, args.top))
+    print(format_ranking(ranked, top))
+    return ranked
+
+
+def _cmd_rank(args: argparse.Namespace) -> int:
+    assumptions = AssumptionSet.load(args.assumption_set)
+    level = effective_level(assumptions, args.level)
+    domains = _DomainSource(args).for_level(level)
+    _render(assumptions, args.assumption_set, domains, level, args.top)
     return 0
 
 
 def _cmd_compare(args: argparse.Namespace) -> int:
-    left = AssumptionSet.load(args.left)
-    right = AssumptionSet.load(args.right)
-    domains = _load(args)
+    sets = [(path, AssumptionSet.load(path)) for path in (args.left, args.right)]
+    domains = _DomainSource(args)
 
-    ranked = {}
-    for assumptions in (left, right):
-        ranking = rank_domains(domains, assumptions)
-        ranked[assumptions.name] = ranking
-        print(format_header(assumptions))
-        note = format_uncertainty(domains, assumptions)
-        if note:
-            print(note)
-        print()
-        print(format_ranking(ranking, args.top))
+    rankings = []
+    for path, assumptions in sets:
+        level = effective_level(assumptions, args.level)
+        rankings.append(
+            _render(assumptions, path, domains.for_level(level), level, args.top)
+        )
         print()
 
-    diff = diff_rankings(
-        ranked[left.name], ranked[right.name], left_name=left.name, right_name=right.name
-    )
-    print(format_diff(diff, pair_order_agreement(ranked[left.name], ranked[right.name])))
+    left_label, right_label = distinct_labels(sets[0][1].name, sets[1][1].name)
+    left, right = rankings
+    diff = diff_rankings(left, right, left_name=left_label, right_name=right_label)
+    print(format_diff(diff, pair_order_agreement(left, right)))
     return 0
 
 
@@ -132,8 +179,12 @@ def build_parser() -> argparse.ArgumentParser:
                         help="path to the Risk Repository xlsx")
     parser.add_argument("--no-repository", action="store_true",
                         help="skip the repository (drops the n_risk_rows column)")
-    parser.add_argument("--level", default="catastrophic", help="harm level to rank on")
-    parser.add_argument("--top", type=int, default=None, help="show only the top N domains")
+    parser.add_argument("--level", default=None,
+                        help="override the harm level of every assumption set "
+                             "(by default each set states its own)")
+    parser.add_argument("--top", type=int, default=None,
+                        help="show only the top N domains in each ranking table "
+                             "(the diff always covers all of them)")
 
     sub = parser.add_subparsers(dest="command", required=True)
 

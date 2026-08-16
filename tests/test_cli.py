@@ -2,7 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from riskdlab.cli import main
+from riskdlab.assumptions import AssumptionSet
+from riskdlab.cli import distinct_labels, effective_level, main
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SETS = REPO_ROOT / "assumption_sets"
@@ -67,3 +68,78 @@ def test_bad_invocations_exit_with_usage(argv):
     with pytest.raises(SystemExit) as exc:
         main(argv)
     assert exc.value.code == 2
+
+
+def test_effective_level_prefers_the_set_and_yields_to_the_flag():
+    aset = AssumptionSet(name="x", level="severe")
+    assert effective_level(aset, None) == "severe"
+    assert effective_level(aset, "catastrophic") == "catastrophic"
+
+
+def test_distinct_labels_only_disambiguate_on_collision():
+    assert distinct_labels("a", "b") == ("a", "b")
+    assert distinct_labels("a", "a") == ("a#1", "a#2")
+
+
+def _write_set(path: Path, **kwargs) -> Path:
+    return AssumptionSet(**kwargs).save(path)
+
+
+def test_rank_uses_the_harm_level_stated_in_the_assumption_set(
+    tmp_path, delphi_path, repository_path, capsys
+):
+    aset = _write_set(tmp_path / "major.yaml", name="major-set", level="major")
+    main([*data_args(delphi_path, repository_path), "rank", str(aset)])
+    out = capsys.readouterr().out
+
+    assert "harm level: major" in out
+    # under `major` the fixture reverses the order: 6.5 is worst, 7.2 is best
+    body = out.splitlines()
+    first_row = [line for line in body if line.strip().startswith("6.5")][0]
+    assert first_row.split()[1] == "1"
+    assert "85.58" in first_row
+
+
+def test_level_flag_overrides_the_set_and_says_so(
+    tmp_path, delphi_path, repository_path, capsys
+):
+    aset = _write_set(tmp_path / "major.yaml", name="major-set", level="major")
+    main([*data_args(delphi_path, repository_path), "--level", "catastrophic",
+          "rank", str(aset)])
+    out = capsys.readouterr().out
+
+    assert "harm level: catastrophic (--level, set says major)" in out
+    assert "21.51" in out  # the catastrophic values, not the major ones
+
+
+def test_compare_diffs_the_two_files_even_when_the_names_collide(
+    tmp_path, delphi_path, repository_path, capsys
+):
+    left = _write_set(tmp_path / "left.yaml", name="same", objective="catastrophic_probability")
+    right = _write_set(
+        tmp_path / "right.yaml",
+        name="same",
+        objective="achievable_reduction",
+        scenario="pm",
+        cost_multipliers={"6.4": 5.0, "6.5": 4.0, "4.2": 3.0, "7.1": 2.0, "7.2": 1.5},
+    )
+    main([*data_args(delphi_path, repository_path), "compare", str(left), str(right)])
+    out = capsys.readouterr().out
+
+    assert "rank_same#1" in out and "rank_same#2" in out
+    assert "domains that changed rank: 2/5" in out
+    assert "pairs keeping their order: 90.0%" in out
+
+
+def test_compare_ranks_each_set_on_its_own_level(
+    tmp_path, delphi_path, repository_path, capsys
+):
+    left = _write_set(tmp_path / "left.yaml", name="on-catastrophic", level="catastrophic")
+    right = _write_set(tmp_path / "right.yaml", name="on-major", level="major")
+    main([*data_args(delphi_path, repository_path), "compare", str(left), str(right)])
+    out = capsys.readouterr().out
+
+    assert "harm level: catastrophic" in out
+    assert "harm level: major" in out
+    # the two levels are mirror images in the fixture, so every pair flips
+    assert "pairs keeping their order: 0.0%" in out
