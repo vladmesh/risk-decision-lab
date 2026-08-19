@@ -11,12 +11,20 @@ import pandas as pd
 from riskdlab.assumptions import AssumptionSet
 from riskdlab.data import DEFAULT_DELPHI_PATH, DEFAULT_REPOSITORY_PATH, load_domains
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
+from riskdlab.stability import DEFAULT_SAMPLES, DEFAULT_SEED, analyze_cost_stability
 
 _FLOAT = "{:6.2f}".format
 
 
 def _fmt(value: float) -> str:
     return _FLOAT(value)
+
+
+def _positive_int(value: str) -> int:
+    parsed = int(value)
+    if parsed <= 0:
+        raise argparse.ArgumentTypeError("must be greater than zero")
+    return parsed
 
 
 def format_ranking(ranked: pd.DataFrame, top: int | None = None) -> str:
@@ -30,6 +38,14 @@ def format_ranking(ranked: pd.DataFrame, top: int | None = None) -> str:
         table["n_risk_rows"] = [
             "-" if pd.isna(value) else str(int(value)) for value in table["n_risk_rows"]
         ]
+    return table.to_string(index=False, float_format=_fmt, na_rep="-")
+
+
+def format_stability(stability: pd.DataFrame, cutoff: int) -> str:
+    """Render the empirical rank range and top-N share for every domain."""
+    table = stability.reset_index()
+    share = f"top_{cutoff}_share"
+    table[share] = table[share].map(lambda value: f"{value:.1%}")
     return table.to_string(index=False, float_format=_fmt, na_rep="-")
 
 
@@ -50,6 +66,7 @@ def format_header(
         f"objective: {assumptions.objective} | scenario: {assumptions.scenario} "
         f"| harm level: {level}{overridden}"
     )
+    has_ranges = assumptions.default_cost_range is not None or bool(assumptions.cost_ranges)
     if assumptions.cost_multipliers:
         costs = ", ".join(
             f"{code}={value:g}"
@@ -58,8 +75,21 @@ def format_header(
         lines.append(
             f"assumed relative mitigation cost (default {assumptions.default_cost_multiplier:g}): {costs}"
         )
-    else:
+    elif not has_ranges:
         lines.append("assumed relative mitigation cost: equal across domains")
+    if has_ranges:
+        ranges = ", ".join(
+            f"{code}=[{bounds[0]:g}, {bounds[1]:g}]"
+            for code, bounds in sorted(assumptions.cost_ranges.items())
+        )
+        default = (
+            "fixed"
+            if assumptions.default_cost_range is None
+            else f"[{assumptions.default_cost_range[0]:g}, "
+                 f"{assumptions.default_cost_range[1]:g}]"
+        )
+        detail = f": {ranges}" if ranges else ""
+        lines.append(f"mitigation cost ranges (default {default}){detail}")
     return "\n".join(lines)
 
 
@@ -168,6 +198,34 @@ def _cmd_compare(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_stability(args: argparse.Namespace) -> int:
+    assumptions = AssumptionSet.load(args.assumption_set)
+    level = effective_level(assumptions, args.level)
+    domains = _DomainSource(args).for_level(level)
+    result = analyze_cost_stability(
+        domains,
+        assumptions,
+        samples=args.samples,
+        seed=args.seed,
+        top=args.top_cutoff,
+    )
+    print(format_header(assumptions, level=level, source=args.assumption_set))
+    note = format_uncertainty(domains, assumptions)
+    if note:
+        print(note)
+    print(
+        f"cost stability: {args.samples} samples | seed {args.seed} | "
+        "independent log-uniform draws within each cost range"
+    )
+    print(
+        "top share is the share of sampled assumption sets, not a calibrated "
+        "real-world probability"
+    )
+    print()
+    print(format_stability(result, args.top_cutoff))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="riskdlab",
@@ -196,6 +254,18 @@ def build_parser() -> argparse.ArgumentParser:
     compare.add_argument("left", type=Path)
     compare.add_argument("right", type=Path)
     compare.set_defaults(func=_cmd_compare)
+
+    stability = sub.add_parser(
+        "stability", help="rank robustness across uncertain mitigation costs"
+    )
+    stability.add_argument("assumption_set", type=Path)
+    stability.add_argument("--samples", type=_positive_int, default=DEFAULT_SAMPLES)
+    stability.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    stability.add_argument(
+        "--top-cutoff", type=_positive_int, default=3,
+        help="report the share of sampled rankings in the top N (default: 3)",
+    )
+    stability.set_defaults(func=_cmd_stability)
 
     return parser
 
