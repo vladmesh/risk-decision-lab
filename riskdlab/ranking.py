@@ -29,7 +29,8 @@ def rank_domains(domains: pd.DataFrame, assumptions: AssumptionSet) -> pd.DataFr
     Score is the objective divided by the domain's assumed relative mitigation cost,
     so a domain that is twice as expensive has to buy twice as much to rank alongside.
     """
-    unknown = sorted(set(assumptions.cost_multipliers) - set(map(str, domains.index)))
+    configured = set(assumptions.cost_multipliers) | set(assumptions.cost_ranges)
+    unknown = sorted(configured - set(map(str, domains.index)))
     if unknown:
         warnings.warn(
             f"{assumptions.name}: cost multipliers for domains that are not in the data: "

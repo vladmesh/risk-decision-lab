@@ -9,6 +9,7 @@ An AssumptionSet writes that disagreement down so two of them can be ranked and 
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -29,10 +30,10 @@ _YAML_SUFFIXES = {".yaml", ".yml"}
 class AssumptionSet:
     """A named set of assumptions a domain ranking is computed under.
 
-    `cost_multipliers` are relative mitigation costs per domain code (`{"6.4": 3.0}`);
-    a domain's score is divided by its multiplier. Cost is the parameter the data does
-    not contain, so it is an assumption by construction, and the default of 1.0 for
-    every domain is itself the assumption "mitigation costs the same everywhere".
+    Fixed `cost_multipliers` and uncertain `cost_ranges` are relative mitigation costs
+    per domain code. A domain's score is divided by its multiplier. Cost is the parameter
+    the data does not contain, so it is an assumption by construction, and the default of
+    1.0 for every domain is itself the assumption "mitigation costs the same everywhere".
     """
 
     name: str
@@ -43,6 +44,8 @@ class AssumptionSet:
     level: str = "catastrophic"
     cost_multipliers: dict[str, float] = field(default_factory=dict)
     default_cost_multiplier: float = 1.0
+    cost_ranges: dict[str, tuple[float, float]] = field(default_factory=dict)
+    default_cost_range: tuple[float, float] | None = None
 
     def __post_init__(self) -> None:
         if not self.name:
@@ -64,14 +67,74 @@ class AssumptionSet:
             str(code): float(value) for code, value in self.cost_multipliers.items()
         }
         for code, value in self.cost_multipliers.items():
-            if value <= 0:
+            if not math.isfinite(value) or value <= 0:
                 raise ValueError(f"cost multiplier for {code} must be > 0, got {value}")
         self.default_cost_multiplier = float(self.default_cost_multiplier)
-        if self.default_cost_multiplier <= 0:
+        if (
+            not math.isfinite(self.default_cost_multiplier)
+            or self.default_cost_multiplier <= 0
+        ):
             raise ValueError("default_cost_multiplier must be > 0")
 
+        self.cost_ranges = {
+            str(code): self._validate_range(value, f"cost range for {code}")
+            for code, value in self.cost_ranges.items()
+        }
+        overlap = sorted(set(self.cost_multipliers) & set(self.cost_ranges))
+        if overlap:
+            raise ValueError(
+                "a domain cannot have both a fixed cost and a cost range: "
+                f"{overlap}"
+            )
+        if self.default_cost_range is not None:
+            self.default_cost_range = self._validate_range(
+                self.default_cost_range, "default_cost_range"
+            )
+
+    @staticmethod
+    def _validate_range(value: Any, label: str) -> tuple[float, float]:
+        if not isinstance(value, (list, tuple)) or len(value) != 2:
+            raise ValueError(f"{label} must be [minimum, maximum]")
+        lower, upper = map(float, value)
+        if (
+            not math.isfinite(lower)
+            or not math.isfinite(upper)
+            or lower <= 0
+            or upper <= 0
+        ):
+            raise ValueError(f"{label} bounds must be > 0")
+        if lower > upper:
+            raise ValueError(f"{label} minimum must not exceed maximum")
+        return lower, upper
+
     def cost_for(self, domain: str) -> float:
-        return self.cost_multipliers.get(str(domain), self.default_cost_multiplier)
+        """Representative cost used by a single ranking.
+
+        A range is represented by its geometric midpoint because costs are relative
+        multipliers. Stability analysis samples the full range instead.
+        """
+        domain = str(domain)
+        if domain in self.cost_ranges:
+            lower, upper = self.cost_ranges[domain]
+            return math.sqrt(lower * upper)
+        if domain in self.cost_multipliers:
+            return self.cost_multipliers[domain]
+        if self.default_cost_range is not None:
+            lower, upper = self.default_cost_range
+            return math.sqrt(lower * upper)
+        return self.default_cost_multiplier
+
+    def cost_range_for(self, domain: str) -> tuple[float, float]:
+        """Range sampled by stability analysis; fixed costs become zero-width ranges."""
+        domain = str(domain)
+        if domain in self.cost_ranges:
+            return self.cost_ranges[domain]
+        if domain in self.cost_multipliers:
+            value = self.cost_multipliers[domain]
+            return value, value
+        if self.default_cost_range is not None:
+            return self.default_cost_range
+        return self.default_cost_multiplier, self.default_cost_multiplier
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -83,6 +146,8 @@ class AssumptionSet:
             "level": self.level,
             "default_cost_multiplier": self.default_cost_multiplier,
             "cost_multipliers": dict(self.cost_multipliers),
+            "default_cost_range": self.default_cost_range,
+            "cost_ranges": dict(self.cost_ranges),
         }
 
     @classmethod

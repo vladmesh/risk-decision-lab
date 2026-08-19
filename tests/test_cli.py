@@ -9,6 +9,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SETS = REPO_ROOT / "assumption_sets"
 BAU = SETS / "bau-minimize-catastrophe.yaml"
 PM = SETS / "pm-maximize-reduction.yaml"
+PM_RANGES = SETS / "pm-cost-uncertainty.yaml"
 
 
 def data_args(delphi_path, repository_path):
@@ -143,3 +144,17 @@ def test_compare_ranks_each_set_on_its_own_level(
     assert "harm level: major" in out
     # the two levels are mirror images in the fixture, so every pair flips
     assert "pairs keeping their order: 0.0%" in out
+
+
+def test_stability_reports_sampled_rank_ranges(delphi_path, repository_path, capsys):
+    code = main([
+        *data_args(delphi_path, repository_path),
+        "stability", str(PM_RANGES), "--samples", "100", "--seed", "7",
+    ])
+    out = capsys.readouterr().out
+
+    assert code == 0
+    assert "cost stability: 100 samples | seed 7" in out
+    assert "not a calibrated real-world probability" in out
+    assert "best_rank" in out and "worst_rank" in out and "top_3_share" in out
+    assert "Dangerous capabilities" in out
