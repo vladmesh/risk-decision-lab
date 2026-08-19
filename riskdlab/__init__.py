@@ -9,5 +9,12 @@ set into a ranking and diffs two of them.
 from riskdlab.assumptions import AssumptionSet
 from riskdlab.data import load_domains
 from riskdlab.ranking import diff_rankings, rank_domains
+from riskdlab.stability import analyze_cost_stability
 
-__all__ = ["AssumptionSet", "load_domains", "rank_domains", "diff_rankings"]
+__all__ = [
+    "AssumptionSet",
+    "load_domains",
+    "rank_domains",
+    "diff_rankings",
+    "analyze_cost_stability",
+]

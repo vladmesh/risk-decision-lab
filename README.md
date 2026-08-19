@@ -5,8 +5,8 @@ MIT maps the evidence; this project makes competing interpretations of that evid
 explicit, computable, and comparable — and shows which missing parameters actually change
 the conclusions.
 
-Current stage: prototype skeleton — assumption sets and a ranking diff over the imported
-data. Sensitivity stays a script in `experiments/`.
+Current stage: prototype — assumption sets, ranking diffs, and a simple cost-stability
+analysis over the imported data.
 
 ## Findings so far
 
@@ -48,9 +48,10 @@ the harm level, and the assumed relative mitigation cost per domain. Cost is not
 MIT dataset, so it is an assumption by construction; leaving it out is the assumption that
 mitigation costs the same everywhere.
 
-Two assumption sets ship in `assumption_sets/`: `bau-minimize-catastrophe` (which domain
-is most dangerous under business as usual) and `pm-maximize-reduction` (where pragmatic
-mitigations buy the largest reduction per unit of assumed cost).
+Three assumption sets ship in `assumption_sets/`: `bau-minimize-catastrophe` (which domain
+is most dangerous under business as usual), `pm-maximize-reduction` (where pragmatic
+mitigations buy the largest reduction per unit of assumed point cost), and
+`pm-cost-uncertainty` (whether that priority survives broad cost ranges).
 
 ```bash
 .venv/bin/pip install pyyaml pytest
@@ -58,6 +59,8 @@ mitigations buy the largest reduction per unit of assumed cost).
 .venv/bin/python -m riskdlab compare \
   assumption_sets/bau-minimize-catastrophe.yaml \
   assumption_sets/pm-maximize-reduction.yaml
+.venv/bin/python -m riskdlab stability \
+  assumption_sets/pm-cost-uncertainty.yaml
 ```
 
 `compare` prints both rankings and the diff: which domains changed relative order, by how
@@ -70,6 +73,35 @@ that too; `--level` overrides every set in the invocation and is labelled as an 
 the output. `--top N` shortens the ranking tables (the diff always covers all domains) and
 `--no-repository` runs on the Delphi file alone, dropping the `n_risk_rows` column that
 says how many repository risk rows each single estimate covers.
+
+## Simple cost-stability analysis
+
+An assumption set may state a `default_cost_range` and domain-specific `cost_ranges`:
+
+```yaml
+default_cost_range: [1.0, 2.0]
+cost_ranges:
+  "6.4": [3.0, 7.0]
+  "7.2": [1.0, 2.5]
+```
+
+`stability` samples each domain's relative cost independently and log-uniformly within
+these ranges. It reports the best, median, and worst observed rank and the share of sampled
+rankings in the top 3. The seed and sample count are explicit and configurable:
+
+```bash
+.venv/bin/python -m riskdlab stability \
+  assumption_sets/pm-cost-uncertainty.yaml \
+  --samples 10000 --seed 20260816 --top-cutoff 3
+```
+
+These top-N shares describe the sampled assumption space. They are **not calibrated
+probabilities** of a domain being a real-world priority: the ranges and the independent
+log-uniform sampling rule are assumptions, not observed cost data. A normal one-off
+`rank` command represents each range by its geometric midpoint.
+
+See `PLAN.md` for the path from this simple sensitivity check to a more defensible
+decision model.
 
 Tests run on synthetic fixtures and need no downloaded data:
 

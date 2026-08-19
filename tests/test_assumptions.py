@@ -20,6 +20,19 @@ def test_cost_multipliers_override_the_default():
     assert aset.cost_for("7.2") == 2.0
 
 
+def test_cost_ranges_use_geometric_midpoint_for_rank_and_full_range_for_stability():
+    aset = AssumptionSet(
+        name="ranged",
+        default_cost_range=[1, 4],
+        cost_ranges={"6.4": [2, 8]},
+        cost_multipliers={"7.2": 3},
+    )
+    assert aset.cost_for("6.4") == pytest.approx(4.0)
+    assert aset.cost_range_for("6.4") == (2.0, 8.0)
+    assert aset.cost_for("7.2") == 3.0
+    assert aset.cost_range_for("4.2") == (1.0, 4.0)
+
+
 @pytest.mark.parametrize(
     "kwargs, message",
     [
@@ -29,6 +42,14 @@ def test_cost_multipliers_override_the_default():
         ({"name": "x", "objective": "achievable_reduction"}, "has to be a mitigated one"),
         ({"name": "x", "cost_multipliers": {"6.4": 0}}, "must be > 0"),
         ({"name": "x", "default_cost_multiplier": -1}, "must be > 0"),
+        ({"name": "x", "cost_ranges": {"6.4": [0, 2]}}, "bounds must be > 0"),
+        ({"name": "x", "cost_ranges": {"6.4": [3, 2]}}, "minimum must not exceed"),
+        ({"name": "x", "cost_ranges": {"6.4": [1]}}, "must be.*minimum"),
+        (
+            {"name": "x", "cost_multipliers": {"6.4": 2},
+             "cost_ranges": {"6.4": [1, 3]}},
+            "cannot have both",
+        ),
     ],
 )
 def test_invalid_sets_are_rejected(kwargs, message):
@@ -50,6 +71,8 @@ def test_round_trips_through_a_file(tmp_path, suffix):
         objective="achievable_reduction",
         scenario="pm",
         cost_multipliers={"6.4": 5.0},
+        default_cost_range=[1.0, 2.0],
+        cost_ranges={"7.2": [1.0, 2.5]},
     )
     loaded = AssumptionSet.load(aset.save(tmp_path / f"set{suffix}"))
     assert loaded == aset
