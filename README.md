@@ -16,8 +16,11 @@ analysis over the imported data.
   with bootstrap CIs. Joins to the Repository cleanly (24/24 subdomain codes), but one
   estimate covers on average ~54 risk rows (max 126) — domain-level numbers can't be
   propagated to individual risks.
-- **Mitigation Database** (831 mitigations): published as Airtable only, no machine
-  access; no risk↔mitigation linkage, no effectiveness/cost estimates.
+- **Mitigation Database** (831 mitigations, 13 source documents): published as Airtable
+  only, with no programmatic export, so a hand-made snapshot is committed under
+  `snapshots/`. Its taxonomy is 4 categories and 23 named subcategories plus 4 catch-alls.
+  Still no risk↔mitigation linkage and no effectiveness or cost estimates — the two
+  parameters the ranking turns out to depend on.
 - **Sensitivity**: an unknown mitigation-cost parameter with a 3x spread across domains
   disrupts the domain ranking more (79% of pairs keep their order) than switching the
   entire scenario from business-as-usual to pragmatic mitigations (86%). The decision is
@@ -39,6 +42,10 @@ curl -sSL "https://osf.io/download/6d58m/" -o data/raw/delphi.zip && unzip -o da
 ```
 
 All three scripts are deterministic (fixed seed in `sensitivity.py`).
+
+The mitigation snapshots need no download step: Airtable blocks programmatic export, so
+they are committed to `snapshots/` instead. Provenance, hashes and the parsing traps are
+in [`snapshots/README.md`](snapshots/README.md).
 
 ## Prototype
 
@@ -108,6 +115,15 @@ Tests run on synthetic fixtures and need no downloaded data:
 ```bash
 .venv/bin/python -m pytest
 ```
+
+## Licence
+
+Code and documentation in this repository: MIT, see [`LICENSE`](LICENSE).
+
+The data does not belong to us. The snapshots in `snapshots/` are the MIT AI Risk
+Initiative's AI Risk Mitigation Database, redistributed unmodified under CC BY 4.0; the
+Repository and Delphi datasets you download yourself carry their own licences (CC BY 4.0
+at the time of writing). Attribution details: [`snapshots/README.md`](snapshots/README.md).
 
 Sources: [airisk.mit.edu/risks](https://airisk.mit.edu/risks),
 [osf.io/pj2qr](https://osf.io/pj2qr), [arXiv:2606.04490](https://arxiv.org/abs/2606.04490)

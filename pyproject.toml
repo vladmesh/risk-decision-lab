@@ -3,6 +3,8 @@ name = "riskdlab"
 version = "0.1.0"
 description = "A decision-modeling layer on top of the MIT AI Risk Repository"
 requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = ["pandas", "openpyxl", "rdata", "scipy", "pyyaml"]
 
 [project.optional-dependencies]
