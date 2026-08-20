@@ -1,0 +1,121 @@
+grant_id,primary,secondary,confidence,basis
+0b9f44f3-a373-7841-a156-4d9d746c486c,not_ai,,medium,AI memory capability work; no risk angle
+0bc440e2-b0f3-0dfc-0840-2b90d29ba33e,7.2,,medium,quantifying generalization to forecast model capability
+0ff5b5de-8fa6-2f34-f3ab-002bb85ea8a3,not_ai,,low,AI agent product development; no risk work
+1255875e-5627-16a6-6a0f-8c884f8a49b9,5.1,,medium,emotionally aware AI companions and user trust
+132caa41-b0c8-b796-350a-abde67300ba2,7.1,,medium,cross-constitution value drift from character training
+14345d07-8ab7-40b4-f4c3-f1b145e67322,7.1,7.2,high,evaluating LLM deception and sandbox escape
+2019/0,field,,high,80000 Hours career field-building
+2019/11,field,,low,cooperation modelling research group; unclear focus
+2019/25,7.1,,medium,Ought scalable oversight and factored cognition
+2020/h1/56,field,,medium,broad existential risk research organisation
+2020/h2/85,not_ai,,medium,broad research career advising; no AI focus
+2021/h2/124,field,,high,Lightcone AI-safety community infrastructure
+2022/h1/143,not_ai,,high,biomedical challenge trial advocacy
+2022/h1/144,field,,medium,forecasting and epistemics research institute
+2022/h1/153,field,,medium,Median Group AI forecasting and research
+2022/h2/195,field,,medium,Topos Institute general support
+2023/h1/218,field,,medium,forecasting platform infrastructure
+2023/h2/261,field,,low,AI safety community coordination infrastructure
+2023/h2/269,field,,medium,Epistea epistemics and community infrastructure
+2023/h2/270,field,,high,FAR AI general support
+2023/h2/295,field,,high,Lightcone AI-safety community infrastructure
+2023/h2/304,field,,low,research assistant hire at x-risk institute
+2024/390,field,,low,broad longtermist philanthropy general support
+2024/420,field,,medium,Foresight Institute general support
+2025/433,field,,high,AI Safety Camp talent programme
+2516a656-6615-e019-b4b0-bbe67c4c8513,field,,high,LessWrong Alignment Forum and Lighthaven infrastructure
+42feaeca-8a63-3edd-d5b4-ca3c55180b74,7.4,7.1,medium,eliciting latent knowledge from red-teamed model organisms
+5935de4b-c8cf-5322-0438-3b1266fa4c87,3.1,,medium,testing false AI-related interpretation claims against evidence
+5b0bdeb9-563d-ea39-439c-3e56c241ed0e,7.3,2.2,medium,adversarial attacks on robot vision-language-action policies
+5fc5e415-744a-cdcd-c81b-9895d0da8e14,7.1,,medium,human control mechanisms for agentic AI oversight
+65fff385-8ce8-fe4b-945e-f3e72b8406df,2.2,7.1,medium,runtime supervisor against agent exfiltration and injection
+6bb64811-d6ba-ac86-b37e-fb63a67d0ce2,6.4,,high,PauseAI campaigning to slow frontier AI
+6cb22533-358d-c3b9-3c74-0d8456701320,2.2,7.1,medium,fail-closed runtime blocking injected agent authorization
+72c2a98c-fdad-4886-a375-fe4aef26c307,not_ai,,medium,general high-impact cause education; AI one episode
+72f57178-9ada-792a-537a-7c10cc090ed6,7.3,7.4,medium,observatory for post-deployment model drift
+84a87fa7-9a4c-1fc1-b956-9a2885e1b1b4,5.2,6.5,low,constraining AI-generated governance decisions about people
+84d9220f-ba30-0be3-cfac-969d4e257530,field,,high,public awareness media on AGI existential risk
+89e07fba-1066-ba99-0154-1fe7678f0b11,field,,high,practical AI safety training programme
+96fd6555-a476-0d8a-088d-7183d251d90d,7.1,7.5,medium,testing LLM self-interest and self-preservation signs
+a29c1de3-db89-81d7-9115-963eacd978ea,7.2,,medium,capability elicitation beyond pass@k
+af4f2030-a7e3-2bf8-0e64-39792573c821,5.1,,medium,user overreliance and unsafe-use literacy training
+b68051c2-a108-0777-4945-05b33f90589a,7.4,,high,constructability and interpretable-by-design networks
+b6ad1255-4af8-8d28-0181-74590fe5568e,5.1,,medium,clinician reliance and empathy erosion in medical AI
+bcbe964b-9bd5-c99d-9b84-9ac75e012bb6,6.5,,high,publication designing institutions for powerful AI
+bfa203e6-8028-e154-efc6-a878d272ac9a,2.2,,high,prompt injection and poisoned memory testbed
+c7c4cc74-779e-42b8-3788-4fb4ffabdfab,6.1,6.5,medium,research on AI-enabled coups and power concentration
+c913da7c-52d0-712f-ca02-4fc8839de014,field,,low,speculative AGI architecture proposal; unclear risk target
+ce33de3b-b98d-8a97-ff97-550bd570a08e,7.3,3.1,high,open evaluations of frontier LLM reliability failures
+d481a425-e7be-9c1d-16ad-857c0bccbb7f,7.4,7.2,medium,feature localization interpretability and deep unlearning
+dc5b99a1-b3f4-5848-f65c-cafb4735c98a,7.1,7.2,medium,benchmark of model values toward non-human welfare
+e402d171-3785-93e2-6517-0ba1f471e483,4.2,,low,AI-biosecurity stress test of public health laboratories
+e410db01-4273-5f13-5ac1-f8673265f6a6,7.1,7.5,low,agent architecture studying autonomous goal formation
+ed062972-b970-8b66-0443-f0eb1519a9d7,7.4,,high,open-source sparse autoencoders for interpretability
+fed1be98-50c3-4aa8-456d-7cd572e8db34,field,,medium,contest eliciting AGI safety strategy plans
+grants-10681-0,field,,high,Epoch general support
+grants-11122-0,6.5,,high,AI standards development
+grants-12588-0,field,,high,SERI MATS talent programme
+grants-12651-0,7.1,,medium,university alignment research
+grants-13066-0,2.2,,medium,backdoor and trojan attacks on language models
+grants-13072-0,field,6.5,medium,university AI policy fellowship
+grants-13593-0,field,,high,CAIS fellowship and conference prizes
+grants-13763-0,field,,low,university AI safety research; no stated focus
+grants-14235-0,7.1,,medium,university alignment research
+grants-1453-0,field,,high,Open Phil AI fellowship class
+grants-14836-0,7.1,,medium,independent alignment research
+grants-19335-0,6.5,,high,IAPS AI policy institute
+grants-19381-0,field,,high,ERA Cambridge research fellowship
+grants-23726-0,6.5,,high,RAND technology and security policy centre
+grants-2529-0,field,,low,planning grant; no stated focus
+grants-26018-0,7.4,2.2,medium,zero-knowledge proofs for secure AI audits
+grants-26234-0,7.4,,medium,mechanistic interpretability course development
+grants-28279-0,field,,high,AI safety regranting programme
+grants-28774-0,field,,high,AI forecasting question development
+grants-35837-0,7.6,,high,emergent collusion between agents
+grants-35843-0,7.4,7.1,medium,steganographic encoding in model outputs
+grants-37071-0,7.4,,high,attribution in circuit discovery
+grants-37360-0,7.1,,high,model organisms of reward hacking
+grants-38004-0,7.1,,medium,red-teaming probed trusted monitoring for control
+grants-38526-0,field,,medium,AI safety strategy work
+grants-39085-0,field,,high,mid-career transition grants
+grants-39721-0,6.5,,high,IAPS AI policy institute
+grants-9505-0,6.5,,high,AI standards work
+grantsAddonData[89],field,,high,80000 Hours staff productivity support
+grantsAddonData[98],7.1,,medium,agent foundations research on value synthesis
+rec30QWFEMJCguIcY,7.1,,medium,safe exploration research
+rec3UTRtVhOaWOBjI,7.4,,medium,mechanistic study of search in transformers
+rec4m1pnxEuPHLKY8,field,6.5,medium,research-sharing platform for AI governance community
+rec6T2IrAjuzCYGPG,field,,medium,self-study and upskilling in AI safety
+rec6uKVKiezOgsL1I,field,,high,short fiction film on AI existential risk
+rec8SzEMk5HpiW7AP,field,,high,transition to independent AI safety research
+rec8cOT0GSNW8HEPr,7.1,,medium,modularity within selection theorems agenda
+recAnRIsClK50liCC,7.1,,medium,multi-objective RLAIF safety compared to RLAIF
+recBRsdTsKbnqImcT,not_ai,,high,pandemic lessons research; no AI focus
+recCTJNebIdOD3k6n,7.3,2.2,medium,adversarial robustness monitoring and trojans
+recDuvNgplZBNPGgn,2.1,7.4,high,models inferring private user attributes
+recEtviBqr68O9RaD,field,,high,transition support for AI safety researcher
+recICOOTwrevKIGOc,field,,low,cybersecurity conference attendance; no stated AI focus
+recJ9NaVtKSNRAgTZ,6.5,,high,AI national security policy recommendations
+recJyIFAuIu6MzuSW,field,,medium,enhancing collective human intelligence as alignment strategy
+recKNGgauUQH16o44,7.1,,medium,CHAI alignment PhD research
+recMOKbFB9Bf4qGFw,not_ai,,high,psychology of effective altruism and longtermism
+recP3q744g2aXneP4,7.1,,high,AI control research
+recPgP3QfKiuMEs0O,field,,high,interdisciplinary alignment research fellowship
+recT2lvswzYaoClXb,7.1,,medium,independent technical alignment research
+recUeUgoOgC9ktCDW,not_ai,,high,biosecurity research project and workshop
+recUh4rN2QAn6NUue,not_ai,,medium,local rationality community building; no AI focus
+recXfVDdfoW8soztF,field,,high,career transition into AI safety research
+reccaOLndhEplb8y0,field,,high,AI forecasting and strategy research
+recg2A6egfROG67tS,6.5,5.2,medium,legal challenges of AI in the judiciary
+recgWuZDqr0vFIYw1,7.1,7.4,medium,natural abstractions agent foundations research
+recixmdJvIEjcYVol,7.4,,high,causal scrubbing interpretability in compiled transformers
+reckqLjXrhx508t38,field,,high,upskilling for AI governance career
+recl29Uchl5IQkilM,field,,high,public podcast on AI existential risk
+recl42i0Zs3W2fzZQ,7.1,,high,AI control research
+recmTClyPQkyPpwlD,field,,high,mentorship talent programme for alignment researchers
+recobn1f5pr6iszpS,field,,high,human-aligned AI summer school
+recqwARtMl37dCVOK,7.1,7.2,high,personas and sandbagging research
+recrNaXUZAfxmMVnH,7.2,,medium,agent capability scaling laws forecasting
+recuAkCa39thfyt1a,not_ai,,high,biological risk early-warning system
+recz3q3oT0H3V1UEF,field,,medium,generic AI safety research; no named subdomain

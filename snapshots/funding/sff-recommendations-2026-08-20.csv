@@ -1,0 +1,516 @@
+round,source,organization,amount_usd,receiving_charity,purpose,note,year
+2019,SFF,"80,000 Hours",40000.0,"Centre for Effective Altruism, USA","General Support of 80,000 Hours","$40,000",2019
+2019,SFF,AI Impacts,70000.0,Machine Intelligence Research Institute,General Support of AI Impacts,"$70,000",2019
+2019,SFF,"AAAI/ACM conference on AI, Ethics and Society (AIES 2020)",20000.0,Association for the Advancement of Artificial Intelligence,General Support of AIES,"$20,000",2019
+2019,SFF,Alliance to Feed the Earth in Disasters (ALLFED),10000.0,Social and Environmental Entrepreneurs (SEE),General Support of ALLFED,"$10,000",2019
+2019,SFF,Center For Applied Rationality,150000.0,Center For Applied Rationality,General Support,"$150,000",2019
+2019,SFF,Charter Cities Institute,60000.0,Center for Innovative Governance Research,General Support of the Charter Cities Institute,"$60,000",2019
+2019,SFF,"Centre for the Study of Existential Risk, University of Cambridge",50000.0,Cambridge in America,"General Support of Centre for the Study of Existential Risk, University of Cambridge","$50,000",2019
+2019,SFF,Earth Law Center,30000.0,Earth Law Center,General Support,"$30,000",2019
+2019,SFF,Global Catastrophic Risk Institute,30000.0,Social and Environmental Entrepreneurs,General Support of GCRI,"$30,000",2019
+2019,SFF,Longevity Research Institute,160000.0,Longevity Research Institute,General Support,"$160,000",2019
+2019,SFF,Median Group,50000.0,Median Group,General Support,"$50,000",2019
+2019,SFF,Modeling Cooperation,50000.0,Convergence Analysis,General Support of Modeling Cooperation,"$50,000",2019
+2019,SFF,OAK (Optimizing Awakening and Kindness),100000.0,Center for Mindful Learning,General Support of OAK (Optimizing Awakening and Kindness),"$100,000",2019
+2019,SFF,Ought Inc.,100000.0,Ought Inc.,General Support,"$100,000",2019
+2019,Jaan Tallinn,"80,000 Hours",70000.0,"Centre for Effective Altruism, USA","General Support of 80,000 Hours","$70,000",2019
+2019,Jaan Tallinn,AI Impacts,30000.0,Machine Intelligence Research Institute,General Support of AI Impacts,"$30,000",2019
+2019,Jaan Tallinn,"AAAI/ACM conference on AI, Ethics and Society (AIES 2020)",10000.0,Association for the Advancement of Artificial Intelligence,General Support of AIES,"$10,000",2019
+2019,Jaan Tallinn,Alliance to Feed the Earth in Disasters (ALLFED),130000.0,Social and Environmental Entrepreneurs (SEE),General Support of ALLFED,"$130,000",2019
+2019,Jaan Tallinn,APPG for Future Generations (supported through: Project on Longtermism in Policy Making LTD),80000.0,Centre for Effective Altruism (CEA),General Support of APPG for Future Generations,"$80,000",2019
+2019,Jaan Tallinn,Center For Applied Rationality,50000.0,Center For Applied Rationality,General Support,"$50,000",2019
+2019,Jaan Tallinn,"Centre for the Study of Existential Risk, University of Cambridge",20000.0,Cambridge in America,"General Support of Centre for the Study of Existential Risk, University of Cambridge","$20,000",2019
+2019,Jaan Tallinn,"The Future Society, Inc.",50000.0,"The Future Society, Inc.",General Support,"$50,000",2019
+2019,Jaan Tallinn,Longevity Research Institute,140000.0,Longevity Research Institute,General Support,"$140,000",2019
+2019,Jaan Tallinn,Laboratory for Social Minds,20000.0,Carnegie Mellon University,General Support of Laboratory for Social Minds,"$20,000",2019
+2019,Jaan Tallinn,Median Group,120000.0,Median Group,General Support,"$120,000",2019
+2019,Jaan Tallinn,Ought Inc.,150000.0,Ought Inc.,General Support,"$150,000",2019
+2019,Jaan Tallinn,Berkeley Rationality and Effective Altruism Community Hub Incorporated,50000.0,Berkeley Rationality and Effective Altruism Community Hub Incorporated,General Support,"$50,000",2019
+2019,Jaan Tallinn,Topos Institute,150000.0,Topos Institute,General Support,"$150,000",2019
+2019,Jaan Tallinn,Jason Crawford,20000.0,Mercatus Center,General Support of Jason Crawford,"$20,000",2019
+2020/h1,SFF,LessWrong,290000.0,Center for Applied Rationality,General support of LessWrong,"$290,000",2020
+2020/h1,SFF,Machine Intelligence Research Institute,20000.0,Machine Intelligence Research Institute,General support,"$20,000",2020
+2020/h1,SFF,Quantified Uncertainty Research Institute,120000.0,Quantified Uncertainty Research Institute,General support,"$120,000",2020
+2020/h1,SFF,"80,000 Hours",120000.0,Centre for Effective Altruism USA,"General support of 80,000 Hours","$120,000",2020
+2020/h1,SFF,Future of Life Institute,100000.0,Future of Life Institute,General support,"$100,000",2020
+2020/h1,Jaan Tallinn,LessWrong,110000.0,Center for Applied Rationality,General support of LessWrong,"$110,000",2020
+2020/h1,Jaan Tallinn,Machine Intelligence Research Institute,280000.0,Machine Intelligence Research Institute,General support,"$280,000",2020
+2020/h1,Jaan Tallinn,Quantified Uncertainty Research Institute,60000.0,Quantified Uncertainty Research Institute,General support,"$60,000",2020
+2020/h1,Jaan Tallinn,"80,000 Hours",30000.0,Centre for Effective Altruism USA,"General support of 80,000 Hours","$30,000",2020
+2020/h1,Jaan Tallinn,The Future Society,130000.0,"The Future Society, Inc.",General support of The Future Society,"$130,000",2020
+2020/h1,Jaan Tallinn,Future of Life Institute,30000.0,Future of Life Institute,General support,"$30,000",2020
+2020/h1,Jaan Tallinn,Global Catastrophic Risk Institute,90000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$90,000",2020
+2020/h1,Jaan Tallinn,Leverage Research,80000.0,Leverage Research,General support,"$80,000",2020
+2020/h1,Jaan Tallinn,AI Impacts,40000.0,Machine Intelligence Research Institute,General support of AI Impacts,"$40,000",2020
+2020/h1,Jaan Tallinn,Milan Griffes to pursue an MHS in Mental Health,30000.0,Johns Hopkins University,General support of Milan Griffes to pursue an MHS in Mental Health,"$30,000",2020
+2020/h1,Jaan Tallinn,BERI/CSER Collaboration,20000.0,Berkeley Existential Risk Initiative,General support of BERI/CSER Collaboration,"$20,000",2020
+2020/h1,Jaan Tallinn,Metamorphic Group LLC,10000.0,"Children, Families, and Communities",General support of Metamorphic Group LLC,"$10,000",2020
+2020/h1,Jaan Tallinn,Convergence Analysis,10000.0,Convergence Analysis,General support,"$10,000",2020
+2020/h1,Jed McCaleb,LessWrong,30000.0,Center for Applied Rationality,General support of LessWrong,"$30,000",2020
+2020/h1,Jed McCaleb,Machine Intelligence Research Institute,40000.0,Machine Intelligence Research Institute,General support,"$40,000",2020
+2020/h1,Jed McCaleb,Quantified Uncertainty Research Institute,20000.0,Quantified Uncertainty Research Institute,General support,"$20,000",2020
+2020/h1,Jed McCaleb,"80,000 Hours",30000.0,Centre for Effective Altruism USA,"General support of 80,000 Hours","$30,000",2020
+2020/h1,Jed McCaleb,The Future Society,30000.0,"The Future Society, Inc.",General support of The Future Society,"$30,000",2020
+2020/h1,Jed McCaleb,Future of Life Institute,10000.0,Future of Life Institute,General support,"$10,000",2020
+2020/h1,Jed McCaleb,Global Catastrophic Risk Institute,50000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$50,000",2020
+2020/h1,Jed McCaleb,AI Impacts,20000.0,Machine Intelligence Research Institute,General support of AI Impacts,"$20,000",2020
+2020/h1,Jed McCaleb,Metamorphic Group LLC,10000.0,"Children, Families, and Communities",General support of Metamorphic Group LLC,"$10,000",2020
+2020/h1,Jed McCaleb,Future of Humanity Foundation,10000.0,Future of Humanity Foundation,General support,"$10,000",2020
+2020/h2,SFF,Future of Life Institute,23000.0,Future of Life Institute,General support,"$23,000",2020
+2020/h2,SFF,Center for Applied Rationality,212000.0,Center for Applied Rationality,General support,"$212,000",2020
+2020/h2,SFF,"Future of Humanity Institute, Research Scholars Programme",218000.0,University of Oxford,General support of the Research Scholars Programme at Future of Humanity Institute,"$218,000",2020
+2020/h2,SFF,Center for Innovative Governance Research,58000.0,Center for Innovative Governance Research,General support,"$58,000",2020
+2020/h2,SFF,The Center for Election Science,44000.0,The Center for Election Science,General support,"$44,000",2020
+2020/h2,SFF,"The Future Society, Inc.",37000.0,"The Future Society, Inc.",General support,"$37,000",2020
+2020/h2,SFF,Generation Pledge,37000.0,Centre for Effective Altruism,General support of Generation Pledge at the Centre for Effective Altruism,"$37,000",2020
+2020/h2,SFF,Center for Applied Utilitarianism,21000.0,Centre for Effective Altruism,General support of Center for Applied Utilitarianism,"$21,000",2020
+2020/h2,Jed McCaleb,Topos Institute,144000.0,Topos Institute,Conditional support,"$144,000",2020
+2020/h2,Jed McCaleb,Center for Applied Rationality,23000.0,Center for Applied Rationality,General support,"$23,000",2020
+2020/h2,Jed McCaleb,Stanford Existential Risks Initiative,56000.0,Stanford University,General support of Stanford Existential Risks Initiative,"$56,000",2020
+2020/h2,Jed McCaleb,RadicalxChange Foundation Ltd.,13000.0,RadicalxChange Foundation Ltd.,General support,"$13,000",2020
+2020/h2,Jed McCaleb,The Roots of Progress,14000.0,Mercatus Center Inc,General support of The Roots of Progress,"$14,000",2020
+2020/h2,Jaan Tallinn,Center for Human-Compatible AI,779000.0,UC Berkeley Foundation,General support of Center for Human-Compatible AI,"$779,000",2020
+2020/h2,Jaan Tallinn,Machine Intelligence Research Institute,543000.0,Machine Intelligence Research Institute,General support,"$543,000",2020
+2020/h2,Jaan Tallinn,Future of Life Institute,347000.0,Future of Life Institute,General support,"$347,000",2020
+2020/h2,Jaan Tallinn,Topos Institute,151000.0,Topos Institute,Conditional support,"$151,000",2020
+2020/h2,Jaan Tallinn,Center for Applied Rationality,19000.0,Center for Applied Rationality,General support,"$19,000",2020
+2020/h2,Jaan Tallinn,Future of Humanity Institute: Research Scholars Programme,30000.0,University of Oxford,General support of the Research Scholars Programme at Future of Humanity Institute,"$30,000",2020
+2020/h2,Jaan Tallinn,Berkeley Existential Risk Initiative,247000.0,Berkeley Existential Risk Initiative,General support,"$247,000",2020
+2020/h2,Jaan Tallinn,Global Catastrophic Risk Institute,209000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$209,000",2020
+2020/h2,Jaan Tallinn,Stanford Existential Risks Initiative,69000.0,Stanford University,General support of Stanford Existential Risks Initiative,"$69,000",2020
+2020/h2,Jaan Tallinn,Median Group,98000.0,Median Foundation,General support of Median Group,"$98,000",2020
+2020/h2,Jaan Tallinn,Modeling Cooperation,74000.0,Convergence Analysis,General support of Modeling Cooperation,"$74,000",2020
+2020/h2,Jaan Tallinn,Rethink Priorities,57000.0,Rethink Priorities,General support,"$57,000",2020
+2020/h2,Jaan Tallinn,RadicalxChange Foundation Ltd.,26000.0,RadicalxChange Foundation Ltd.,General support,"$26,000",2020
+2020/h2,Jaan Tallinn,The Roots of Progress,21000.0,Mercatus Center Inc,General support of The Roots of Progress,"$21,000",2020
+2020/h2,Jaan Tallinn,"AAAI/ACM Conference on Artificial Intelligence, Ethics and Society",20000.0,Association for the Advancement of Artificial Intelligence,General support of AAAI/ACM Conference on Artificial Intelligence,"$20,000",2020
+2020/h2,Jaan Tallinn,Effective Thesis,15000.0,N/A,General Support,"$15,000",2020
+2021/h1,Jaan Tallinn,Center For Applied Rationality,1207000.0,Center For Applied Rationality,General Support,"$1,207,000",2021
+2021/h1,Jaan Tallinn,LessWrong,1055000.0,Center For Applied Rationality,General support of LessWrong,"$1,055,000",2021
+2021/h1,Jaan Tallinn,Alpenglow Group Limited,1013000.0,The Centre for Effective Altruism,General support of Alpenglow Group Limited,"$1,013,000",2021
+2021/h1,Jaan Tallinn,David Krueger’s Research Group at Cambridge,1000000.0,Cambridge in America,General support of David Krueger’s Research Group,"$1,000,000",2021
+2021/h1,Jaan Tallinn,"Dr. Andrew Critch at CHAI, UC Berkeley",898000.0,UC Berkeley Foundation,"General support of Dr. Andrew Critch at CHAI, UC Berkeley","$898,000",2021
+2021/h1,Jaan Tallinn,Long-Term Future Fund,675000.0,Centre for Effective Altruism,General support of Long-Term Future Fund,"$675,000",2021
+2021/h1,Jaan Tallinn,BERI-FHI Collaboration,478000.0,Berkeley Existential Risk Initiative,General support of BERI-FHI Collaboration,"$478,000",2021
+2021/h1,Jaan Tallinn,"Expii, Inc.",347000.0,Idea Foundry,"General support of Expii, Inc.","$347,000",2021
+2021/h1,Jaan Tallinn,BERI-SERI Collaboration,333000.0,Berkeley Existential Risk Initiative,General support of BERI-SERI Collaboration,"$333,000",2021
+2021/h1,Jaan Tallinn,Generation Pledge,291000.0,"Generation Pledge, Inc.",General Support,"$291,000",2021
+2021/h1,Jaan Tallinn,Legal Priorities Project,265000.0,"Legal Priorities, Inc.",General Support,"$265,000",2021
+2021/h1,Jaan Tallinn,Robert Trager and Joslyn Barnhart,253000.0,Berkeley Existential Risk Initiative,In support of the work of Robert Trager and Joslyn Barnhart on AI governance in collaboration with GovAI,"$253,000",2021
+2021/h1,Jaan Tallinn,AI Impacts,221000.0,Machine Intelligence Research Institute,General support of AI Impacts,"$221,000",2021
+2021/h1,Jaan Tallinn,AI Safety Support,200000.0,Rethink Charity,General support of AI Safety Support,"$200,000",2021
+2021/h1,Jaan Tallinn,Alliance to Feed the Earth in Disasters,175000.0,Players Philanthropy Fund,General support of Alliance to Feed the Earth in Disasters,"$175,000",2021
+2021/h1,Jaan Tallinn,All-Party Parliamentary Group for Future Generations,171000.0,Founders for Good,General support of All-Party Parliamentary Group for Future Generations,"$171,000",2021
+2021/h1,Jaan Tallinn,"New Science Research, Inc.",147000.0,"New Science Research, Inc.",General Support,"$147,000",2021
+2021/h1,Jaan Tallinn,"Centre for the Study of Existential Risk, University of Cambridge",145000.0,Cambridge in America,"General support of Centre for the Study of Existential Risk, University of Cambridge","$145,000",2021
+2021/h1,Jaan Tallinn,Center for Innovative Governance Research (dba Charter Cities Institute),137000.0,Center for Innovative Governance Research (dba Charter Cities Institute),General Support,"$137,000",2021
+2021/h1,Jaan Tallinn,Moonlight Institute,127000.0,Moonlight Institute,General Support,"$127,000",2021
+2021/h1,Jaan Tallinn,Convergence: Project AI Clarity,103000.0,Convergence Analysis,General support of Convergence: Project AI Clarity,"$103,000",2021
+2021/h1,Jaan Tallinn,Viento,102000.0,Social Good Fund,General support of Viento,"$102,000",2021
+2021/h1,Jaan Tallinn,Centre for Enabling EA Learning & Research,61000.0,Centre for Enabling EA Learning & Research,General Support,"$61,000",2021
+2021/h1,Jaan Tallinn,Global Catastrophic Risk Institute,48000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$48,000",2021
+2021/h1,Jaan Tallinn,BERI-CSER Collaboration,37000.0,Berkeley Existential Risk Initiative,General support of BERI-CSER Collaboration,"$37,000",2021
+2021/h1,Jaan Tallinn,Convergence,13000.0,Convergence Analysis,General Support of Convergence,"$13,000",2021
+2021/h1,Jaan Tallinn,Laboratory for Social Minds at Carnegie Mellon University,11000.0,Carnegie Mellon University (CMU),General support of Laboratory for Social Minds at Carnegie Mellon University,"$11,000",2021
+2021/h1,Jed McCaleb,AI Impacts,82000.0,Machine Intelligence Research Institute,General support of AI Impacts,"$82,000",2021
+2021/h1,Jed McCaleb,"New Science Research, Inc.",51000.0,"New Science Research, Inc.",General Support,"$51,000",2021
+2021/h1,Jed McCaleb,"Expii, Inc.",41000.0,Idea Foundry,"General support of Expii, Inc.","$41,000",2021
+2021/h1,Jed McCaleb,Centre for Enabling EA Learning & Research,21000.0,Centre for Enabling EA Learning & Research,General Support,"$21,000",2021
+2021/h1,Jed McCaleb,BERI-FHI Collaboration,17000.0,Berkeley Existential Risk Initiative,General support of BERI-FHI Collaboration,"$17,000",2021
+2021/h1,Jed McCaleb,"Centre for the Governance of AI, Future of Humanity Institute",17000.0,Berkeley Existential Risk Initiative,"General support of Centre for the Governance of AI, Future of Humanity Institute","$17,000",2021
+2021/h1,Jed McCaleb,BERI-SERI Collaboration,14000.0,Berkeley Existential Risk Initiative,General support of BERI-SERI Collaboration,"$14,000",2021
+2021/h2,Jaan Tallinn,Long-Term Future Fund,1417000.0,Center For Effective Altruism,General support of Long-Term Future Fund,"$1,417,000",2021
+2021/h2,Jaan Tallinn,Center on Long-Term Risk,1218000.0,"Effective Altruism Foundation, Inc.",General support of Center on Long-Term Risk,"$1,218,000",2021
+2021/h2,Jaan Tallinn,Alliance to Feed the Earth in Disasters,979000.0,Players Philanthropy Fund,General support of Alliance to Feed the Earth in Disasters,"$979,000",2021
+2021/h2,Jaan Tallinn,Alpenglow Group Limited,885000.0,The Centre for Effective Altruism,General support of Alpenglow Group Limited,"$885,000",2021
+2021/h2,Jaan Tallinn,Lightcone Infrastructure,380000.0,Center for Applied Rationality,General support of Lightcone Infrastructure,"$380,000",2021
+2021/h2,The Casey and Family Foundation,Lightcone Infrastructure,500000.0,Center for Applied Rationality,General support of Lightcone Infrastructure,"$500,000",2021
+2021/h2,Jaan Tallinn,EA Infrastructure Fund,699000.0,Centre For Effective Altruism Usa Inc.,General support of EA Infrastructure Fund,"$699,000",2021
+2021/h2,Jaan Tallinn,Centre for the Governance of AI.,591000.0,Centre for Effective Altruism,General support of Centre for the Governance of AI,"$591,000",2021
+2021/h2,Jaan Tallinn,Ought Inc.,542000.0,Ought Inc.,General support,"$542,000",2021
+2021/h2,Jaan Tallinn,"New Science Research, Inc.",500000.0,"New Science Research, Inc.",General support,"$500,000",2021
+2021/h2,Jaan Tallinn,BERI-CHAI Collaboration,248000.0,Berkeley Existential Risk Initiative,General support of BERI-CHAI Collaboration,"$248,000",2021
+2021/h2,Jed McCaleb,BERI-CHAI Collaboration,250000.0,Berkeley Existential Risk Initiative,General support of BERI-CHAI Collaboration,"$250,000",2021
+2021/h2,Jaan Tallinn,AI Objectives Institute,485000.0,Foresight Institutee,General support of AI Objectives Institute,"$485,000",2021
+2021/h2,Jaan Tallinn,Topos Institute,450000.0,Topos Institute,General support,"$450,000",2021
+2021/h2,Jaan Tallinn,AI Safety Camp,130000.0,Rethink Charity,General support of AI Safety Camp,"$130,000",2021
+2021/h2,Jaan Tallinn,Emergent Ventures India,115000.0,The Mercatus Center,General support of Emergent Ventures India,"$115,000",2021
+2021/h2,Jaan Tallinn,European Biostasis Foundation,103000.0,European Biostasis Foundation,General support,"$103,000",2021
+2021/h2,Jaan Tallinn,Modeling Cooperation,83000.0,Convergence Analysis,General support of Modeling Cooperation,"$83,000",2021
+2021/h2,Jaan Tallinn,Research on AI & International Relations,34000.0,Convergence Analysis,General support of Research on AI & International Relations,"$34,000",2021
+2022/h1,Jaan Tallinn,Redwood Research Group Inc.,1274000.0,Redwood Research Group Inc.,General support,"$1,274,000",2022
+2022/h1,Jaan Tallinn,Alpenglow Group Limited,908000.0,The Centre for Effective Altruism,General support of Alpenglow Group Limited,"$908,000",2022
+2022/h1,Jaan Tallinn,Nonlinear,599000.0,Rethink Charity USA,General support of Nonlinear,"$599,000",2022
+2022/h1,Jaan Tallinn,Language Model Safety Fund,582000.0,Players Philanthropy Fund,General support of Language Model Safety Fund,"$582,000 ($340,000)†",2022
+2022/h1,Jaan Tallinn,1Day Sooner,500000.0,1Day Sooner,General support,"$500,000 ($75,000)†",2022
+2022/h1,Jaan Tallinn,Quantified Uncertainty Research Institute,461000.0,Quantified Uncertainty Research Institute,General support,"$461,000",2022
+2022/h1,Jaan Tallinn,Alignment in Complex Systems research group,425000.0,Epistea z.s.,General support of Alignment in Complex Systems research group,"$425,000",2022
+2022/h1,Jaan Tallinn,Association for Long Term Existence and Resilience (ALTER),400000.0,הארגון למען קיימות ארוכת טווח וחוסן (אלתר),General support of ALTER,"$400,000",2022
+2022/h1,Jaan Tallinn,Topos Institute,397000.0,Topos Institute,General support,"$397,000 ($50,000)†",2022
+2022/h1,Jaan Tallinn,Convergent Research,389000.0,The Eric and Wendy Schmidt Fund for Strategic Innovation,General support of Convergent Research,"$389,000 ($100,000)†",2022
+2022/h1,Jaan Tallinn,Simon Institute for Longterm Governance,381000.0,Centre for Effective Altruism Usa Inc.,General support of Simon Institute for Longterm Governance,"$381,000",2022
+2022/h1,Jaan Tallinn,Social Science Prediction Platform,346000.0,University of Toronto,General support of Social Science Prediction Platform,"$346,000",2022
+2022/h1,Jaan Tallinn,Manifold Markets,343000.0,Rethink Charity,General support of Manifold Markets,"$343,000",2022
+2022/h1,Jaan Tallinn,The Charter Cities Institute,261000.0,Center for Innovative Governance Research,General support of The Charter Cities Institute,"$261,000",2022
+2022/h1,Jaan Tallinn,Median Group,250000.0,Median Foundation,General support of Median Group,"$250,000",2022
+2022/h1,Jaan Tallinn,Laboratory for Social Minds @ Carnegie Mellon University,244000.0,Carnegie Mellon University (CMU),General support of Laboratory for Social Minds @ CMU,"$244,000",2022
+2022/h1,Jaan Tallinn,Consequence Foundries,168000.0,Convergence Analysis,General support of Consequence Foundries,"$168,000",2022
+2022/h1,Jaan Tallinn,Rethink Priorities,150000.0,Rethink Priorities,General support,"$150,000",2022
+2022/h1,Jaan Tallinn,Earth Law Center,100000.0,Earth Law Center,General support,"$100,000*",2022
+2022/h1,Jaan Tallinn,The Goodly Institute,75000.0,The Goodly Institute,General support,"$75,000",2022
+2022/h1,Jaan Tallinn,Good Science Project,70000.0,New Venture Fund,General support of Good Science Project,"$70,000",2022
+2022/h1,Jaan Tallinn,Generation Pledge,70000.0,"Generation Pledge, Inc.",General support,"$70,000",2022
+2022/h1,Jaan Tallinn,Sentience Institute,50000.0,Sentience Institute,General support,"$50,000",2022
+2022/h1,Jaan Tallinn,Existential Risk Observatory,44000.0,Existential Risk Observatory,General support,"$44,000",2022
+2022/h1,Jaan Tallinn,AIES 2022 organizers (supported by AAAI and ACM),38000.0,Association for the Advancement of Artificial Intelligence,General support of AIES 2022 organizers,"$38,000",2022
+2022/h1,Jaan Tallinn,Global Catastrophic Risk Institute,15000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$15,000",2022
+2022/h1,Jaan Tallinn,Foresight Institute,15000.0,Foresight Institute,General support,"$15,000 ($80,000)†",2022
+2022/h1,Jaan Tallinn,Rapid Deployment Vaccine Collaborative (RADVAC),13000.0,DBF Mind First Foundation Inc.,General support of RADVAC,"$13,000",2022
+2022/h1,Jaan Tallinn,MSSM Foundation,5000.0,Maine School of Science and Mathematics Foundation,General support,"$5,000 ($30,000)†",2022
+2022/h1,Jaan Tallinn,"MISE Foundation, Ghana",5000.0,Benevity/ Online giving foundation,"General support of MISE Foundation, Ghana","$5,000 ($10,000)†",2022
+2022/h1,Jaan Tallinn,Cave Exploration Society Inc.,5000.0,Cave Exploration Society Inc.,General support,"$5,000 ($20,000)†",2022
+2022/h1,Jaan Tallinn,AddisCoder Inc.,5000.0,AddisCoder Inc.,General support,"$5,000 ($30,000)†",2022
+2022/h2,Jaan Tallinn,AI Impacts,546000.0,Machine Intelligence Research Institute,General Support of AI Impacts,"$546,000",2022
+2022/h2,Jaan Tallinn,Alliance to Feed the Earth in Disasters (ALLFED),427000.0,Alliance to Feed the Earth in Disasters (ALLFED),General Support,"$427,000",2022
+2022/h2,Jaan Tallinn,Technical Alignment Impossibility Proofs,170000.0,Ronin Institute for Independent Scholarship Incorporated,General Support of Technical Alignment Impossibility Proofs,"$170,000",2022
+2022/h2,Jaan Tallinn,Alignment Research Center,2179000.0,Alignment Research Center,General Support,"$2,179,000",2022
+2022/h2,Jaan Tallinn,BERI-ALL Collaboration,150000.0,Berkeley Existential Risk Initiative,General Support of BERI-ALL Collaboration,"$150,000",2022
+2022/h2,Jaan Tallinn,BERI-CHAI collaboration,168000.0,Berkeley Existential Risk Initiative,General Support of BERI-CHAI collaboration,"$168,000",2022
+2022/h2,Jaan Tallinn,Constructive Dialogue Institute (formerly called OpenMind Platform),196000.0,Constructive Dialogue Institute Inc.,General Support,"$196,000",2022
+2022/h2,Jaan Tallinn,Centre for Enabling EA Learning & Research (CEEALAR) [formerly the EA Hotel],224000.0,Centre for Enabling EA Learning & Research,General Support,"$224,000",2022
+2022/h2,Jaan Tallinn,Center for Applied Rationality (CFAR),450000.0,Center for Applied Rationality (CFAR),General Support,"$450,000",2022
+2022/h2,Jaan Tallinn,The Center for Election Science,437000.0,The Center for Election Science,General Support,"$437,000 ($50,000)†",2022
+2022/h2,Jaan Tallinn,Fund for Alignment Research (FAR),524000.0,"FAR AI, Inc.",General Support,"$524,000",2022
+2022/h2,Jaan Tallinn,The Future Society,84000.0,The Future Society,General Support,"$84,000",2022
+2022/h2,Jaan Tallinn,Legal Priorities Project,115000.0,Legal Priorities Inc.,General Support,"$115,000",2022
+2022/h2,Jaan Tallinn,Lightcone Infrastructure,1000000.0,Center for Applied Rationality,General Support of Lightcone Infrastructure,"$1,000,000 ($400,000)†",2022
+2022/h2,Jaan Tallinn,Longview Philanthropy,200000.0,Effective Ventures Foundation,General Support of Effective Ventures Foundation,"$200,000",2022
+2022/h2,Jaan Tallinn,Elizabeth Van Nostrand c/o Lightcone,25000.0,Center for Applied Rationality,General Support of Elizabeth Van Nostrand c/o Lightcone,"$25,000 ($13,680)†",2022
+2022/h2,Jaan Tallinn,Modeling Cooperation,83000.0,Convergence Analysis,General Support of Modeling Cooperation,"$83,000",2022
+2022/h2,Jaan Tallinn,Oxford China Policy Lab,10000.0,Berkeley Existential Risk Initiative,General Support of Oxford China Policy Lab,"$10,000 ($13,645)†",2022
+2022/h2,Jaan Tallinn,"PARPA, Inc.",200000.0,"PARPA, Inc.",General Support,"$200,000",2022
+2022/h2,Jaan Tallinn,Pronatalist.org,482000.0,Pragmatist Foundation,General Support of Pronatalist.org,"$482,000 (50,000)†",2022
+2022/h2,Jaan Tallinn,Rationality Meetups,140000.0,Center for Applied Rationality,General Support of Rationality Meetups,"$140,000 ($140,000)†",2022
+2022/h2,Jaan Tallinn,SaferAI,214000.0,SaferAI,General Support,"$214,000",2022
+2022/h2,Jaan Tallinn,Scholarship Workshop,100000.0,Players Philanthropy Fund (PPF),General Support of Scholarship Workshop,"$100,000",2022
+2022/h2,Jaan Tallinn,The Society Library,50000.0,The Benjamin Franklin Society Library Inc.,General Support of The Society Library,"$50,000",2022
+2022/h2,Jaan Tallinn,Topos Institute,653000.0,Topos Institute,General Support,"$653,000",2022
+2022/h2,Jaan Tallinn,University of Wisconsin - Madison,309000.0,University of Wisconsin Foundation,General Support of University of Wisconsin - Madison,"$309,000",2022
+2022/h2,Jaan Tallinn,Unite America Institute,68000.0,Unite America Institute Inc.,General Support,"$68,000",2022
+2022/h2,Jaan Tallinn,"Whylome, Inc.",345000.0,"Whylome, Inc",General Support,"$345,000",2022
+2023/h1,,AI Objectives Institute,492000.0,The Goodly Institute,General Support of AI Objectives Institute,"$492,000 ($140,000)†",2023
+2023/h1,,Alignment Research Center (Evals Team),3247000.0,Alignment Research Center,General Support of Evals Team,"$3,247,000",2023
+2023/h1,,Alliance to Feed the Earth in Disasters (ALLFED),1159000.0,Alliance to Feed the Earth in Disasters (ALLFED),General Support,"$1,159,000",2023
+2023/h1,,Arkose,683000.0,Players Philanthropy Fund,General Support of Arkose,"$683,000",2023
+2023/h1,,Basis Research Institute,126000.0,Basis Research Institute,General Support,"$126,000",2023
+2023/h1,,BERI-CHAI Collaboration,631000.0,Berkeley Existential Risk Initiative,General Support of BERI-CHAI Collaboration,"$631,000 ($150,000)†",2023
+2023/h1,,BERI-CLTC Collaboration,522000.0,Berkeley Existential Risk Initiative,General Support of BERI-CLTC Collaboration,"$522,000",2023
+2023/h1,,Center for AI Safety,22000.0,"Center for AI Safety, Inc.",General Support,"$22,000",2023
+2023/h1,,Center for Strategic and International Studies (AI Governance Project),291000.0,Center for Strategic and International Studies,General Support of AI Governance Project,"$291,000 ($155,000)†",2023
+2023/h1,,Center on Long-Term Risk,1327000.0,Center on Long-Term Risk,General Support,"$1,327,000",2023
+2023/h1,,Centre for the Governance of AI (GovAI),116000.0,Effective Ventures Foundation,General Support of Centre for the Governance of AI (GovAI),"$116,000 ($315,000)†",2023
+2023/h1,,Charter Cities Institute,315000.0,Center for Innovative Governance (d/b/a Charter Cities Institute),General Support,"$315,000",2023
+2023/h1,,Church Lab Meiosis Team,700000.0,Hansjorg Wyss Institute For Biologically Inspired Engineering,General Support of Church Lab Meiosis Team,"$700,000 ($401,000)†",2023
+2023/h1,,"FAR AI, Inc.",2028000.0,"FAR AI, Inc.",General Support,"$2,028,000 ($170,000)†",2023
+2023/h1,,"FAR AI, Inc.",1063000.0,"FAR AI, Inc.","General Support of FAR AI, Inc. Labs","$1,063,000 ($380,000)†",2023
+2023/h1,,fp21,172000.0,fp21,General Support,"$172,000",2023
+2023/h1,,Holtman Systems Research,269000.0,AI Safety Support Ltd - Equivalency Determination,General Support of Holtman Systems Research,"$269,000",2023
+2023/h1,,Institute for Advanced Consciousness Studies (IACS),379000.0,Institute for Advanced Consciousness Studies (IACS),General Support,"$379,000.00 ($75,000)†",2023
+2023/h1,,Lightcone Infrastructure,1733000.0,Center for Applied Rationality,General Support of Lightcone Infrastructure,"$1,733,000",2023
+2023/h1,,Manifold Markets,1241000.0,Manifold for Charity,General Support of Manifold Markets,"$1,241,000",2023
+2023/h1,,Ought Inc.,358000.0,Ought Inc.,General Support,"$358,000",2023
+2023/h1,,Principles of Intelligent Behaviour in Biological and Social Systems (PIBBSS),460000.0,Epistea,General Support of Principles of Intelligent Behaviour in Biological and Social Systems (PIBBSS),"$460,000 ($200,000)†",2023
+2023/h1,,Project Solve,196000.0,Effective Ventures Foundation,General Support of Project Solve,"$196,000",2023
+2023/h1,,Redwood Research Group Inc.,1098000.0,Redwood Research Group Inc.,General Support,"$1,098,000",2023
+2023/h1,,Senter for langsiktig politikk/Centre for Long-Term Policy,325000.0,Effektiv Altruisme Norge,General Support of Senter for langsiktig politikk/Centre for Long-Term Policy,"$325,000",2023
+2023/h1,,The Collective Intelligence Project,300000.0,The Collective Intelligence Project,General Support,"$300,000",2023
+2023/h1,,The Unjournal,565000.0,Open Collective Foundation,General Support of The Unjournal,"$565,000",2023
+2023/h1,,Topos Institute,69000.0,Topos Institute,General Support,"$69,000 ($69,000)†",2023
+2023/h1,,University of Chicago Existential Risk Laboratory,380000.0,The University of Chicago,General Support of University of Chicago Existential Risk Laboratory,"$380,000",2023
+2023/h1,,University of Louisville (Dr. Roman Yampolskiy’s Research Group (Cybersecurity Lab)),274000.0,"University of Louisville Foundation, Inc.",General Support of Dr. Roman Yampolskiy’s Research Group (Cybersecurity Lab),"$274,000 ($115,000)†",2023
+2023/h2,,"80,000 Hours",12000.0,Effective Ventures Foundation (UK),"General Support of 80,000 Hours","Amount (Jaan Tallinn via LSG): $12,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Acs Base Rate Forecast,27000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $27,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Agency Foundations Hackathon,9000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $9,000 ($9,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Agrawal AI Alignment Coordination,51700.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $51,700 ($48,700)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,AI Forensics,178000.0,AI Forensics,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $178,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,AI Impacts,341000.0,Machine Intelligence Research Institute,General Support of AI Impacts,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $162,000 | Amount (Jaan Tallinn via SFF): $179,000 ($72,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,AI Safety Aachen,3000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $3,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,AI Workshop (stai.uk),10000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $10,000 ($5,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,AI X-Risk comms survey,2400.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $2,400 ($2,400)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Alignment of Complex Systems Research Group (ACS),243500.0,"Epistea, z.s.",General Support of ACS,"Amount (Jaan Tallinn via LSG): $231,500 ($185,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $12,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Association for Long Term Existence and Resilience (ALTER),339900.0,Association for Long Term Existence and Resilience (ALTER),General Support,"Amount (Jaan Tallinn via LSG): $339,900 ($316,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Amodo Design Ltd.,41000.0,N/A,General Support,"Amount (Jaan Tallinn via LSG): $41,000 ($35,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Apollo Research,882500.0,N/A,General Support,"Amount (Jaan Tallinn via LSG): $277,169 ($239,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $490,000 ($490,000)† | Amount (Jaan Tallinn via SFC): $115,331",2023
+2023/h2,,Arb Research,133900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $133,900 ($92,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,BAISC,15800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $15,800 ($14,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,BERI-SRL Collaboration,52000.0,Berkeley Existential Risk Initiative,General Support of BERI-SRL Collaboration,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $52,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Berkeley Existential Risk Initiative,60000.0,Berkeley Existential Risk Initiative,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $60,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Bhatt AI Safety Research,40000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $40,000 ($40,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Bilski War Strategy Study,30000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $30,000 ($30,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Bloom’s Trajectory Models Study,52000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $52,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Bos Catalyze Impact,30000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $30,000 ($30,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Campaign for Responsible AI,250000.0,Campaign for Responsible AI,General Support,"Amount (Jaan Tallinn via LSG): $250,000 ($250,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Campos Safer AI Project,325800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $325,800 ($144,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Carey AI Safety Research,191000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $191,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Carroll Developmental Interpretability,50900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $50,900 ($31,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Cavendish Labs Co.,88000.0,"Cavendish Labs, Co.",General Support,"Amount (Jaan Tallinn via LSG): $88,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Center for AI Safety Action Fund,420000.0,N/A,General Support,"Amount (Jaan Tallinn via LSG): $22,125 ¶ ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $397,875 ($600,000)†",2023
+2023/h2,,"Center for AI Safety, Inc.",909154.0,"Center for Artificial Intelligence Safety, Inc.",General Support,"Amount (Jaan Tallinn via LSG): $16,154 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $893,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Centre for the Governance of AI (GovAI),5000.0,Effective Ventures Foundation,General Support of GovAI,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $5,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Chaudhry AI-Bio Policy,1000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $1,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Colbourn AGI Moratorium,30000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $30,000 ($30,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Community Health and Special Projects team at the Centre for Effective Altruism,113000.0,"Effective Ventures Foundation USA, Inc.",General Support of Community Health and Special Projects team at the Centre for Effective Altruism,"Amount (Jaan Tallinn via LSG): $113,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Coordination Project,29000.0,Center for Applied Rationality,General Support of Coordination Project,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $29,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Csendes Cavendish Scholarship,5000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $5,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Dupuis Cyborg Cognition,87000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $87,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Earth Law Center,24000.0,Earth Law Center,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $24,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Effective Altruism Sweden Rationality Research Project,126600.0,Effektiv Altruism Sverige (Effective Altruism Sweden),General Support of Effective Altruism Sweden Rationality Research Project,"Amount (Jaan Tallinn via LSG): $126,600 ($60,600)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,EffiSciences,10000.0,EffiSciences,General Support,"Amount (Jaan Tallinn via LSG): $10,000 ($10,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Elmore AI Moratorium Movement,88900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $88,900 ($69,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,ENAIS,55000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $55,000 ($55,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Epistea,229000.0,"Epistea, z. s.",General Support,"Amount (Jaan Tallinn via LSG): $229,000 ($40,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,"FAR AI, Inc.",876577.0,"FAR AI, Inc.",General Support,"Amount (Jaan Tallinn via LSG): $472,577 ($411,600)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $404,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Farnik Interpretability,60000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $60,000 ($60,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Filan AI Risk Podcast,2200.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $2,200 ($1,200)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Fønix,378000.0,Effektiv Altruism Sverige,General Support of Fønix,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $378,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Foundation for American Innovation,189000.0,Lincoln Network (dba The Foundation for American Innovation),General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $189,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Fox Agency Research,32500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $32,500 ($31,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Freestyle Research,96000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $96,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Gleave Alignment Summit,187500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $187,500 ($134,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Global Shield,82700.0,Social and Environmental Entrepreneurs,General Support of Global Shield,"Amount (Jaan Tallinn via LSG): $82,700 ($82,700)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): 0",2023
+2023/h2,,Greene Lab Cognitive Oversight,13800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $13,800 ($13,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Haddad Automating Experts,186700.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $186,700 ($82,700)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Hayman MLAB Oxford,13700.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $13,700 ($6,700)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Hebbar Cognition Theory,269200.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $269,200 ($203,200)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Hiremath Interpretability Tools,1000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $1,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Howe RL Safety Research,5900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $5,900 ($4,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Hu Alignment Upskilling,10600.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $10,600 ($9,600)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Jha Agent Foundations Research,100400.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $100,400 ($85,400)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Jones Cybersecurity for AI,32500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $32,500 ($14,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Jose Interpretability Research,50300.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $50,300 ($47,300)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Khan AI Debate Oversight,20000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $20,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Krachun AI Safety Research,9900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $9,900 ($8,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Lantern Bioworks,72000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $72,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Legal Priorities Project,302900.0,"Legal Priorities, Inc.",General Support,"Amount (Jaan Tallinn via LSG): $302,900 ($199,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Leveraging ESG for AIS,30056.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $30,056 ($30,056)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Levoso Algorithm Interpretability,86000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $86,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Lightcone Infrastructure,410000.0,Center for Applied Rationality,General Support of Lightcone Infrastructure,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $410,000 ($250,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,LLM Safety Research,44000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $44,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Long-Term Future Fund,761659.0,Effective Ventures Foundation USA,General Support of Long-Term Future Fund,"Amount (Jaan Tallinn via LSG): $197,659 ($69,600)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $564,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Marks Runway Crowdfunding,13300.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $13,300 ($8,300)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Massachusetts Institute of Technology (Tegmark group),223000.0,Massachusetts Institute of Technology,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $223,000 ($1,000,000)§ | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,MATS London Ltd,282300.0,Berkeley Existential Risk Initiative,General Support of MATS London Ltd,"Amount (Jaan Tallinn via LSG): $282,300 ($185,300)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Miles AI Safety Info,97000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $97,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Monson Energy Surface Extraction,62800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $62,800 ($40,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Nabeshima Interpretability Study,88900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $88,900 ($69,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Newberry Bostrom Assistant Hire,59200.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $59,200 ($57,200)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Online Team at the Centre for Effective Altruism,126000.0,"Effective Ventures Foundation USA, Inc.",General Support of the Online Team at the Centre for Effective Altruism,"Amount (Jaan Tallinn via LSG): $126,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,OPIS Guide and Advocacy,15000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $15,000 ($15,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Orthogonal,493000.0,Ashgro Inc,General Support of Orthogonal,"Amount (Jaan Tallinn via LSG): $493,000 ¶ ($438,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 ($275,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Oxford China Policy Lab,253000.0,Berkeley Existential Risk Initiative,General Support of Oxford China Policy Lab,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $252,000 | Amount (Jaan Tallinn via SFF): $1,000 ($13,645)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Palisade Research,565627.0,Palisade Research,General Support,"Amount (Jaan Tallinn via LSG): $401,627 ($195,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $164,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,PauseAI,20000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $20,000 ($20,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Payor Alignment Research,266000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $266,000 ($210,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Pope Alignment Research,10800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $10,800 ($9,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS),186000.0,"Epistea, z. s.",General Support of PIBBSS,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $186,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Raffel Alignment Methods Review,111000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $111,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Schnabel AI Safety Litigation,404200.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $404,200 ($220,200)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Schons AI Pharma Regulation,40400.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $40,400 ($30,400)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,SecureBio,548000.0,"SecureBio, Inc.",General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $548,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,SecureDNA,835930.0,SecureDNA Stiftung,General Support,"Amount (Jaan Tallinn via LSG): $32,930 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $803,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,SERI ML Alignment Theory Scholars Program,345818.0,Berkeley Existential Risk Initiative,General Support of SERI ML Alignment Theory Scholars Program,"Amount (Jaan Tallinn via LSG): $297,818 ¶ ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $48,000 ($885,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Shai Interpretability Research,75500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $75,500 ($57,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Shard Theory Model Internals,116500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $116,500 ($96,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Short Women in AI Safety,52400.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $52,400 ($30,400)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,SLT Summit organizers,20000.0,Center for Applied Rationality,General Support of SLT Summit organizers,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $20,000 ($20,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Stampy’s AI Safety Info,99000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $99,000 ($75,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Technologies for Pandemic Defense,86000.0,Convergence Analysis,General Support of Technologies for Pandemic Defense,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $86,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The AI Governance & Strategy team within Rethink Priorities,402000.0,Rethink Priorities,General Support of The AI Governance & Strategy team within Rethink Priorities,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $402,000 ($175,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Australian Responsible Autonomous Agents Group,83000.0,Federation University Australia,General Support of the Australian Responsible Autonomous Agents Group,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $83,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Center for Election Science,96000.0,The Center for Election Science,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $96,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Centre for Long-Term Resilience (Alpenglow Group Limited),1055500.0,Founders Pledge,General Support of The Centre for Long-Term Resilience (Alpenglow Group Limited),"Amount (Jaan Tallinn via LSG): $226,500 ($226,500)‡ | Amount (FLI): $769,000 | Amount (Jaan Tallinn via SFF): $60,000 ($577,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Events team at the Centre for Effective Altruism,166000.0,"Effective Ventures Foundation USA, Inc.",General Support for The Events team at the Centre for Effective Altruism,"Amount (Jaan Tallinn via LSG): $166,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,"The Future Society, Inc.",376000.0,"The Future Society, Inc.",General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $365,000 | Amount (Jaan Tallinn via SFF): $11,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Intrinsic Perspective,24000.0,"SciArt Initiative, Inc.",General Support of The Intrinsic Perspective,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $24,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,The Rethink Priorities Existential Security Team (XST),49000.0,Rethink Priorities,General Support of The Rethink Priorities Existential Security Team (XST),"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $49,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Thibodeau Alignment Research,88000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $88,000 ($71,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Timaeus,455400.0,Ashgro Inc,General Support of Timaeus,"Amount (Jaan Tallinn via LSG): $29,400 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $426,000 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Topos Institute,4000.0,Topos Institute,General Support,"Amount (Jaan Tallinn via LSG): $0 | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $4,000 ($70,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Van Nostrand Paradigms,19300.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $19,300 ($16,300)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Van Nostrand Stimulant,22500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $22,500 ($22,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Van Nostrand Vegan Nutrition,60000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $60,000 ($25,000)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Vinelight,46000.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $46,000 ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Vipra AI Trade Safety Assessment,54900.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $54,900 ($35,900)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Vymenets Translations,7300.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $7,300 ($4,300)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Wang AI Safety Research,244500.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $244,500 ($233,500)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Ward AI Safety Outreach,24600.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $24,600 ($18,600)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Wiebe Replication Crisis,16800.0,TBD via Lightspeed Grant announcement,TBD via Lightspeed Grant announcement,"Amount (Jaan Tallinn via LSG): $16,800 ($15,800)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 | Amount (Jaan Tallinn via SFC): $0",2023
+2023/h2,,Wytham Abbey,76000.0,Effective Ventures Foundation,General Support of Wytham Abbey,"Amount (Jaan Tallinn via LSG): $76,000 ¶ ($0)‡ | Amount (FLI): $0 | Amount (Jaan Tallinn via SFF): $0 ($275,000)† | Amount (Jaan Tallinn via SFC): $0",2023
+2024,Jaan Tallinn,AGI Inherent Non-Safety,135000.0,Players Philanthropy Fund,General support of AGI Inherent Non-Safety,"$135,000 ($10,000)†",2024
+2024,Jaan Tallinn,AI Futures Project,505000.0,"Epistea, z.s.",General support of AI Futures Project,"$505,000 ($190,000)†",2024
+2024,Jaan Tallinn,AI Objectives Institute,538000.0,AI Objectives Institute,General support,"$538,000",2024
+2024,Jaan Tallinn,AI Risk Mitigation Fund,530000.0,Centre For Effective Altruism Usa Inc.,General support of AI Risk Mitigation Fund,"$530,000 ($20,000)†",2024
+2024,Jaan Tallinn,AI Safety Info,47000.0,Ashgro Inc.,General support of AI Safety Info,"$47,000 ($60,000)†",2024
+2024,Jaan Tallinn,AI Standards Lab and Holtman Systems Research,184000.0,Players Philanthropy Fund,General support of AI Standards Lab and Holtman Systems Research,"$184,000 ($20,000)†",2024
+2024,Jaan Tallinn,AI: Futures and Responsibility Programme,280000.0,University of Cambridge,General support of AI: Futures and Responsibility Programme,"$280,000 ($20,000)†",2024
+2024,Jaan Tallinn,Alignment of Complex Systems Research Group (ACS),64000.0,Epistea z.s.,General support of Alignment of Complex Systems Research Group (ACS),"$64,000 ($40,000)†",2024
+2024,Jaan Tallinn,Alignment Research Center,197000.0,Alignment Research Center,General support,"$197,000 ($50,000)†",2024
+2024,Jaan Tallinn,Alliance to Feed the Earth in Disasters (ALLFED),113000.0,ALLFED Institute,General support,"$113,000 ($10,000)†",2024
+2024,Jaan Tallinn,Apart Research,294000.0,Ashgro Inc.,General support of Apart Research,"$294,000 ($20,000)†",2024
+2024,Jaan Tallinn,Apollo Research,251000.0,Rethink Priorities,General support of Apollo Research,"$251,000 ($10,000)†",2024
+2024,Jaan Tallinn,Balsa Policy Institute Inc.,33000.0,Balsa Policy Institute Inc.,General support,"$33,000 ($10,000)†",2024
+2024,Jaan Tallinn,Basis Research Institute,296000.0,Basis Research Institute,General support,"$296,000",2024
+2024,Jaan Tallinn,BERI-DMIP Collaboration,66000.0,Berkeley Existential Risk Initiative,General support of BERI-DMIP Collaboration,"$66,000 ($10,000)†",2024
+2024,Jaan Tallinn,Berkeley Existential Risk Initiative,126000.0,Berkeley Existential Risk Initiative,General support,"$126,000 ($20,000)†",2024
+2024,Jaan Tallinn,Blueprint Biosecurity,78000.0,Blueprint Biosecurity,General support,"$78,000 ($15,000)†",2024
+2024,Jaan Tallinn,Brown University AI Governance Lab,326000.0,Brown University,General support of Brown University AI Governance Lab,"$326,000",2024
+2024,Jaan Tallinn,Center for AI Policy,288000.0,"Center for AI Policy, Inc.",General support,"$288,000 ($10,000)†",2024
+2024,Jaan Tallinn,"Center for AI Safety Action Fund, Inc.",1621000.0,"Center for AI Safety Action Fund, Inc.",General support,"$1,621,000 ($1,120,000)†",2024
+2024,Jaan Tallinn,"Center for AI Safety, Inc.",1146000.0,"Center for AI Safety, Inc.",General support,"$1,146,000 ($50,000)†",2024
+2024,Jaan Tallinn,Center for Law and AI Risk,134000.0,Pledged,General support of Center for Law and AI Risk,"$134,000 ($20,000)†",2024
+2024,Jaan Tallinn,CeSIA,48000.0,EffiSciences,General support of CeSIA,"$48,000 ($20,000)†",2024
+2024,Jaan Tallinn,Charter Cities Institute**,119000.0,Charter Cities Institute,General support,"$119,000 ($20,000)†",2024
+2024,Jaan Tallinn,Convergence: AI Clarity,67000.0,Convergence Analysis,General support of Convergence: AI Clarity,"$67,000 ($20,000)†",2024
+2024,Jaan Tallinn,Decode Research,133000.0,Ashgro Inc.,General support of Decode Research,"$133,000 ($20,000)†",2024
+2024,Jaan Tallinn,Effective Institutions Project,145000.0,Effective Institutions Project Inc.,General support,"$145,000 ($210,000)†",2024
+2024,Jaan Tallinn,Eisenstat Research Directions,103000.0,Machine Intelligence Research Institute Inc. & Ashgro Inc.‡,General support of Eisenstat Research Directions,"$103,000 ($20,000)†",2024
+2024,Jaan Tallinn,Encode Justice,50000.0,March On Foundation,General support of Encode Justice,"$50,000 ($10,000)†",2024
+2024,Jaan Tallinn,"FAR AI, Inc.",383000.0,"FAR AI, Inc.",General support,"$383,000 ($20,000)†",2024
+2024,Jaan Tallinn,Foundation for American Innovation,518000.0,"Lincoln Network, Inc.",General support of Foundation for American Innovation,"$518,000 ($25,000)†",2024
+2024,Jaan Tallinn,Foxglove,5000.0,Foxglove Legal CIC,General support,"$5,000",2024
+2024,Jaan Tallinn,Global Catastrophic Risk Institute,53000.0,Social and Environmental Entrepreneurs,General support of Global Catastrophic Risk Institute,"$53,000 ($10,000)†",2024
+2024,Jaan Tallinn,Global Shield,424000.0,Social and Environmental Entrepreneurs,General support of Global Shield,"$424,000 ($20,000)†",2024
+2024,Jaan Tallinn,Good Ancestors Policy,171000.0,Good Ancestors Policy Ltd.,General support,"$171,000 ($10,000)†",2024
+2024,Jaan Tallinn,History Lab,27000.0,The Trustees of Columbia University in the City of New York,General support of History Lab,"$27,000",2024
+2024,Jaan Tallinn,Impact Academy Limited,72000.0,Stiftelsen Impact Academy,General support of Impact Academy Limited,"$72,000 ($10,000)†",2024
+2024,Jaan Tallinn,Institute for AI Policy and Strategy,183000.0,Rethink Priorities,General support of Institute for AI Policy and Strategy,"$183,000 ($30,000)†",2024
+2024,Jaan Tallinn,JUSTICE,258000.0,JUSTICE,General support,"$258,000",2024
+2024,Jaan Tallinn,Langsikt - Centre for Long-Term Policy,199000.0,Senter for langsiktig politikk AS,General support of Langsikt - Centre for Long-Term Policy,"$199,000 ($10,000)†",2024
+2024,Jaan Tallinn,"Legal Advocates for Safe Science and Technology, Inc.",278000.0,"Legal Advocates for Safe Science and Technology, Inc.",General support,"$278,000 ($10,000)†",2024
+2024,Jaan Tallinn,Legal Safety Lab,29000.0,Legal Advocates for Safe Science and Technology Inc.,General support of Legal Safety Lab,"$29,000 ($20,000)†",2024
+2024,Jaan Tallinn,Lightcone Infrastructure Inc.,513500.0,Lightcone Infrastructure Inc.,General support,"$513,500 ($420,000)†",2024
+2024,Jaan Tallinn,Longview Philanthropy,522000.0,Longview Philanthropy USA Inc.,General support,"$522,000 ($10,000)†",2024
+2024,Jaan Tallinn,"Machine Intelligence and Normative Theory lab, ANU",32000.0,Australian National University,"General support of Machine Intelligence and Normative Theory lab, ANU","$32,000 ($480,000)†",2024
+2024,Jaan Tallinn,Machine Intelligence Research Institute,54000.0,Machine Intelligence Research Institute Inc.,General support,"$54,000 ($40,000)†",2024
+2024,Jaan Tallinn,Machine Learning for Socio-technical Systems Lab,163000.0,The University of Rhode Island Foundation & Alumni Engagement,General support of Machine Learning for Socio-technical Systems Lab,"$163,000",2024
+2024,Jaan Tallinn,Macrostrategy Research Initiative,154000.0,Lightcone Infrastructure Inc.,General support of Macrostrategy Research Initiative,"$154,000 ($170,000)†",2024
+2024,Jaan Tallinn,Manifund,90000.0,Manifold for Charity,General support,"$90,000 ($60,000)†",2024
+2024,Jaan Tallinn,Mathematical Metaphysics Institute,53000.0,Mathematical Metaphysics Institute,General support,"$53,000 ($260,000)†",2024
+2024,Jaan Tallinn,MATS Research,639000.0,"MATS Research, Inc.",General support,"$639,000 ($55,000)†",2024
+2024,Jaan Tallinn,Meaning Alignment Institute,145000.0,Hack Foundation,General support of Meaning Alignment Institute,"$145,000 ($20,000)†",2024
+2024,Jaan Tallinn,Model Evaluation and Threat Research,204000.0,"Model Evaluation and Threat Research, Inc.",General support,"$204,000 ($20,000)†",2024
+2024,Jaan Tallinn,MSEP Project,166000.0,"Science and Technology Futures, Inc.",General support of MSEP Project,"$166,000 ($85,000)†",2024
+2024,Jaan Tallinn,Oxford China Policy Lab,219000.0,Berkeley Existential Risk Initiative,General support of Oxford China Policy Lab,"$219,000 ($10,000)†",2024
+2024,Jaan Tallinn,Palisade Research,586000.0,Palisade Research Inc.,General support,"$586,000 ($230,000)†",2024
+2024,Jaan Tallinn,Palladium Magazine,42000.0,American Governance Foundation Inc.,General support of Palladium Magazine,"$42,000 ($100,000)†",2024
+2024,Jaan Tallinn,Pour Demain,70000.0,Pour Demain,General support,"$70,000 ($10,000)†",2024
+2024,Jaan Tallinn,Psychosecurity Ethics @ EURAIO,38000.0,Players Philanthropy Fund,General support of Psychosecurity Ethics @ EURAIO,"$38,000 ($19,720)†",2024
+2024,Jaan Tallinn,Regents of the University of California at Berkeley,365000.0,Regents of the University of California at Berkeley,General support of Prof. Emma Pierson,"$365,000",2024
+2024,Jaan Tallinn,Rethink Priorities,99000.0,Rethink Priorities,General support,"$99,000 ($25,000)†",2024
+2024,Jaan Tallinn,Safe AI Forum,580000.0,"FAR AI, Inc.",General support of Safe AI Forum,"$580,000 ($40,000)†",2024
+2024,Jaan Tallinn,SaferAI,95000.0,SaferAI,General support,"$95,000 ($25,000)†",2024
+2024,Jaan Tallinn,SecureBio,254000.0,"SecureBio, Inc.",General support,"$254,000 ($30,000)†",2024
+2024,Jaan Tallinn,SecureDNA,128000.0,"SecureBio, Inc.",General support of SecureDNA,"$128,000 ($20,000)†",2024
+2024,Jaan Tallinn,Sentinel,131000.0,"Epistea, z. s.",General support of Sentinel,"$131,000 ($10,000)†",2024
+2024,Jaan Tallinn,Simon Institute for Longterm Governance,364000.0,Simon Institute for Longterm Governance,General support,"$364,000 ($20,000)†",2024
+2024,Jaan Tallinn,Simplex,74000.0,"Epistea, z.s.",General support of Simplex,"$74,000 ($45,000)†",2024
+2024,Jaan Tallinn,Talos Network gUG,123000.0,Talos Network gUG,General support,"$123,000 ($20,000)†",2024
+2024,Jaan Tallinn,Tarbell Fellowship,520000.0,Players Philanthropy Fund,General support of Tarbell Fellowship,"$520,000 ($10,000)†",2024
+2024,Jaan Tallinn,Technology Strategy Roleplay,9000.0,Technology Strategy Roleplay,General support,"$9,000 ($49,256)†",2024
+2024,Jaan Tallinn,The AI Policy Institute,142000.0,Hack Foundation,General support of The AI Policy Institute,"$142,000 ($10,000)†",2024
+2024,Jaan Tallinn,The Centre for Long-Term Resilience (CLTR),1083000.0,"Founders Pledge, Inc.",General support of The Centre for Long-Term Resilience (CLTR),"$1,083,000 ($110,000)†",2024
+2024,Jaan Tallinn,The Foresight Institute,51000.0,The Foresight Institute,General support,"$51,000 ($10,000)†",2024
+2024,Jaan Tallinn,"The Future Society, Inc.",97000.0,The Future Society Inc.,General support,"$97,000 ($50,000)†",2024
+2024,Jaan Tallinn,The Midas Project,31000.0,"The Midas Project, Inc.",General support,"$31,000 ($10,000)†",2024
+2024,Jaan Tallinn,The Quantified Uncertainty Research Institute,62000.0,Rethink Priorities,General support of The Quantified Uncertainty Research Institute,"$62,000 ($10,000)†",2024
+2024,Jaan Tallinn,Timaeus,343000.0,Ashgro Inc.,General support of Timaeus,"$343,000 ($40,000)†",2024
+2024,Jaan Tallinn,Topos Institute,213000.0,Topos Institute,General support,"$213,000 ($120,000)†",2024
+2024,Jaan Tallinn,Vanderbilt University,38000.0,The Vanderbilt University,General support,"$38,000",2024
+2025,Jaan Tallinn,Agent Foundations Field Network (AFFINE) [Algorithm Design],79000.0,"Ashgro, Inc.",General support of Algorithm Design,"$79,000",2025
+2025,Jaan Tallinn,Agent Foundations Field Network (AFFINE) [Technical Research],165000.0,"Ashgro, Inc.",General support of Technical Research,"$165,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,AI & Democracy Foundation,195000.0,"Thoughtful Tech Project, Inc.",General support,"$195,000 Speculation: ($110,000)†",2025
+2025,Jaan Tallinn,AI Futures Project,2035000.0,AI Futures Project,General support,"$2,035,000 Speculation: ($95,000)† Matching: {$500,000}‡",2025
+2025,Jaan Tallinn,AI Lab Watch,371000.0,"Lightcone Infrastructure, Inc.",General support of AI Lab Watch,"$371,000 Speculation: ($170,000)†",2025
+2025,Jaan Tallinn,AI Policy Institute (AIPI),1635000.0,The Hack Foundation,General support of AI Policy Institute,"$1,635,000 Speculation: ($200,000)†",2025
+2025,Jaan Tallinn,AI Safety Camp,200000.0,"Ashgro, Inc.",General support of AI Safety Camp,"$200,000 Speculation: ($20,000)† Matching: {$110,000}‡",2025
+2025,Jaan Tallinn,AI Standards Lab and Holtman Systems Research,328000.0,"Players Philanthropy Fund, Inc.",General support of AI Standards Lab and Holtman Systems Research,"$328,000 Speculation: ($10,000)† Matching: {$100,000}‡",2025
+2025,Jaan Tallinn,Alignment Ecosystem Development,91000.0,"Ashgro, Inc.",General support of Alignment Ecosystem Development,"$91,000 Speculation: ($10,000)†",2025
+2025,Jaan Tallinn,Alignment in Complex Systems Research Group (ACS Research),706000.0,"Epistea, z.s.",General support of Alignment in Complex Systems Research Group,"$706,000 Speculation: ($30,000)† Matching: {$306,000}‡",2025
+2025,Jaan Tallinn,Alliance to Feed the Earth in Disasters (ALLFED),30000.0,ALLFED Institute,General support,"$30,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,Amplifying AI Safety,30000.0,"Epistea, z.s.",General support of Amplifying AI Safety,"$30,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Association for Long Term Existence and Resilience (ALTER),82000.0,Association for Long Term Existence and Resilience,General support,"$82,000 Speculation: ($60,000)† Matching: {$22,000}‡",2025
+2025,Jaan Tallinn,Augur,160000.0,Augur LLC,General support,"$160,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,BERI-CLTC Collaboration,141000.0,Berkeley Existential Risk Initiative,General support of BERI-CLTC Collaboration,"$141,000 Speculation: ($10,000)†",2025
+2025,Jaan Tallinn,Catalyze Impact,74000.0,"Ashgro, Inc.",General support of Catalyze Impact,"$74,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,Center for AI Safety (CAIS),289000.0,"Center for AI Safety, Inc.",General support,"$289,000 Speculation: ($433,911)†",2025
+2025,Jaan Tallinn,Center for AI Safety Action Fund (CAIS AF),772000.0,"Center for AI Safety Action Fund, Inc.",General support,"$772,000 Speculation: ($285,000)†",2025
+2025,Jaan Tallinn,Center for Humane Technology (CHT),468000.0,Center for Humane Technology,General support,"$468,000 Speculation: ($50,000)†",2025
+2025,Jaan Tallinn,Center on Long-Term Risk (CLR),200000.0,Center on Long-Term Risk,General support,"$200,000",2025
+2025,Jaan Tallinn,Centre for AI Security and Access (CASA),325000.0,Rethink Priorities,General support of Centre for AI Security and Access,"$325,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,Centre for Effective Altruism (CEA),117000.0,"Effective Ventures Foundation USA, Inc.",General support of Centre for Effective Altruism,"$117,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,Centre for Long-Term Resilience (CLTR),565000.0,"Founders Pledge, Inc.",General support of Centre for Long-Term Resilience,"$565,000 Speculation: ($40,000)† Matching: {$38,000}‡",2025
+2025,Jaan Tallinn,Centre for the Governance of AI (GovAI),756000.0,"Centre for the Governance of AI, Inc.",General support,"$756,000 Speculation: ($60,000)† Matching: {$696,000}‡",2025
+2025,Jaan Tallinn,Civic AI Security Program (CivAI),600000.0,"Civic AI Security Program, Inc.",General support,"$600,000",2025
+2025,Jaan Tallinn,Compassion in Machine Learning (CaML),83000.0,"Players Philanthropy Fund, Inc.",General support of Compassion in Machine Learning,"$83,000 Matching: {$63,000}‡",2025
+2025,Jaan Tallinn,Computational Rational Agents Laboratory (CORAL),140000.0,"Ashgro, Inc.",General support of Computational Rational Agents Laboratory,"$140,000 Speculation: ($50,000)†",2025
+2025,Jaan Tallinn,Cornell University [Angelina Wang’s Responsible AI Lab],170000.0,Cornell University,General support of Angelina Wang’s Responsible AI Lab,"$170,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,David Lorell,230000.0,"Lightcone Infrastructure, Inc.",General support of research led by David Lorrell,"$230,000 Speculation: ($130,000)†",2025
+2025,Jaan Tallinn,Effective Institutions Project (EIP),378000.0,"Effective Institutions Project, Inc.",General support,"$378,000 Speculation: ($20,000)† Matching: {$358,000}‡",2025
+2025,Jaan Tallinn,Eisenstat Research Program,593000.0,"Machine Intelligence Research Institute (1/2) & Ashgro, Inc. (1/2) §",General support of Eisenstat Research Program,"$593,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,Encode AI Corporation,516000.0,Encode AI Corporation,General support,"$516,000 Speculation: ($234,000)†",2025
+2025,Jaan Tallinn,Epistemic Garden,100000.0,Sentinel Research,General support of Epistemic Garden,"$100,000 Speculation: ($100,000)†",2025
+2025,Jaan Tallinn,EthicsNet Creed.Space,80000.0,"Players Philanthropy Fund, Inc.",General support of EthicsNet Creed.Space,"$80,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,FABRIC,85000.0,"FABRIC Labs, z.s.",General support,"$85,000 Speculation: ($10,000)† Matching: {$75,000}‡",2025
+2025,Jaan Tallinn,FAR AI,919000.0,"FAR AI, Inc.",General support,"$919,000 Speculation: ($200,000)† Matching: {$719,000}‡",2025
+2025,Jaan Tallinn,Flourishing Future Foundation (FFF),300000.0,Flourishing Future Foundation,General support,"$300,000 Speculation: ($30,000)† Matching: {$270,000}‡",2025
+2025,Jaan Tallinn,Foresight Institute,175000.0,The Foresight Institute,General support,"$175,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Forethought Research,103000.0,Forethought Research,General support,"$103,000 Speculation: ($40,000)†",2025
+2025,Jaan Tallinn,Foundation for American Innovation (FAI),777000.0,Foundation for American Innovation,General support,"$777,000 Speculation: ($130,000)†",2025
+2025,Jaan Tallinn,ILINA Program,369000.0,Berkeley Existential Risk Initiative,General support of ILINA Program,"$369,000 Speculation: ($210,000)†",2025
+2025,Jaan Tallinn,James Payor,202000.0,Good Forever Foundation,General support of research led by James Payor,"$202,000 Speculation: ($210,000)†",2025
+2025,Jaan Tallinn,John Wentworth,258000.0,"Lightcone Infrastructure, Inc.",General support of research led by John Wentworth,"$258,000 Speculation: ($200,000)†",2025
+2025,Jaan Tallinn,Legal Advocates for Safe Science and Technology (LASST),150000.0,"Legal Advocates for Safe Science and Technology, Inc.",General support,"$150,000 Speculation: ($40,000)† Matching: {$50,000}‡",2025
+2025,Jaan Tallinn,Lightcone Infrastructure,1311000.0,"Lightcone Infrastructure, Inc.",General support,"$1,311,000 Speculation: ($150,000)† Matching: {$500,000}‡",2025
+2025,Jaan Tallinn,Live Theory,128000.0,"Epistea, z.s.",General support of Live Theory,"$128,000 Speculation: ($30,000)† Matching: {$70,000}‡",2025
+2025,Jaan Tallinn,Machine Intelligence Research Institute (MIRI),1607000.0,Machine Intelligence Research Institute,General support,"$1,607,000 Speculation: ($215,000)† Matching: {$1,392,000}‡",2025
+2025,Jaan Tallinn,Macrostrategy Research Initiative (MRI),60000.0,Macrostrategy Research Initiative Limited,General support,"$60,000 Speculation: ($80,000)†",2025
+2025,Jaan Tallinn,Mathematical Metaphysics Institute,85000.0,Mathematical Metaphysics Institute,General support,"$85,000 Speculation: ($235,000)†",2025
+2025,Jaan Tallinn,Meaning Alignment Institute,149000.0,The Hack Foundation,General support of Meaning Alignment Institute,"$149,000 Speculation: ($60,000)†",2025
+2025,Jaan Tallinn,Medronho,564000.0,"Ashgro, Inc.",General support of Medronho,"$564,000 Speculation: ($70,000)†",2025
+2025,Jaan Tallinn,Metaculus,750000.0,"Metaculus, Inc.",General support,"$750,000 Speculation: ($65,000)†",2025
+2025,Jaan Tallinn,Mindstream Project,100000.0,"Mindstream Project, Ltd.",General support,"$100,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Missing Measures,338000.0,"Lightcone Infrastructure, Inc.",General support of Missing Measures,"$338,000 Speculation: ($90,000)†",2025
+2025,Jaan Tallinn,ML Alignment & Theory Scholars Research (MATS Research),289000.0,"MATS Research, Inc.",General support,"$289,000 Speculation: ($95,000)†",2025
+2025,Jaan Tallinn,Model Evaluation & Threat Research (METR),548000.0,"Model Evaluation and Threat Research, Inc.",General support,"$548,000 Speculation: ($120,000)† Matching: {$428,000}‡",2025
+2025,Jaan Tallinn,Modeling Cooperation,66000.0,Convergence Analysis,General support of Modeling Cooperation,"$66,000 Speculation: ($40,000)† Matching: {$26,000}‡",2025
+2025,Jaan Tallinn,OAISIS,251000.0,"Whistleblower Netzwerk, e.V.",General support of OAISIS,"$251,000",2025
+2025,Jaan Tallinn,Odyssean Institute,79000.0,Odyssean Institute,General support,"$79,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Ovelle Bio**,667000.0,Ovelle Bio Corp.,General support,"$667,000 Speculation: ($305,000)†",2025
+2025,Jaan Tallinn,Oxford China Policy Lab,719000.0,Berkeley Existential Risk Initiative,General support of Oxford China Policy Lab,"$719,000 Speculation: ($100,000)† Matching: {$239,000}‡",2025
+2025,Jaan Tallinn,Oxford Martin AI Governance Initiative,311000.0,University of Oxford Development Trust Fund,General support of Oxford Martin AI Governance Initiative,"$311,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Palisade Research,1133000.0,Palisade Research,General support,"$1,133,000 Speculation: ($205,000)† Matching: {$928,000}‡",2025
+2025,Jaan Tallinn,Panoplia Laboratories,60000.0,"Panoplia Laboratories, Inc.",General support,"$60,000 Speculation: ($10,000)†",2025
+2025,Jaan Tallinn,Plurality Institute,100000.0,Plurality Institute,General support,"$100,000 Speculation: ($90,000)†",2025
+2025,Jaan Tallinn,Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS),1014000.0,Principles of Intelligence,General support,"$1,014,000 Speculation: ($20,000)† Matching: {$994,000}‡",2025
+2025,Jaan Tallinn,RAND Corporation [Technology and Security Policy Center],1022000.0,RAND Corporation,General support of Technology and Security Policy Center,"$1,022,000 Speculation: ($490,000)† Matching: {$22,000}‡",2025
+2025,Jaan Tallinn,Rethink Priorities (RP) [AI Strategy Team],28000.0,Rethink Priorities,General support of AI Strategy Team,"$28,000 Speculation: ($10,000)†",2025
+2025,Jaan Tallinn,Rethink Priorities (RP) [Worldview Investigation Team],166000.0,Rethink Priorities,General support of Worldview Investigation Team,"$166,000",2025
+2025,Jaan Tallinn,SaferAI,311000.0,SaferAI,General support,"$311,000 Speculation: ($90,000)† Matching: {$111,000}‡",2025
+2025,Jaan Tallinn,Sage Future,170000.0,"Sage Future, Inc.",General support,"$170,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,Secure AI Project,383000.0,"Secure AI Project, Inc.",General support,"$383,000 Speculation: ($520,000)†",2025
+2025,Jaan Tallinn,SecureBio,754000.0,SecureBio,General support,"$754,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,SecureDNA,1500000.0,SecureBio,General support of SecureDNA,"$1,500,000 Speculation: ($80,000)†",2025
+2025,Jaan Tallinn,Seldon Labs,53000.0,"Seldon Labs, PBC",General support,"$53,000 Speculation: ($20,000)†",2025
+2025,Jaan Tallinn,Simon Institute for Longterm Governance,400000.0,Simon Institute for Longterm Governance,General support,"$400,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Singapore AI Safety Hub,336000.0,Impact Academy Limited,General support of Singapore AI Safety Hub,"$336,000 Speculation: ($30,000)† Matching: {$36,000}‡",2025
+2025,Jaan Tallinn,Stichting Legal Safety Lab,101000.0,Stichting Legal Safety Lab,General support,"$101,000 Speculation: ($30,000)†",2025
+2025,Jaan Tallinn,Tarbell Center for AI Journalism,783000.0,"Tarbell Center for AI Journalism, Inc.",General support,"$783,000 Speculation: ($20,000)† Matching: {$200,000}‡",2025
+2025,Jaan Tallinn,The Future Society (TFS),336000.0,"The Future Society, Inc.",General support,"$336,000 Speculation: ($10,000)†",2025
+2025,Jaan Tallinn,The Institute for AI Policy and Strategy (IAPS),572000.0,Rethink Priorities,General support of The Institute for AI Policy and Strategy,"$572,000 Speculation: ($20,000)† Matching: {$300,000}‡",2025
+2025,Jaan Tallinn,The Millennium Project,15950.0,The Millennium Project,General support,"$15,950 Speculation: ($15,950)†",2025
+2025,Jaan Tallinn,The Vitalism Charity Project,220000.0,"Less Death, Inc.",General support of The Vitalism Charity Project,"$220,000 Speculation: ($340,000)†",2025
+2025,Jaan Tallinn,Timaeus Research,276000.0,Timaeus Research Inc.,General support,"$276,000 Speculation: ($70,000)† Matching: {$206,000}‡",2025
+2025,Jaan Tallinn,Topos Institute,220000.0,Topos Institute,General support,"$220,000 Speculation: ($30,000)† Matching: {$20,000}‡",2025
+2025,Jaan Tallinn,Ulyssean PBC,186000.0,Ulyssean PBC,General support,"$186,000 Speculation: ($170,000)†",2025
+2025,Jaan Tallinn,University of Toronto & University of Michigan [Toronto and Michigan NLP Group for AI Safety],101000.0,The Governing Council of the University of Toronto (1/2) & University of Michigan (1/2) §,General support of Toronto and Michigan NLP Group for AI Safety,"$101,000 Speculation: ($30,000)† Matching: {$51,000}‡",2025
+2025,Jaan Tallinn,Zig Zag Technology*,30000.0,Zig Zag Technology,General support,"$30,000 Speculation: ($18,240)†",2025

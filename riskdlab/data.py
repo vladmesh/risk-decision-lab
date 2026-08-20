@@ -51,7 +51,7 @@ def _require(path: Path) -> Path:
 
 
 def read_delphi(path: Path | str = DEFAULT_DELPHI_PATH) -> dict[str, pd.DataFrame]:
-    """Read the two Delphi tables the prototype needs: the risk index and the estimates."""
+    """Read the Delphi tables: risk index, aggregate estimates, per-expert rows, top concerns."""
     import rdata  # imported lazily: the pure functions below are usable without it
 
     with warnings.catch_warnings():
@@ -59,10 +59,15 @@ def read_delphi(path: Path | str = DEFAULT_DELPHI_PATH) -> dict[str, pd.DataFram
         snapshot = rdata.read_rds(_require(path))
     snapshot = {str(k): v for k, v in snapshot.items()}
     meta = {str(k): v for k, v in snapshot["meta"].items()}
-    return {
+    tables = {
         "risks": _str_columns(meta["risks"]),
         "severity_aggregate": _str_columns(snapshot["severity_aggregate"]),
     }
+    # the per-expert rows and the top-3 concern counts are what `riskdlab.experts` reads
+    for name in ("severity_expert", "top_concerns"):
+        if name in snapshot:
+            tables[name] = _str_columns(snapshot[name])
+    return tables
 
 
 def delphi_domains(

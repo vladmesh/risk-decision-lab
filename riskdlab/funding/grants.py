@@ -1,0 +1,159 @@
+"""The four grant snapshots read into one table.
+
+Each funder publishes something different — Coefficient Giving a grant list with a focus
+area and no description, EA Funds a one-line description per grant, Manifund a full
+project page with cause tags and transactions, SFF a recommendation table whose purpose
+is almost always "General support" — so the common table keeps only what all four can
+fill: who gave, to whom, when, how much, and what text there is to classify on. What a
+source cannot fill is empty, not guessed.
+
+`amount_usd` means different things per source and the `amount_kind` column says which:
+Coefficient and EA Funds publish the granted amount, SFF the recommended amount, and
+Manifund the sum of USD transactions into the project (zero for an unfunded proposal).
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import pandas as pd
+
+SNAPSHOT_DIR = Path(__file__).resolve().parent.parent.parent / "snapshots" / "funding"
+SNAPSHOT_DATE = "2026-08-20"
+
+DEFAULT_COEFFICIENT_PATH = SNAPSHOT_DIR / f"coefficient-grants-{SNAPSHOT_DATE}.csv"
+DEFAULT_EAFUNDS_PATH = SNAPSHOT_DIR / f"eafunds-grants-{SNAPSHOT_DATE}.csv"
+DEFAULT_MANIFUND_PATH = SNAPSHOT_DIR / f"manifund-projects-{SNAPSHOT_DATE}.csv"
+DEFAULT_SFF_PATH = SNAPSHOT_DIR / f"sff-recommendations-{SNAPSHOT_DATE}.csv"
+
+COLUMNS = [
+    "source",
+    "grant_id",
+    "year",
+    "date",
+    "funder_program",
+    "grantee",
+    "title",
+    "text",
+    "amount_usd",
+    "amount_kind",
+    "ai_scope",
+    "url",
+]
+
+#: Coefficient focus areas that are about AI by construction. The GCR fund is mixed
+#: (AI, bio, nuclear) and is classified on its titles like everything else.
+COEFFICIENT_AI_FOCUS_AREAS = frozenset({"Navigating Transformative AI"})
+#: EA Funds funds whose grants are classified; the others do not fund AI risk work.
+EAFUNDS_AI_FUNDS = frozenset({"Long-Term Future Fund"})
+#: Manifund cause tags that mark a project as AI-risk work.
+MANIFUND_AI_CAUSES = frozenset({"tais", "ai-gov"})
+
+
+def _read(path: Path | str) -> pd.DataFrame:
+    return pd.read_csv(path, dtype=str, keep_default_na=False)
+
+
+def read_coefficient(path: Path | str = DEFAULT_COEFFICIENT_PATH) -> pd.DataFrame:
+    raw = _read(path)
+    focus = raw["focus_areas"].str.split("; ")
+    return pd.DataFrame(
+        {
+            "source": "coefficient",
+            "grant_id": raw["grant_id"],
+            "year": pd.to_numeric(raw["award_year"], errors="coerce").astype("Int64"),
+            "date": raw["award_date"],
+            "funder_program": raw["focus_areas"],
+            "grantee": raw["organization"],
+            "title": raw["title"],
+            # the index carries no description, so the grantee is the main signal
+            "text": (raw["organization"] + " — " + raw["title"]).str.strip(" —"),
+            "amount_usd": pd.to_numeric(raw["amount_usd"], errors="coerce"),
+            "amount_kind": "granted",
+            "ai_scope": focus.map(lambda areas: bool(COEFFICIENT_AI_FOCUS_AREAS & set(areas))),
+            "url": raw["url"],
+        }
+    )[COLUMNS]
+
+
+def read_eafunds(path: Path | str = DEFAULT_EAFUNDS_PATH) -> pd.DataFrame:
+    raw = _read(path)
+    return pd.DataFrame(
+        {
+            "source": "eafunds",
+            "grant_id": raw["id"],
+            "year": pd.to_numeric(raw["year"], errors="coerce").astype("Int64"),
+            "date": raw["round"],
+            "funder_program": raw["fund"],
+            "grantee": raw["grantee"],
+            "title": raw["description"],
+            "text": (raw["grantee"] + " — " + raw["description"]).str.strip(" —"),
+            "amount_usd": pd.to_numeric(raw["amount"], errors="coerce"),
+            "amount_kind": "granted",
+            "ai_scope": raw["fund"].isin(EAFUNDS_AI_FUNDS),
+            "url": "",
+        }
+    )[COLUMNS]
+
+
+def read_manifund(path: Path | str = DEFAULT_MANIFUND_PATH) -> pd.DataFrame:
+    raw = _read(path)
+    causes = raw["causes"].str.split("; ")
+    return pd.DataFrame(
+        {
+            "source": "manifund",
+            "grant_id": raw["project_id"],
+            "year": pd.to_numeric(raw["created_at"].str[:4], errors="coerce").astype("Int64"),
+            "date": raw["created_at"].str[:10],
+            "funder_program": raw["stage"],
+            "grantee": raw["creator"],
+            "title": raw["title"],
+            "text": (raw["title"] + "\n" + raw["blurb"] + "\n" + raw["description"]).str.strip(),
+            "amount_usd": pd.to_numeric(raw["raised_usd"], errors="coerce"),
+            "amount_kind": "raised",
+            "ai_scope": causes.map(lambda tags: bool(MANIFUND_AI_CAUSES & set(tags))),
+            "url": "https://manifund.org/projects/" + raw["slug"],
+        }
+    )[COLUMNS]
+
+
+def read_sff(path: Path | str = DEFAULT_SFF_PATH) -> pd.DataFrame:
+    raw = _read(path)
+    return pd.DataFrame(
+        {
+            "source": "sff",
+            "grant_id": raw["round"] + "/" + raw.index.astype(str),
+            "year": pd.to_numeric(raw["year"], errors="coerce").astype("Int64"),
+            "date": raw["round"],
+            "funder_program": raw["source"],
+            "grantee": raw["organization"],
+            "title": raw["purpose"],
+            "text": (raw["organization"] + " — " + raw["purpose"]).str.strip(" —"),
+            "amount_usd": pd.to_numeric(raw["amount_usd"], errors="coerce"),
+            "amount_kind": "recommended",
+            # SFF funds AI, bio and other x-risk work from one list; scope is decided
+            # per row by the classifier, so nothing is pre-excluded here
+            "ai_scope": True,
+            "url": "",
+        }
+    )[COLUMNS]
+
+
+def load_grants(
+    coefficient_path: Path | str = DEFAULT_COEFFICIENT_PATH,
+    eafunds_path: Path | str = DEFAULT_EAFUNDS_PATH,
+    manifund_path: Path | str = DEFAULT_MANIFUND_PATH,
+    sff_path: Path | str = DEFAULT_SFF_PATH,
+) -> pd.DataFrame:
+    """All four sources in one table, `ai_scope` marking the rows worth classifying.
+
+    `ai_scope` is the funder's own labelling (focus area, fund, cause tag), not ours; for
+    SFF, which has no such label, every row is in scope and the classifier decides.
+    """
+    frames = [
+        read_coefficient(coefficient_path),
+        read_eafunds(eafunds_path),
+        read_manifund(manifund_path),
+        read_sff(sff_path),
+    ]
+    return pd.concat(frames, ignore_index=True)

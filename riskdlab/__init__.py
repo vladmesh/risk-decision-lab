@@ -1,18 +1,18 @@
-"""Risk Decision Lab: competing interpretations of the MIT AI risk data, made comparable.
+"""Risk Decision Lab: expert signal beside money, per MIT AI risk subdomain.
 
-The package holds four pieces: `data` imports the downloadable MIT files (Risk Repository
-v4 xlsx, Delphi snapshot rds) into one domain-level table, `mitigations` imports the
-committed Mitigation Database snapshot and its taxonomy, `assumptions` defines the named
-set of assumptions a ranking is computed under, and `ranking` turns a table plus an
-assumption set into a ranking and diffs two of them.
-
-The mitigations stand apart on purpose: nothing links them to a risk domain, and neither
-MIT file estimates their effectiveness or their cost, so they inform a decision without
-entering the ranking.
+`data` imports the downloadable MIT files (Risk Repository v4 xlsx, Delphi snapshot rds);
+`experts` reads the Delphi per-expert rows (paired reductions, bootstrap ranks, top
+concerns); `funding` reads the committed grant snapshots and their subdomain labels;
+`gapmap` joins the two into one table per subdomain. `mitigations` imports the Mitigation
+Database snapshot, which links to no subdomain and stands beside the map. `assumptions`,
+`ranking` and `stability` are the earlier ranking prototype, kept as a demonstration.
 """
 
 from riskdlab.assumptions import AssumptionSet
-from riskdlab.data import load_domains
+from riskdlab.data import load_domains, read_delphi
+from riskdlab.experts import bootstrap_rankings, paired_reduction, top_concerns
+from riskdlab.funding import agreement, load_grants, read_labels
+from riskdlab.gapmap import build_gap_map, funding_by_label
 from riskdlab.mitigations import (
     check_bibliography,
     load_mitigations,
@@ -25,6 +25,15 @@ from riskdlab.stability import analyze_cost_stability
 __all__ = [
     "AssumptionSet",
     "load_domains",
+    "read_delphi",
+    "paired_reduction",
+    "bootstrap_rankings",
+    "top_concerns",
+    "load_grants",
+    "read_labels",
+    "agreement",
+    "build_gap_map",
+    "funding_by_label",
     "load_mitigations",
     "read_documents",
     "read_taxonomy",

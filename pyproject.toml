@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "riskdlab"
 version = "0.1.0"
-description = "A decision-modeling layer on top of the MIT AI Risk Repository"
+description = "A gap map over AI risk: expert signal beside funding, per MIT risk subdomain"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -13,7 +17,13 @@ test = ["pytest"]
 [project.scripts]
 riskdlab = "riskdlab.cli:main"
 
+[tool.setuptools.packages.find]
+include = ["riskdlab*"]
+
+[tool.setuptools.package-data]
+riskdlab = ["funding/rubric.md"]
+
 [tool.pytest.ini_options]
-# `experiments/` holds one-off scripts, one of which is named *_test.py and runs on
-# import against raw data that is not in git; the suite lives in tests/ only.
+# `experiments/` holds one-off scripts that run against raw data not in git; the suite
+# lives in tests/ only.
 testpaths = ["tests"]

@@ -4,6 +4,7 @@ browse the committed mitigation snapshot."""
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 from typing import Sequence
 
@@ -25,6 +26,11 @@ from riskdlab.mitigations import (
     source_counts,
     subcategory_counts,
 )
+from riskdlab.funding import agreement as label_agreement
+from riskdlab.funding.grants import load_grants
+from riskdlab.funding.labels import DEFAULT_CONTROL_PATH, DEFAULT_LABELS_PATH, RESERVED, read_labels
+from riskdlab.gapmap import build_gap_map, funding_by_label
+from riskdlab.data import read_delphi
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
 from riskdlab.stability import DEFAULT_SAMPLES, DEFAULT_SEED, analyze_cost_stability
 
@@ -337,6 +343,102 @@ def _cmd_mitigations(args: argparse.Namespace) -> int:
     return 0
 
 
+def _money(value: float) -> str:
+    return f"{value / 1e6:8.1f}M"
+
+
+def _cmd_funding(args: argparse.Namespace) -> int:
+    grants = load_grants()
+    labels = read_labels(args.labels)
+    in_scope = grants[grants["ai_scope"]]
+    print("# funding")
+    print(
+        f"{len(grants)} grants in four snapshots | {len(in_scope)} in AI scope by the funders' "
+        f"own tags | {len(labels)} labelled"
+    )
+    by_source = in_scope.groupby("source").agg(n=("grant_id", "size"), usd=("amount_usd", "sum"))
+    print(by_source.assign(usd=by_source["usd"].map(_money)).to_string())
+    if Path(args.control).exists():
+        control = read_labels(args.control)
+        score = label_agreement(labels, control)
+        print(
+            f"label agreement on {score['n']} double-labelled grants: exact {score['exact']:.0%}, "
+            f"same MIT domain {score['domain']:.0%}, primary-or-secondary {score['either']:.0%}"
+        )
+    print()
+    table = funding_by_label(
+        grants, labels, year_from=args.year_from, year_to=args.year_to,
+        sources=tuple(args.sources) if args.sources else None,
+    )
+    window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
+    print(f"## dollars by MIT subdomain, {window}: {table.attrs['n_grants']} funded grants, ${table.attrs['usd_total'] / 1e6:,.1f}M")
+    shown = table.sort_values("fund_usd", ascending=False).reset_index()
+    shown["fund_usd"] = shown["fund_usd"].map(_money)
+    shown["fund_share"] = shown["fund_share"].map(lambda v: f"{v:.1%}")
+    cols = ["label", "fund_usd", "fund_share", "fund_n_grants", "fund_n_low_confidence"]
+    cols += [c for c in shown.columns if c.startswith("fund_usd_")]
+    for c in cols:
+        if c.startswith("fund_usd_"):
+            shown[c] = shown[c].map(_money)
+    print(shown[cols].to_string(index=False))
+    reserved = table.loc[list(RESERVED), "fund_share"].sum()
+    print(f"\nunattributed to a subdomain (field/not_ai/unknown): {reserved:.1%} of the dollars")
+    return 0
+
+
+def _cmd_gapmap(args: argparse.Namespace) -> int:
+    delphi = read_delphi(args.delphi)
+    grants = load_grants()
+    labels = read_labels(args.labels)
+    table = build_gap_map(
+        delphi, grants, labels, level=args.level or "catastrophic",
+        year_from=args.year_from, year_to=args.year_to,
+        sources=tuple(args.sources) if args.sources else None,
+        samples=args.samples, seed=args.seed,
+    )
+    print("# gap map")
+    agree = table.attrs["pair_agreement"]
+    window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
+    print(
+        f"harm level {table.attrs['level']} | funding window {window}: {table.attrs['n_grants']} funded grants, "
+        f"${table.attrs['usd_total'] / 1e6:,.1f}M | expert bootstrap {args.samples} draws, seed {args.seed}: "
+        f"pair-order agreement with the point ranking {agree['bau']:.0%} (bau), {agree['reduction']:.0%} (reduction)"
+    )
+    print("no column is a priority score; the reserved rows are money that attaches to no subdomain")
+    print()
+    shown = table.reset_index()
+    out = pd.DataFrame(
+        {
+            "label": shown["label"],
+            "short_name": shown["short_name"],
+            "bau%": shown["delphi_bau_pct"].round(1),
+            "red pp": shown["delphi_reduction_pp"].round(1),
+            "±se": shown["delphi_reduction_se"].round(1),
+            "n_exp": shown["delphi_n_experts"],
+            "concern%": shown["delphi_concern_pct"].round(1),
+            "rank bau [p5,p95]": [
+                "" if pd.isna(a) else f"{int(a)} [{int(b)},{int(c)}]"
+                for a, b, c in zip(shown["delphi_bau_point_rank"], shown["delphi_bau_rank_p05"], shown["delphi_bau_rank_p95"])
+            ],
+            "$M": shown["fund_usd"].map(lambda v: f"{v / 1e6:.1f}"),
+            "share": shown["fund_share"].map(lambda v: f"{v:.1%}"),
+            "n_grants": shown["fund_n_grants"],
+        }
+    )
+    order = out["bau%"].fillna(-1).rank(ascending=False)
+    print(out.iloc[order.argsort()].to_string(index=False, na_rep=""))
+    if args.out:
+        path = Path(args.out)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if path.suffix.lower() == ".json":
+            payload = {"attrs": table.attrs, "rows": table.reset_index().to_dict(orient="records")}
+            path.write_text(json.dumps(payload, indent=2, default=float) + "\n", encoding="utf-8")
+        else:
+            table.to_csv(path)
+        print(f"\nwritten: {path}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="riskdlab",
@@ -394,6 +496,26 @@ def build_parser() -> argparse.ArgumentParser:
     mitigations.add_argument("--documents", type=Path, default=DEFAULT_DOCUMENTS_PATH)
     mitigations.add_argument("--taxonomy", type=Path, default=DEFAULT_TAXONOMY_PATH)
     mitigations.set_defaults(func=_cmd_mitigations)
+
+    def _window(p: argparse.ArgumentParser) -> None:
+        p.add_argument("--year-from", type=int, default=None, help="first grant year to count")
+        p.add_argument("--year-to", type=int, default=None, help="last grant year to count")
+        p.add_argument("--sources", nargs="*", default=None,
+                       help="restrict to these sources (coefficient eafunds manifund sff)")
+        p.add_argument("--labels", type=Path, default=DEFAULT_LABELS_PATH)
+
+    funding = sub.add_parser("funding", help="the labelled grant snapshots: dollars by MIT subdomain")
+    _window(funding)
+    funding.add_argument("--control", type=Path, default=DEFAULT_CONTROL_PATH,
+                         help="second labelling of the control sample, for the agreement rate")
+    funding.set_defaults(func=_cmd_funding)
+
+    gapmap = sub.add_parser("gapmap", help="expert signal beside money, one row per subdomain")
+    _window(gapmap)
+    gapmap.add_argument("--samples", type=_positive_int, default=1000, help="expert bootstrap draws")
+    gapmap.add_argument("--seed", type=int, default=20260820)
+    gapmap.add_argument("--out", type=Path, default=None, help="also write the full table (.csv or .json)")
+    gapmap.set_defaults(func=_cmd_gapmap)
 
     return parser
 

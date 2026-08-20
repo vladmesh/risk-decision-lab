@@ -1,5 +1,7 @@
 # Data snapshots
 
+The grant databases and their labels live in [`funding/`](funding/README.md); this file covers the MIT mitigation snapshots.
+
 Everything here is third-party data, redistributed under its own licence — not covered by
 this repository's MIT licence. See `../LICENSE`.
 

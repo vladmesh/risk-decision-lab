@@ -213,3 +213,13 @@ def test_mitigations_says_so_when_a_filter_matches_nothing(capsys):
     assert code == 1
     assert "no mitigation matches this filter" in out
     assert "NIST2024" in out
+
+
+def test_funding_command_runs_on_the_committed_snapshots(capsys):
+    from riskdlab.cli import main
+
+    assert main(["funding", "--year-from", "2024"]) == 0
+    out = capsys.readouterr().out
+    assert "label agreement on 120 double-labelled grants" in out
+    assert "dollars by MIT subdomain, 2024–latest" in out
+    assert "unattributed to a subdomain" in out
