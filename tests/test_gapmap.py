@@ -111,7 +111,7 @@ def test_gap_map_joins_experts_and_money_and_keeps_reserved_rows(delphi, grants,
     assert table.loc["7.4", "delphi_concern_pct"] == 5.0
     assert table.loc["field", "fund_usd"] == 300_000.0
     assert np.isnan(table.loc["field", "delphi_bau_pct"])
-    assert table.loc["field", "short_name"] == "(field-building, unattributed)"
+    assert table.loc["field", "short_name"] == "(field-building: talent & community)"
     assert "pair_agreement" in table.attrs
     # domains with no grants at all are still rows, with zero money
     assert table.loc["1.1", "fund_usd"] == 0.0

@@ -317,3 +317,21 @@ def test_apply_splits_crosses_dimensions_and_leaves_other_grants_alone():
     plain = long[long["grant_id"] == "plain"].iloc[0]
     assert plain["risk"] == "7.4" and plain["method"] == "X.research-interp"
     assert plain["weight"] == 1.0 and plain["amount_share_usd"] == 40.0
+
+
+def test_derive_cross_splits_field_by_method():
+    from riskdlab.funding.labels import derive_cross
+
+    labels = pd.DataFrame(
+        {"grant_id": ["a", "b", "c", "d"], "primary": ["field", "field", "7.1", "field"],
+         "secondary": [""] * 4, "confidence": ["high"] * 4, "basis": [""] * 4}
+    )
+    methods = pd.DataFrame(
+        {"grant_id": ["a", "b", "c"], "method": ["X.talent-community", "X.forecasting", "X.research-empirical"],
+         "confidence": ["high"] * 3, "basis": [""] * 3}
+    )
+    out = derive_cross(labels, methods).set_index("grant_id")["primary"]
+    assert out["a"] == "field", "talent and community stays field"
+    assert out["b"] == "cross", "a non-talent method under field becomes cross"
+    assert out["c"] == "7.1", "subdomain labels are untouched"
+    assert out["d"] == "field", "no method label: nothing to derive from"

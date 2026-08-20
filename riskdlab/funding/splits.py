@@ -90,7 +90,7 @@ def split_eligible(frame: pd.DataFrame) -> pd.Series:
     """
     title = frame["title"] if "title" in frame.columns else pd.Series("", index=frame.index)
     general = title.fillna("").astype(str).str.contains(_GENERAL_SUPPORT_RE)
-    return general | (frame["risk"] == "field")
+    return general | frame["risk"].isin(("field", "cross"))
 
 
 def _apply_risk_splits(frame: pd.DataFrame, splits: pd.DataFrame) -> pd.DataFrame:

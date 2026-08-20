@@ -25,7 +25,10 @@ SUBDOMAINS = (
     "6.1", "6.2", "6.3", "6.4", "6.5", "6.6",
     "7.1", "7.2", "7.3", "7.4", "7.5", "7.6",
 )
-RESERVED = ("field", "not_ai", "unknown")
+#: `cross` is not a label the rubric asks for: it is derived from a `field` risk label and
+#: a non-talent method label by `derive_cross`, and means "AI-safety work with no single
+#: subdomain" as opposed to `field`, which after derivation means talent and community.
+RESERVED = ("field", "cross", "not_ai", "unknown")
 LABELS = SUBDOMAINS + RESERVED
 CONFIDENCES = ("high", "medium", "low")
 
@@ -164,3 +167,19 @@ def risk_by_method(
         table.attrs["split_n_grantees"] = int(affected["grantee"].nunique())
         table.attrs["split_usd"] = float(affected["amount_usd"].sum())
     return table
+
+
+def derive_cross(labels: pd.DataFrame, methods: pd.DataFrame) -> pd.DataFrame:
+    """Split the `field` risk label in two, using the method label.
+
+    The rubric files every AI-safety grant with no subdomain as `field`, which mixes two
+    things: money that builds the field (talent, courses, hubs, community — method
+    `X.talent-community`) and money that pays for AI-safety work whose subdomain the text
+    does not say (research, policy, forecasting, advocacy under a general-support grant).
+    The first stays `field`; the second becomes `cross`. Secondary labels are untouched.
+    """
+    merged = labels.merge(methods[["grant_id", "method"]], on="grant_id", how="left")
+    is_cross = (merged["primary"] == "field") & merged["method"].notna() & (merged["method"] != "X.talent-community")
+    out = labels.copy()
+    out.loc[is_cross.to_numpy(), "primary"] = "cross"
+    return out

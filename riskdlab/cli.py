@@ -34,6 +34,7 @@ from riskdlab.funding.labels import (
     DEFAULT_METHODS_PATH,
     OWN_METHODS,
     RESERVED,
+    derive_cross,
     read_labels,
     read_methods,
     risk_by_method,
@@ -368,7 +369,7 @@ def _split_status(table: pd.DataFrame, splits: pd.DataFrame | None) -> str:
 
 def _cmd_funding(args: argparse.Namespace) -> int:
     grants = load_grants()
-    labels = read_labels(args.labels)
+    labels = derive_cross(read_labels(args.labels), read_methods(args.methods))
     splits = read_splits(args.splits) if args.splits is not None else None
     in_scope = grants[grants["ai_scope"]]
     print("# funding")
@@ -403,14 +404,14 @@ def _cmd_funding(args: argparse.Namespace) -> int:
             shown[c] = shown[c].map(_money)
     print(shown[cols].to_string(index=False))
     reserved = table.loc[list(RESERVED), "fund_share"].sum()
-    print(f"\nunattributed to a subdomain (field/not_ai/unknown): {reserved:.1%} of the dollars")
+    print(f"\nnot attached to a subdomain (field-building, cross-cutting, not_ai, unknown): {reserved:.1%} of the dollars")
     return 0
 
 
 def _cmd_methods(args: argparse.Namespace) -> int:
     grants = load_grants()
-    labels = read_labels(args.labels)
     methods = read_methods(args.methods)
+    labels = derive_cross(read_labels(args.labels), methods)
     splits = read_splits(args.splits) if args.splits is not None else None
     table = risk_by_method(
         grants, labels, methods, splits=splits,
@@ -447,7 +448,7 @@ def _cmd_methods(args: argparse.Namespace) -> int:
 def _cmd_gapmap(args: argparse.Namespace) -> int:
     delphi = read_delphi(args.delphi)
     grants = load_grants()
-    labels = read_labels(args.labels)
+    labels = derive_cross(read_labels(args.labels), read_methods(args.methods))
     splits = read_splits(args.splits) if args.splits is not None else None
     table = build_gap_map(
         delphi, grants, labels, level=args.level or "catastrophic",
@@ -564,6 +565,7 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--sources", nargs="*", default=None,
                        help="restrict to these sources (coefficient eafunds manifund sff)")
         p.add_argument("--labels", type=Path, default=DEFAULT_LABELS_PATH)
+        p.add_argument("--methods", type=Path, default=DEFAULT_METHODS_PATH)
         split = p.add_mutually_exclusive_group()
         split.add_argument(
             "--splits", type=Path,
@@ -583,7 +585,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     methods = sub.add_parser("methods", help="dollars by method label and the risk x method table")
     _window(methods)
-    methods.add_argument("--methods", type=Path, default=DEFAULT_METHODS_PATH)
     methods.add_argument("--min-row-musd", type=float, default=1.0, help="hide risk rows below this many $M")
     methods.add_argument("--min-col-musd", type=float, default=1.0, help="hide method columns below this many $M")
     methods.add_argument("--out", type=Path, default=None, help="also write the full table (.csv)")

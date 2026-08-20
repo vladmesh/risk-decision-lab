@@ -9,8 +9,8 @@ something it is not:
   a top-3 concern, and the bootstrap rank interval.
 - `fund_*`: the labelled grant snapshots — dollars and grant counts per subdomain, total
   and per source, over the year window asked for.
-- the reserved rows `field`, `not_ai`, `unknown`: money that was in scope but does not
-  attach to a subdomain. They are part of the table, not dropped, because the share of
+- the reserved rows `field` (talent and community), `cross` (AI-safety work with no single
+  subdomain), `not_ai`, `unknown`: money that was in scope but does not attach to a subdomain. They are part of the table, not dropped, because the share of
   money that cannot be attributed is itself a finding.
 
 No column here is a priority score. The table is the input to a reading, and the
@@ -133,7 +133,7 @@ def build_gap_map(
     out = money.join(experts, how="left")
     out.index.name = "label"
     out["short_name"] = out["short_name"].fillna(
-        pd.Series({"field": "(field-building, unattributed)", "not_ai": "(not AI risk)", "unknown": "(unknown)"})
+        pd.Series({"field": "(field-building: talent & community)", "cross": "(cross-cutting AI-safety work, no single subdomain)", "not_ai": "(not AI risk)", "unknown": "(unknown)"})
     )
     front = ["short_name", "fund_usd", "fund_share", "fund_n_grants"]
     out = out[front + [c for c in out.columns if c not in front]]

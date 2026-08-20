@@ -222,7 +222,7 @@ def test_funding_command_runs_on_the_committed_snapshots(capsys):
     out = capsys.readouterr().out
     assert "label agreement on 120 double-labelled grants" in out
     assert "dollars by MIT subdomain, 2024–latest" in out
-    assert "unattributed to a subdomain" in out
+    assert "not attached to a subdomain" in out
 
 
 def test_funding_no_splits_reproduces_unsplit_output(monkeypatch, tmp_path, capsys):
