@@ -1,0 +1,6 @@
+grantee,dimension,label,share,source_url,source_year,basis,confidence,note
+Split Org,risk,7.1,0.6,https://example.org/report,2025,programme budget,high,
+Split Org,risk,6.5,0.4,https://example.org/report,2025,programme budget,high,
+Split Org,method,X.research-empirical,0.25,https://example.org/report,2025,programme budget,medium,
+Split Org,method,3.1,0.75,https://example.org/report,2025,programme budget,medium,
+No Public Split,risk,,,,2025,no public split,low,No allocation published

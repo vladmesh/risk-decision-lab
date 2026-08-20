@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 import pytest
 
 from riskdlab.funding.grants import COLUMNS, load_grants, read_coefficient, read_eafunds, read_manifund, read_sff
 from riskdlab.funding.labels import LABELS, agreement, read_labels
+from riskdlab.funding.splits import apply_splits, read_splits
 from riskdlab.funding.fli import parse_program
 from riskdlab.funding.sff import parse_round, parse_rounds
 
@@ -263,3 +266,54 @@ def test_methods_are_validated_and_crossed_with_risk(tmp_path):
     assert table.loc["7.2", "3.1"] == 50.0
     assert "field" not in table.index, "the 2023 grant is outside the window"
     assert table.attrs["usd_total"] == 150.0
+
+
+def test_programme_splits_are_validated(tmp_path):
+    path = Path(__file__).parent / "fixtures" / "programme-splits.csv"
+    splits = read_splits(path)
+    assert len(splits) == 4, "the no-public-split marker is not an allocation"
+    assert splits.groupby(["grantee", "dimension"])["share"].sum().eq(1.0).all()
+
+    bad = pd.read_csv(path, dtype=str, keep_default_na=False)
+    bad.loc[(bad["dimension"] == "risk") & (bad["label"] == "6.5"), "share"] = "0.2"
+    bad_path = tmp_path / "bad-sum.csv"
+    bad.to_csv(bad_path, index=False)
+    with pytest.raises(ValueError, match="sum to 1"):
+        read_splits(bad_path)
+
+    bad.loc[0, "label"] = "8.1"
+    bad.loc[1, "share"] = "0.4"
+    bad_path = tmp_path / "bad-label.csv"
+    bad.to_csv(bad_path, index=False)
+    with pytest.raises(ValueError, match="unknown label"):
+        read_splits(bad_path)
+
+
+def test_apply_splits_crosses_dimensions_and_leaves_other_grants_alone():
+    grants = pd.DataFrame(
+        {
+            "grant_id": ["split", "plain"], "source": ["x", "x"],
+            "year": pd.array([2025, 2025], dtype="Int64"),
+            "grantee": ["Split Org", "Unsplit Org"], "amount_usd": [100.0, 40.0],
+        }
+    )
+    labels = pd.DataFrame(
+        {
+            "grant_id": ["split", "plain"], "primary": ["field", "7.4"],
+            "confidence": ["low", "high"],
+        }
+    )
+    methods = pd.DataFrame(
+        {"grant_id": ["split", "plain"], "method": ["X.none", "X.research-interp"]}
+    )
+    splits = read_splits(Path(__file__).parent / "fixtures" / "programme-splits.csv")
+    long = apply_splits(grants, labels, methods, splits)
+
+    allocated = long[long["grant_id"] == "split"]
+    assert len(allocated) == 4
+    assert allocated["amount_share_usd"].sum() == pytest.approx(100.0)
+    assert set(allocated["risk"]) == {"7.1", "6.5"}
+    assert set(allocated["method"]) == {"X.research-empirical", "3.1"}
+    plain = long[long["grant_id"] == "plain"].iloc[0]
+    assert plain["risk"] == "7.4" and plain["method"] == "X.research-interp"
+    assert plain["weight"] == 1.0 and plain["amount_share_usd"] == 40.0

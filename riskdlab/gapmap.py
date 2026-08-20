@@ -30,6 +30,7 @@ def funding_by_label(
     grants: pd.DataFrame,
     labels: pd.DataFrame,
     *,
+    splits: pd.DataFrame | None = None,
     year_from: int | None = None,
     year_to: int | None = None,
     sources: tuple[str, ...] | None = None,
@@ -41,7 +42,18 @@ def funding_by_label(
     amount, which is zero for unfunded proposals; they count towards `fund_n_grants`
     only when money moved, so a proposal nobody funded is not a grant.
     """
-    frame = grants.merge(labels[["grant_id", "primary", "confidence"]], on="grant_id", how="inner")
+    frame = grants.merge(
+        labels[["grant_id", "primary", "confidence"]].rename(columns={"primary": "risk"}),
+        on="grant_id",
+        how="inner",
+    )
+    if splits is not None:
+        from riskdlab.funding.splits import _apply_risk_splits
+
+        frame = _apply_risk_splits(frame, splits)
+        frame["weight"] = frame["risk_weight"]
+    else:
+        frame["weight"] = 1.0
     if year_from is not None:
         frame = frame[frame["year"] >= year_from]
     if year_to is not None:
@@ -49,13 +61,14 @@ def funding_by_label(
     if sources is not None:
         frame = frame[frame["source"].isin(sources)]
     frame = frame[frame["amount_usd"].fillna(0) > 0]
+    frame["amount_share_usd"] = frame["amount_usd"] * frame["weight"]
 
-    per_source = frame.pivot_table(index="primary", columns="source", values="amount_usd", aggfunc="sum", fill_value=0.0)
+    per_source = frame.pivot_table(index="risk", columns="source", values="amount_share_usd", aggfunc="sum", fill_value=0.0)
     per_source.columns = [f"fund_usd_{c}" for c in per_source.columns]
     out = pd.DataFrame(index=pd.Index(list(SUBDOMAINS) + list(RESERVED), name="label"))
-    out["fund_usd"] = frame.groupby("primary")["amount_usd"].sum()
-    out["fund_n_grants"] = frame.groupby("primary").size()
-    out["fund_n_low_confidence"] = frame[frame["confidence"] == "low"].groupby("primary").size()
+    out["fund_usd"] = frame.groupby("risk")["amount_share_usd"].sum()
+    out["fund_n_grants"] = frame.groupby("risk")["grant_id"].nunique()
+    out["fund_n_low_confidence"] = frame[frame["confidence"] == "low"].groupby("risk")["grant_id"].nunique()
     out = out.join(per_source)
     out = out.fillna(0.0)
     out["fund_n_grants"] = out["fund_n_grants"].astype(int)
@@ -64,8 +77,12 @@ def funding_by_label(
     out["fund_share"] = out["fund_usd"] / total if total else 0.0
     out.attrs["year_from"] = year_from
     out.attrs["year_to"] = year_to
-    out.attrs["n_grants"] = int(len(frame))
+    out.attrs["n_grants"] = int(frame["grant_id"].nunique())
     out.attrs["usd_total"] = float(total)
+    split_grantees = set() if splits is None else set(splits.loc[splits["dimension"] == "risk", "grantee"])
+    affected = frame[frame["grantee"].isin(split_grantees)].drop_duplicates("grant_id")
+    out.attrs["split_n_grantees"] = int(affected["grantee"].nunique())
+    out.attrs["split_usd"] = float(affected["amount_usd"].sum())
     return out
 
 
@@ -100,6 +117,7 @@ def build_gap_map(
     grants: pd.DataFrame,
     labels: pd.DataFrame,
     *,
+    splits: pd.DataFrame | None = None,
     level: str = DEFAULT_LEVEL,
     year_from: int | None = None,
     year_to: int | None = None,
@@ -109,7 +127,9 @@ def build_gap_map(
 ) -> pd.DataFrame:
     """The gap map table; subdomain rows carry both halves, reserved rows only money."""
     experts = expert_signal(delphi, level=level, samples=samples, seed=seed)
-    money = funding_by_label(grants, labels, year_from=year_from, year_to=year_to, sources=sources)
+    money = funding_by_label(
+        grants, labels, splits=splits, year_from=year_from, year_to=year_to, sources=sources
+    )
     out = money.join(experts, how="left")
     out.index.name = "label"
     out["short_name"] = out["short_name"].fillna(

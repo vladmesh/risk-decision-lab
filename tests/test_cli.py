@@ -223,3 +223,15 @@ def test_funding_command_runs_on_the_committed_snapshots(capsys):
     assert "label agreement on 120 double-labelled grants" in out
     assert "dollars by MIT subdomain, 2024–latest" in out
     assert "unattributed to a subdomain" in out
+
+
+def test_funding_no_splits_reproduces_unsplit_output(monkeypatch, tmp_path, capsys):
+    import riskdlab.cli as cli
+
+    monkeypatch.setattr(cli, "DEFAULT_SPLITS_PATH", tmp_path / "not-present.csv")
+    assert cli.main(["funding", "--year-from", "2024"]) == 0
+    unsplit = capsys.readouterr().out
+    assert cli.main(["funding", "--year-from", "2024", "--no-splits"]) == 0
+    opted_out = capsys.readouterr().out
+    assert opted_out == unsplit
+    assert "programme splits: not applied" in opted_out

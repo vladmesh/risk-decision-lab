@@ -18,9 +18,9 @@ findings and caveats: **[vladmesh.github.io/risk-decision-lab](https://vladmesh.
 
 | | |
 |---|---|
-| **Where the money is** | 43% of the dollars are field-building and general support that attach to no subdomain (MATS, 80,000 Hours, regional AI-safety groups, community infrastructure); 23% governance (`6.5`); 9% misalignment (`7.1`); 8% dangerous-capability evaluations (`7.2`); 4% interpretability (`7.4`); 4% AI-system security (`2.2`). Six labels hold 91% of the money. |
+| **Where the money is** | On grant labels alone, 43% of the dollars are field-building and general support that attach to no subdomain; 23% governance (`6.5`); 9% misalignment (`7.1`); 8% dangerous-capability evaluations (`7.2`). Splitting the 21 largest general-support grantees by their own published programme mix (`snapshots/funding/programme-splits-2026-08-20.csv`, an allocation assumption with a source per row) moves $437M: unattributed falls to **28%**, misalignment rises to **16%**, weapons & cyber to 3% (mostly AI-bio fellowship tracks, low confidence), governance stays at **22–23%** either way. Both variants are saved under `results/`. |
 | **Where the experts are** | By mean probability of catastrophic harm under business as usual, the Delphi top three are dangerous capabilities (`7.2`, 21.5%), weapons & cyberattacks (`4.2`, 21.0%) and power centralization (`6.1`, 18.0%). By share of experts naming a domain a top-3 concern: fraud & scams (`4.3`, 27%), power centralization (24%), then disinformation, false information and dangerous capabilities (22% each). |
-| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$5.4M / 0.7%** of the money (most of it FLI's power-concentration RFP). `4.2` weapons & cyber: rank 2 by severity, **$2.3M / 0.3%** — and not an artefact of scope: Coefficient's biosecurity and GCR funds were read grant by grant, and the 87 AI-related grants there are field-building, not AI-enabled bio or cyber defence. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$34M and 108 grants** as a *field*. |
+| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$5.4M / 0.7%** of the money with or without splits (most of it FLI's power-concentration RFP). `4.2` weapons & cyber: rank 2 by severity, **$2.3M / 0.3%** on grant labels, $26M / 3% once MATS's and CBAI's AI-bio tracks are counted — and not an artefact of scope: Coefficient's biosecurity and GCR funds were read grant by grant, and the 87 AI-related grants there are field-building, not AI-enabled bio or cyber defence. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$26–34M** as a *field*. |
 | **Risk vs method** | Every grant also carries a *method* label (MIT's 23 mitigation controls plus seven research/talent/advocacy labels of ours). The cross-table resolves the `7.4` puzzle: its $34M is **$30M of interpretability research** — a method, funded because it serves `7.1`/`7.2`, not because anyone rates opacity as a top harm. Likewise `7.2` is $61M of evaluations (`3.1`), `6.5` is $149M of risk-management and regulation work (`1.2`), `7.1` is $57M of empirical alignment research. By method, the whole portfolio is: talent & community 30%, risk management / regulation 21%, empirical safety research 15%, evaluations 10%, advocacy & communication 6%, forecasting 4%, interpretability 4%, theory 3%. |
 | **How noisy the expert side is** | Resampling experts within each domain (1,000 draws) keeps 83% of pairwise domain orderings; rank intervals are wide (e.g. `6.6` environmental harm: point rank 5, 90% interval 1–19, from 23 experts). The first seven domains are separated by 5 percentage points with standard errors of 1–2.5 pp. |
 | **How noisy the money side is** | A second, independent labelling of 120 control grants agrees with the main labels on the exact subdomain 91% of the time, on the MIT domain 93%. Labels for "General support of X" rest on what X does, not on the grant text. |
@@ -72,7 +72,11 @@ independent labelling of 120 control grants beside it; `labels-methods-2026-08-2
 the same grants mapped to a method against
 [`riskdlab/funding/rubric_methods.md`](riskdlab/funding/rubric_methods.md);
 `scope-decisions-2026-08-20.csv`: the per-grant in/out decision for the grants outside
-the funders' own AI tags, so exclusions are auditable.
+the funders' own AI tags, so exclusions are auditable; `programme-splits-2026-08-20.csv`:
+for the 21 largest general-support grantees, shares over risk and method labels taken from
+each organisation's own published programme composition (URL, year, basis and confidence
+per row), applied only to general-support or `field`-labelled grants; `--no-splits`
+reproduces the unsplit tables.
 
 ## Reproduce
 

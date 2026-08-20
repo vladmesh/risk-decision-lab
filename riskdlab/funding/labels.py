@@ -122,6 +122,7 @@ def risk_by_method(
     labels: pd.DataFrame,
     methods: pd.DataFrame,
     *,
+    splits: pd.DataFrame | None = None,
     year_from: int | None = None,
     year_to: int | None = None,
 ) -> pd.DataFrame:
@@ -131,20 +132,35 @@ def risk_by_method(
     a row is a risk label, a column a method, a cell the dollars of funded grants that
     carry both. Reserved risk rows and `X.*` methods are kept, not dropped.
     """
-    frame = grants.merge(labels[["grant_id", "primary"]], on="grant_id").merge(
-        methods[["grant_id", "method"]], on="grant_id"
-    )
+    if splits is None:
+        frame = grants.merge(labels[["grant_id", "primary"]], on="grant_id").merge(
+            methods[["grant_id", "method"]], on="grant_id"
+        ).rename(columns={"primary": "risk"})
+        frame["amount_share_usd"] = frame["amount_usd"]
+    else:
+        from riskdlab.funding.splits import apply_splits
+
+        frame = apply_splits(grants, labels, methods, splits)
     if year_from is not None:
         frame = frame[frame["year"] >= year_from]
     if year_to is not None:
         frame = frame[frame["year"] <= year_to]
     frame = frame[frame["amount_usd"].fillna(0) > 0]
     table = frame.pivot_table(
-        index="primary", columns="method", values="amount_usd", aggfunc="sum", fill_value=0.0
+        index="risk", columns="method", values="amount_share_usd", aggfunc="sum", fill_value=0.0
     )
     table = table.reindex(index=[l for l in LABELS if l in table.index])
     table = table.reindex(columns=[m for m in METHODS if m in table.columns])
     table.index.name = "risk"
-    table.attrs["n_grants"] = int(len(frame))
-    table.attrs["usd_total"] = float(frame["amount_usd"].sum())
+    table.attrs["n_grants"] = int(frame["grant_id"].nunique())
+    table.attrs["usd_total"] = float(frame["amount_share_usd"].sum())
+    if splits is None:
+        table.attrs["split_n_grantees"] = 0
+        table.attrs["split_usd"] = 0.0
+    else:
+        affected = grants[grants["grant_id"].isin(frame["grant_id"])]
+        affected = affected[affected["grantee"].isin(set(splits["grantee"]))]
+        affected = affected.drop_duplicates("grant_id")
+        table.attrs["split_n_grantees"] = int(affected["grantee"].nunique())
+        table.attrs["split_usd"] = float(affected["amount_usd"].sum())
     return table

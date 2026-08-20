@@ -16,6 +16,7 @@ normalisation and (for SFF) parsing an HTML table into CSV.
 | `scope-decisions-2026-08-20.csv` | 661 | the per-grant AI-scope decision for Coefficient's Biosecurity / Global Catastrophic Risks / Forecasting grants (515) and all FLI grants (146), with a label for the `true` rows | Same rubric and model family, one pass, 20 August 2026. 444 `false` (pure bio, nuclear, non-AI GCR), 217 `true`. Kept so that exclusions are auditable, not silent. |
 | `labels-methods-2026-08-20.csv` | 2,825 | one METHOD label per labelled grant: an MIT mitigation-control subcategory (`1.1`–`4.6`) or one of seven labels of ours (`X.research-interp`, `X.research-theory`, `X.research-empirical`, `X.forecasting`, `X.advocacy-comms`, `X.talent-community`, `X.none`) | Produced by Claude Opus against `riskdlab/funding/rubric_methods.md` (v1), 20 August 2026. The MIT control taxonomy describes controls a developer or regulator implements and has no place for research, talent or advocacy, which is most of what grants pay for; the `X.*` labels are ours and marked as such. |
 | `labels-control-2026-08-20.csv` | 120 | an independent second labelling of a random control sample | Same rubric, same model family, separate run with no access to the main labels. Agreement with the main labels: exact 91%, same MIT domain 93%, primary-or-secondary 95%. |
+| `programme-splits-2026-08-20.csv` | — | risk-label and method-label shares for the largest grantees where public information supports a programme split | Written by hand from each organisation's own published programme composition, with model-assisted search, 20 August 2026; the `basis` and `source_url` columns record the provenance for each allocation. |
 
 ## What the numbers mean
 
@@ -25,6 +26,8 @@ normalisation and (for SFF) parsing an HTML table into CSV.
 - A grant counts towards a subdomain only through its label. "General support of X" is
   labelled by what X mainly does; that is a judgement about the organisation, not the
   grant, and it is the single largest source of labelling error.
+- A programme split is an allocation assumption, shown beside the unsplit table, not a
+  measurement of how an organisation spent any particular grant.
 - Scope is decided per grant. The funders' own AI tags are the first pass; Coefficient's
   Biosecurity, GCR and Forecasting funds and all of FLI were then read grant by grant
   (`scope-decisions-*.csv`). Of the 515 Coefficient bio/GCR/forecasting grants, 87 are

@@ -1,0 +1,91 @@
+grantee,dimension,label,share,source_url,source_year,basis,confidence,note
+"80,000 Hours",method,,,https://80000hours.org/problem-profiles/,2026,no public programme composition found,none,Reviewed career guide and problem-profile index; neither allocates work across topics
+"80,000 Hours",risk,,,https://80000hours.org/problem-profiles/,2026,no public programme composition found,none,Reviewed career guide and problem-profile index; neither allocates work across topics
+Arcadia Impact,method,X.research-empirical,0.2,https://www.arcadiaimpact.org/,2026,five named activities counted equally,low,Arcadia Alignment research team
+Arcadia Impact,method,X.talent-community,0.8,https://www.arcadiaimpact.org/,2026,five named activities counted equally,low,Four training and career activities
+Arcadia Impact,risk,6.5,0.4,https://www.arcadiaimpact.org/,2026,five named activities counted equally,low,AI Governance Taskforce and Orion
+Arcadia Impact,risk,7.1,0.4,https://www.arcadiaimpact.org/,2026,five named activities counted equally,low,LASR Labs and Arcadia Alignment
+Arcadia Impact,risk,not_ai,0.2,https://www.arcadiaimpact.org/,2026,five named activities counted equally,low,Impact First general careers
+BlueDot Impact,method,X.talent-community,1.0,https://blog.bluedot.org/p/running-versions-of-our-courses-2026,2026,four currently run courses,medium,All four programs are courses and community talent development
+BlueDot Impact,risk,6.5,0.25,https://blog.bluedot.org/p/running-versions-of-our-courses-2026,2026,four currently run courses,low,Frontier AI Governance course is the governance course
+BlueDot Impact,risk,7.1,0.25,https://blog.bluedot.org/p/running-versions-of-our-courses-2026,2026,four currently run courses,low,Technical AI Safety course is the technical-safety course
+BlueDot Impact,risk,field,0.25,https://blog.bluedot.org/p/running-versions-of-our-courses-2026,2026,four currently run courses,low,AGI Strategy course is broad AI-risk orientation
+BlueDot Impact,risk,not_ai,0.25,https://blog.bluedot.org/p/running-versions-of-our-courses-2026,2026,four currently run courses,low,Biosecurity course is outside the AI-risk taxonomy
+Cambridge Boston Alignment Initiative,method,X.talent-community,1.0,https://www.cbai.ai/aixbiosecurity-fellowship-program,2026,two co-running research fellowship programs,medium,Fellowships provide mentorship; workshops; networking; and career support.
+Cambridge Boston Alignment Initiative,risk,4.2,0.5,https://www.cbai.ai/aixbiosecurity-fellowship-program,2026,two co-running research fellowship programs,low,AIxBiosecurity fellowship covers AI-enabled biological risk.
+Cambridge Boston Alignment Initiative,risk,7.1,0.5,https://www.cbai.ai/aixbiosecurity-fellowship-program,2026,two co-running research fellowship programs,low,The other named program is the AI Safety Research Fellowship.
+Center for a New American Security,method,1.2,1.0,https://s3.us-east-1.amazonaws.com/files.cnas.org/hero/documents/CNAS-AI-and-Global-Security-Initiative-Research-Agenda-July-2017.pdf,2017,five named Initiative agenda areas,low,Initiative agenda is broad national-security and AI-governance policy research
+Center for a New American Security,risk,4.2,0.20,https://s3.us-east-1.amazonaws.com/files.cnas.org/hero/documents/CNAS-AI-and-Global-Security-Initiative-Research-Agenda-July-2017.pdf,2017,five named Initiative agenda areas,low,Character of Conflict covers military applications of AI
+Center for a New American Security,risk,6.1,0.20,https://s3.us-east-1.amazonaws.com/files.cnas.org/hero/documents/CNAS-AI-and-Global-Security-Initiative-Research-Agenda-July-2017.pdf,2017,five named Initiative agenda areas,low,Shifting Power Dynamics is one of five agenda areas
+Center for a New American Security,risk,6.4,0.40,https://s3.us-east-1.amazonaws.com/files.cnas.org/hero/documents/CNAS-AI-and-Global-Security-Initiative-Research-Agenda-July-2017.pdf,2017,five named Initiative agenda areas,low,Crisis Stability and Prospects for Cooperation both concern competition and arms races
+Center for a New American Security,risk,7.1,0.20,https://s3.us-east-1.amazonaws.com/files.cnas.org/hero/documents/CNAS-AI-and-Global-Security-Initiative-Research-Agenda-July-2017.pdf,2017,five named Initiative agenda areas,low,AI Safety agenda area explicitly covers safety and control
+Centre for the Governance of AI,method,1.2,0.50,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,US policy; regulatory design; and agent governance are broad risk-management policy research
+Centre for the Governance of AI,method,1.5,0.17,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,Risk Management develops and assesses frontier safety frameworks
+Centre for the Governance of AI,method,X.forecasting,0.33,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,Threat modeling forecasts biorisk and economics studies projected impacts
+Centre for the Governance of AI,risk,4.2,0.17,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,Threat Modeling focuses on dual-use biological capabilities and biorisk
+Centre for the Governance of AI,risk,6.2,0.17,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,Economics of AI workstream studies labor-market impacts
+Centre for the Governance of AI,risk,6.5,0.66,https://cdn.governance.ai/GovAI_Annual_Report_2025.pdf,2025,six named research workstreams,low,Risk management; US policy; regulatory design; and agent governance are governance workstreams
+Constellation,method,X.talent-community,1.0,https://constellation.org/programs,2026,program page lists fellowships incubation residency and hosting,high,Published programmes principally develop talent and field capacity
+Constellation,risk,field,1.0,https://constellation.org/programs,2026,program page lists fellowships incubation residency and hosting,medium,No programme track has a published subdomain allocation
+Epoch,method,3.1,0.33,https://epoch.ai/about,2026,three named research pillars,medium,Progress runs independent evaluations and creates benchmarks
+Epoch,method,X.forecasting,0.67,https://epoch.ai/about,2026,three named research pillars,medium,Drivers and Impacts analyze trends and forecast AI effects
+Epoch,risk,7.2,0.33,https://epoch.ai/about,2026,three named research pillars,medium,Progress independently evaluates models and develops capability benchmarks
+Epoch,risk,field,0.67,https://epoch.ai/about,2026,three named research pillars,medium,Drivers and Impacts study trends and forecasts without one MIT risk subdomain
+Epoch AI,method,3.1,0.3,https://epoch.ai/about,2026,three named research areas; progress,medium,Progress work runs evaluations and creates benchmarks.
+Epoch AI,method,X.forecasting,0.7,https://epoch.ai/about,2026,three named research areas; drivers and impacts,medium,Drivers and impacts research tracks and forecasts AI trajectory.
+Epoch AI,risk,7.2,0.3,https://epoch.ai/about,2026,three named research areas; progress,medium,Progress work evaluates capabilities and creates benchmarks.
+Epoch AI,risk,field,0.7,https://epoch.ai/about,2026,three named research areas; drivers and impacts,medium,Drivers and broad societal impacts do not name a specific risk subdomain.
+FAR AI,method,3.1,0.1,https://www.far.ai/post/2023-12-far-overview/,2023,model-evaluation research agenda,low,One of three named research agendas.
+FAR AI,method,X.research-empirical,0.2,https://www.far.ai/post/2023-12-far-overview/,2023,robustness and value-alignment research agendas,low,Two of three named research agendas.
+FAR AI,method,X.talent-community,0.7,https://www.far.ai/post/2023-12-far-overview/,2023,three pillars; two are coworking and field building,low,Rounded equal-pillar allocation.
+FAR AI,risk,7.1,0.1,https://www.far.ai/post/2023-12-far-overview/,2023,three named research agendas within research pillar,low,Value alignment.
+FAR AI,risk,7.2,0.1,https://www.far.ai/post/2023-12-far-overview/,2023,three named research agendas within research pillar,low,Model evaluation.
+FAR AI,risk,7.3,0.1,https://www.far.ai/post/2023-12-far-overview/,2023,three named research agendas within research pillar,low,Science of robustness.
+FAR AI,risk,field,0.7,https://www.far.ai/post/2023-12-far-overview/,2023,three pillars; two are coworking and field building,low,The source names three equal pillars; research is then split across its three named agendas.
+Institute for AI Policy and Strategy,method,1.2,1.0,https://www.iaps.ai/,2026,all three named focus areas are policy research,medium,The source describes a policy think tank and practical policy solutions.
+Institute for AI Policy and Strategy,risk,2.2,0.1,https://www.iaps.ai/,2026,eight named focus bullets grouped by risk,low,Information and supply-chain security.
+Institute for AI Policy and Strategy,risk,4.2,0.1,https://www.iaps.ai/,2026,eight named focus bullets grouped by risk,low,Cyber and autonomy.
+Institute for AI Policy and Strategy,risk,6.4,0.1,https://www.iaps.ai/,2026,eight named focus bullets grouped by risk,low,US-China AI competition.
+Institute for AI Policy and Strategy,risk,6.5,0.6,https://www.iaps.ai/,2026,eight named focus bullets grouped by risk,low,Preparedness; compute policy; and AI state capacity.
+Institute for AI Policy and Strategy,risk,7.3,0.1,https://www.iaps.ai/,2026,eight named focus bullets grouped by risk,low,AI security and assurance.
+Institute for Law & AI,method,1.2,1.0,https://law-ai.org/wp-content/uploads/2026/05/LawAI-Annual-Report-2025-2.pdf,2025,three specialized legal teams,medium,Core work is legal research and consulting on AI policy and legal frameworks
+Institute for Law & AI,risk,6.5,1.0,https://law-ai.org/wp-content/uploads/2026/05/LawAI-Annual-Report-2025-2.pdf,2025,three specialized legal teams,medium,US Law and Policy; EU Law; and Legal Frontiers build legal AI governance infrastructure
+MATS Research,method,X.talent-community,1.0,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,high,Fellowship programme
+MATS Research,risk,2.2,0.1,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,low,Systems security track
+MATS Research,risk,4.2,0.1,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,low,Biosecurity track
+MATS Research,risk,6.5,0.1,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,low,Policy and governance track
+MATS Research,risk,7.1,0.4,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,low,Empirical and theory tracks
+MATS Research,risk,field,0.3,https://www.matsprogram.org/tracks,2027,seven named tracks grouped approximately equally,low,Founding and strategy tracks
+OpenMined,method,4.5,1.0,https://openmined.org/blog/secure-enclaves-for-ai-evaluation/,2024,secure enclaves enable cross-organisation third-party model evaluation,high,The published pilot's product is secure external evaluator access
+OpenMined,risk,2.1,0.5,https://openmined.org/blog/secure-enclaves-for-ai-evaluation/,2024,secure-enclave evaluation pilot protects data and model privacy,medium,Equal narrative split between privacy and system security
+OpenMined,risk,2.2,0.5,https://openmined.org/blog/secure-enclaves-for-ai-evaluation/,2024,secure-enclave evaluation pilot protects data and model privacy,medium,Equal narrative split between privacy and system security
+Palisade Research,method,3.1,0.5,https://palisaderesearch.org/about,2026,two named research aims,low,Investigating offensive cyber capabilities is evaluation work.
+Palisade Research,method,X.research-empirical,0.5,https://palisaderesearch.org/about,2026,two named research aims,low,Investigating controllability is empirical safety research.
+Palisade Research,risk,4.2,0.5,https://palisaderesearch.org/about,2026,two named research aims,low,Cyber offensive AI capabilities.
+Palisade Research,risk,7.1,0.5,https://palisaderesearch.org/about,2026,two named research aims,low,Controllability of frontier AI models.
+Pattern Labs,method,3.1,1.0,https://patternlabs.co/blog/bluehat-il-2025-accepted-talk,2025,published work tests frontier models' offensive cyber capabilities,high,The stated product is model capability evaluation
+Pattern Labs,risk,7.2,1.0,https://patternlabs.co/blog/bluehat-il-2025-accepted-talk,2025,published work tests frontier models' offensive cyber capabilities,high,Capability evaluations are labelled by the capabilities being measured
+RAND Corporation,method,1.2,0.5,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,Four entries are policy or technology-governance research
+RAND Corporation,method,2.1,0.25,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,Two entries concern AI assurance or security
+RAND Corporation,method,3.1,0.125,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,One entry is assurance-method research
+RAND Corporation,method,X.talent-community,0.125,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,One entry is explicitly a fellowship programme
+RAND Corporation,risk,2.2,0.25,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,Two entries concern AI assurance or AI security
+RAND Corporation,risk,6.5,0.5,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,Four of eight entries are emerging-technology or policy-centre work
+RAND Corporation,risk,7.2,0.125,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,One entry is a forecasting platform
+RAND Corporation,risk,field,0.125,https://www.goodventures.org/our-portfolio/grants-database/page/109/?limit=all,2024,eight funder grant entries grouped by stated programme aim,low,One entry is a fellowship and research programme
+Redwood Research,method,1.5,0.4,https://www.redwoodresearch.org/,2026,three described work areas estimated equally,low,Control safety-case consulting
+Redwood Research,method,3.1,0.3,https://www.redwoodresearch.org/,2026,three described work areas estimated equally,low,Deception evaluations
+Redwood Research,method,X.research-empirical,0.3,https://www.redwoodresearch.org/,2026,three described work areas estimated equally,low,AI control research
+Redwood Research,risk,7.1,1.0,https://www.redwoodresearch.org/,2026,three described work areas estimated equally,medium,All areas address misaligned systems
+Rethink Priorities,method,1.2,0.25,https://rethinkpriorities.org/five-years-of-rethink-priorities-impact-future-plans-funding-needs/,2024,2024 proposed department budgets; 3.9 of 15.1 million AI governance,high,AI governance and strategy is policy and governance research
+Rethink Priorities,method,X.none,0.75,https://rethinkpriorities.org/five-years-of-rethink-priorities-impact-future-plans-funding-needs/,2024,2024 proposed department budgets; 3.9 of 15.1 million AI governance,high,Remaining departments do not concern AI risk
+Rethink Priorities,risk,6.5,0.25,https://rethinkpriorities.org/five-years-of-rethink-priorities-impact-future-plans-funding-needs/,2024,2024 proposed department budgets; 3.9 of 15.1 million AI governance,high,Rounded from the published AI governance and strategy budget share
+Rethink Priorities,risk,not_ai,0.75,https://rethinkpriorities.org/five-years-of-rethink-priorities-impact-future-plans-funding-needs/,2024,2024 proposed department budgets; 3.9 of 15.1 million AI governance,high,All remaining published departments are non-AI cause areas
+Talos Network,method,X.talent-community,1.0,https://www.talosnetwork.org/talos-fellowship,2026,three fellowship tracks share AI governance focus,high,Training placements and incubation fellowship
+Talos Network,risk,6.5,1.0,https://www.talosnetwork.org/talos-fellowship,2026,three fellowship tracks share AI governance focus,high,European AI policy careers
+Tarbell Center for AI Journalism,method,X.advocacy-comms,1.0,https://www.tarbellcenter.org/,2026,four named programmes produce broad AI reporting,high,Journalism and public communication
+Tarbell Center for AI Journalism,risk,field,1.0,https://www.tarbellcenter.org/,2026,four named programmes produce broad AI reporting,medium,No stated risk-topic allocation
+Timaeus Research,method,X.research-empirical,0.5,https://timaeus.co/blog/updates/2026-04-09-hiring,2026,two primary research programs,medium,Patterning is a training-data intervention for alignment.
+Timaeus Research,method,X.research-interp,0.5,https://timaeus.co/blog/updates/2026-04-09-hiring,2026,two primary research programs,medium,Spectroscopy is an interpretability methodology.
+Timaeus Research,risk,7.1,0.5,https://timaeus.co/blog/updates/2026-04-09-hiring,2026,two primary research programs,medium,Patterning steers learned structures through training-data reweighting.
+Timaeus Research,risk,7.4,0.5,https://timaeus.co/blog/updates/2026-04-09-hiring,2026,two primary research programs,medium,Spectroscopy studies internal neural-network structure.

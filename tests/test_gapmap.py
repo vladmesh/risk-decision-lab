@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -18,7 +20,7 @@ def grants():
             "year": pd.array([2025, 2023, 2025, 2026, 2025], dtype="Int64"),
             "date": [""] * 5,
             "funder_program": [""] * 5,
-            "grantee": [""] * 5,
+            "grantee": ["Split Org", "Legacy Org", "Unsplit Org", "Other", "Field Org"],
             "title": [""] * 5,
             "text": [""] * 5,
             "amount_usd": [1_000_000.0, 500_000.0, 20_000.0, 0.0, 300_000.0],
@@ -58,6 +60,20 @@ def test_funding_by_label_year_window_and_sources(grants, labels):
     assert table.loc["7.1", "fund_usd"] == 1_000_000.0
     table = funding_by_label(grants, labels, sources=("sff",))
     assert table.attrs["usd_total"] == 300_000.0
+
+
+def test_funding_splits_allocate_dollars_without_double_counting(grants, labels):
+    from riskdlab.funding.splits import read_splits
+
+    splits = read_splits(Path(__file__).parent / "fixtures" / "programme-splits.csv")
+    table = funding_by_label(grants, labels, splits=splits)
+    assert table.loc["7.1", "fund_usd"] == 1_100_000.0
+    assert table.loc["6.5", "fund_usd"] == 400_000.0
+    assert table.loc["7.4", "fund_usd"] == 20_000.0, "an unsplit grant keeps its original label"
+    assert table.loc["7.1", "fund_n_grants"] == 2
+    assert table.attrs["n_grants"] == 4
+    assert table.attrs["split_n_grantees"] == 1
+    assert table.attrs["split_usd"] == 1_000_000.0
 
 
 @pytest.fixture

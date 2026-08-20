@@ -38,6 +38,7 @@ from riskdlab.funding.labels import (
     read_methods,
     risk_by_method,
 )
+from riskdlab.funding.splits import DEFAULT_SPLITS_PATH, read_splits
 from riskdlab.gapmap import build_gap_map, funding_by_label
 from riskdlab.data import read_delphi
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
@@ -356,9 +357,19 @@ def _money(value: float) -> str:
     return f"{value / 1e6:8.1f}M"
 
 
+def _split_status(table: pd.DataFrame, splits: pd.DataFrame | None) -> str:
+    if splits is None:
+        return "programme splits: not applied"
+    return (
+        f"programme splits: applied to {table.attrs['split_n_grantees']} grantees / "
+        f"${table.attrs['split_usd'] / 1e6:,.1f}M"
+    )
+
+
 def _cmd_funding(args: argparse.Namespace) -> int:
     grants = load_grants()
     labels = read_labels(args.labels)
+    splits = read_splits(args.splits) if args.splits is not None else None
     in_scope = grants[grants["ai_scope"]]
     print("# funding")
     print(
@@ -376,11 +387,12 @@ def _cmd_funding(args: argparse.Namespace) -> int:
         )
     print()
     table = funding_by_label(
-        grants, labels, year_from=args.year_from, year_to=args.year_to,
+        grants, labels, splits=splits, year_from=args.year_from, year_to=args.year_to,
         sources=tuple(args.sources) if args.sources else None,
     )
     window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
     print(f"## dollars by MIT subdomain, {window}: {table.attrs['n_grants']} funded grants, ${table.attrs['usd_total'] / 1e6:,.1f}M")
+    print(_split_status(table, splits))
     shown = table.sort_values("fund_usd", ascending=False).reset_index()
     shown["fund_usd"] = shown["fund_usd"].map(_money)
     shown["fund_share"] = shown["fund_share"].map(lambda v: f"{v:.1%}")
@@ -399,7 +411,11 @@ def _cmd_methods(args: argparse.Namespace) -> int:
     grants = load_grants()
     labels = read_labels(args.labels)
     methods = read_methods(args.methods)
-    table = risk_by_method(grants, labels, methods, year_from=args.year_from, year_to=args.year_to)
+    splits = read_splits(args.splits) if args.splits is not None else None
+    table = risk_by_method(
+        grants, labels, methods, splits=splits,
+        year_from=args.year_from, year_to=args.year_to,
+    )
     window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
     print("# risk x method")
     print(
@@ -407,6 +423,7 @@ def _cmd_methods(args: argparse.Namespace) -> int:
         f"${table.attrs['usd_total'] / 1e6:,.1f}M | columns 1.1–4.6 are MIT mitigation controls, "
         f"X.* are this repository's research/talent/advocacy labels"
     )
+    print(_split_status(table, splits))
     print()
     by_method = table.sum(axis=0).sort_values(ascending=False)
     print("## dollars by method")
@@ -431,8 +448,10 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
     delphi = read_delphi(args.delphi)
     grants = load_grants()
     labels = read_labels(args.labels)
+    splits = read_splits(args.splits) if args.splits is not None else None
     table = build_gap_map(
         delphi, grants, labels, level=args.level or "catastrophic",
+        splits=splits,
         year_from=args.year_from, year_to=args.year_to,
         sources=tuple(args.sources) if args.sources else None,
         samples=args.samples, seed=args.seed,
@@ -445,6 +464,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
         f"${table.attrs['usd_total'] / 1e6:,.1f}M | expert bootstrap {args.samples} draws, seed {args.seed}: "
         f"pair-order agreement with the point ranking {agree['bau']:.0%} (bau), {agree['reduction']:.0%} (reduction)"
     )
+    print(_split_status(table, splits))
     print("no column is a priority score; the reserved rows are money that attaches to no subdomain")
     print()
     shown = table.reset_index()
@@ -544,6 +564,16 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--sources", nargs="*", default=None,
                        help="restrict to these sources (coefficient eafunds manifund sff)")
         p.add_argument("--labels", type=Path, default=DEFAULT_LABELS_PATH)
+        split = p.add_mutually_exclusive_group()
+        split.add_argument(
+            "--splits", type=Path,
+            default=DEFAULT_SPLITS_PATH if DEFAULT_SPLITS_PATH.exists() else None,
+            help="programme split assumptions (default: committed snapshot when present)",
+        )
+        split.add_argument(
+            "--no-splits", dest="splits", action="store_const", const=None,
+            help="ignore programme split assumptions",
+        )
 
     funding = sub.add_parser("funding", help="the labelled grant snapshots: dollars by MIT subdomain")
     _window(funding)
