@@ -1,0 +1,192 @@
+<title>AI Risk Gap Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#16212c; --ink-2:#4a5866; --ink-3:#7b8794; --rule:#d9dee4;
+  --expert:#3b6ea8; --expert-soft:#dbe6f3; --money:#c8812a; --money-soft:#f5e4cf; --flag:#b6452f;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151a20; --surface:#1c232b; --ink:#e9edf1; --ink-2:#b5bec8; --ink-3:#8792a0; --rule:#303a45;
+    --expert:#5a8fd0; --expert-soft:#243547; --money:#b8782a; --money-soft:#3a2f1d; --flag:#e06b52;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151a20; --surface:#1c232b; --ink:#e9edf1; --ink-2:#b5bec8; --ink-3:#8792a0; --rule:#303a45;
+  --expert:#5a8fd0; --expert-soft:#243547; --money:#b8782a; --money-soft:#3a2f1d; --flag:#e06b52;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:40px 24px 80px}
+header h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.5vw,42px);line-height:1.12;margin:0 0 10px;text-wrap:balance;letter-spacing:-.01em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+.lede{font-size:19px;line-height:1.5;color:var(--ink-2);max-width:66ch;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:28px 0 8px}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+.stat .v{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .k{font-size:13px;color:var(--ink-3);margin-top:4px}
+h2{font-family:var(--serif);font-weight:600;font-size:24px;margin:48px 0 8px;letter-spacing:-.005em;text-wrap:balance}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:24px 0 6px}
+p{max-width:68ch;margin:8px 0}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:10px 0 6px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend .e::before{background:var(--expert)} .legend .m::before{background:var(--money)}
+.legend .f::before{background:transparent;border:2px solid var(--flag);width:10px;height:10px}
+figure{margin:14px 0 0;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 10px 8px;overflow-x:auto}
+figure svg{display:block;min-width:720px;width:100%;height:auto;font-family:var(--sans)}
+figcaption{font-size:13px;color:var(--ink-3);padding:8px 6px 4px;max-width:none}
+.axis{font-size:11px;fill:var(--ink-3);font-family:var(--mono)}
+.rowlbl{font-size:12.5px;fill:var(--ink)} .code{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.val{font-size:11px;font-family:var(--mono);fill:var(--ink-2)}
+.grid{stroke:var(--rule);stroke-width:1}
+.bar-e{fill:var(--expert)} .bar-m{fill:var(--money)} .se{stroke:var(--ink);stroke-width:1.2;opacity:.6}
+.flag{stroke:var(--flag);stroke-width:2;fill:none}
+.hdr{font-size:12px;font-weight:600;fill:var(--ink-2)}
+.findings{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+.finding{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--money);border-radius:6px;padding:12px 16px}
+.finding.e{border-left-color:var(--expert)} .finding.f{border-left-color:var(--flag)}
+.finding b{font-weight:600}
+.finding .codes{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.method{display:grid;grid-template-columns:1fr;gap:0;margin-top:10px}
+.mrow{display:grid;grid-template-columns:230px 1fr 70px;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.mrow:last-child{border-bottom:0}
+.mrow .bar{height:12px;background:var(--money);border-radius:0 3px 3px 0}
+.mrow .ours .bar{background:var(--expert)}
+.mrow .num{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.mrow .nm{color:var(--ink)} .mrow .nm small{color:var(--ink-3);font-family:var(--mono);font-size:11px;margin-left:6px}
+.caveats{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:4px 18px 8px;margin-top:12px}
+.caveats li{margin:8px 0;color:var(--ink-2)} .caveats li b{color:var(--ink)}
+table.t{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+table.t th,table.t td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.t th{font-weight:600;color:var(--ink-2)} table.t td.n,table.t th.n{text-align:right;font-family:var(--mono);font-size:12px}
+.tw{overflow-x:auto;margin-top:8px}
+details summary{cursor:pointer;color:var(--ink-2);font-weight:500}
+footer{margin-top:48px;border-top:1px solid var(--rule);padding-top:16px;font-size:13px;color:var(--ink-3)}
+footer a,a{color:var(--expert)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--expert);outline-offset:2px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;line-height:1.4;padding:8px 10px;border-radius:4px;max-width:280px;opacity:0;transform:translateY(4px);transition:opacity .12s}
+@media (prefers-reduced-motion: reduce){.tip{transition:none}}
+.tip.on{opacity:1}
+.tip b{font-weight:600}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Risk Decision Lab · working note · 20 August 2026</p>
+  <h1>Where AI-safety money goes, beside where the experts look</h1>
+  <p class="lede">MIT's AI Risk Repository gives AI risk 24 coordinates and an expert survey over them. We put five funders' public grant records into the same coordinates. <b>The two pictures do not match, and the table below says exactly where.</b> Nothing here is a ranking of what to fund; it is a map of attention — expert and financial — with the noise on both sides shown.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">$789M</div><div class="k">1,005 funded grants, 2024 – Aug 2026, five funders</div></div>
+    <div class="stat"><div class="v">24</div><div class="k">MIT risk subdomains, 209 Delphi experts</div></div>
+    <div class="stat"><div class="v">43%</div><div class="k">of the money attaches to no subdomain (field-building, general support)</div></div>
+    <div class="stat"><div class="v">91%</div><div class="k">exact agreement of two independent labellings on 120 control grants</div></div>
+  </div>
+</header>
+
+<h2>One row per subdomain: what experts expect, and what got funded</h2>
+<p>Left: the mean probability experts put on <em>catastrophic</em> harm in that subdomain if the world continues as it is (business as usual), with the within-expert standard error. Right: share of the 2024–26 dollars labelled to that subdomain. Rows are sorted by the expert side. Hover a row for the numbers.</p>
+<div class="legend"><span class="e">Expert: P(catastrophic harm, BAU), %</span><span class="m">Money: share of $789M, %</span><span class="f">Gap worth asking about</span></div>
+<figure id="fig">
+  <svg id="chart" viewBox="0 0 860 10" role="img" aria-label="Expert severity beside funding share, one row per MIT subdomain"></svg>
+  <figcaption>Expert side: MIT AI Risk Initiative Delphi study, round 3 (osf.io/pj2qr), per-expert rows, 23–116 experts per subdomain; bracketed numbers are the 90% bootstrap interval of the rank. Money side: Coefficient Giving, SFF, EA Funds, Manifund and FLI public grant records, labelled against a written rubric. Rows below the line are money that attaches to no subdomain.</figcaption>
+</figure>
+
+<h2>What the table says</h2>
+<div class="findings">
+  <div class="finding e"><b>The experts' top three have almost no money.</b> Dangerous capabilities <span class="codes">7.2</span> is the exception at 8%. Weapons &amp; cyberattacks <span class="codes">4.2</span> (rank 2 by expected severity) has $2.3M — 0.3% — and that is not a scope artefact: Coefficient's biosecurity and GCR funds were read grant by grant, and the AI-related grants there are field-building, not AI-enabled bio or cyber defence. Power centralization <span class="codes">6.1</span> (rank 3 by severity, rank 2 by expert concern) has $5.4M — 0.7% — most of it one FLI request for proposals.</div>
+  <div class="finding"><b>Six labels hold 91% of the money.</b> Field-building and general support 43%, governance 23%, misalignment 9%, capability evaluations 8%, interpretability 4%, AI-system security 4%. The portfolio is concentrated in a way the expert signal is not.</div>
+  <div class="finding f"><b>A risk taxonomy is not a method taxonomy — and the table can mislead where they cross.</b> Transparency &amp; interpretability <span class="codes">7.4</span> is last of 24 as a <em>risk</em> in the expert survey and fifth by money. A second labelling by <em>method</em> resolves it: its $34M is $30M of interpretability research, funded because it serves misalignment and evaluations, not because anyone rates opacity as a top harm. Read <span class="codes">7.4</span> as a method. <span class="codes">6.1</span> and <span class="codes">4.2</span> stay empty under every method — that is the difference between "filed elsewhere" and "not funded".</div>
+  <div class="finding e"><b>The expert side is noisy, and the noise is shown.</b> Resampling experts within each subdomain keeps 83% of pairwise orderings; the first seven subdomains sit within five percentage points of each other with standard errors of 1–2.5 points. The rank intervals in the chart are wide on purpose. Reading any single rank difference as a fact would be a mistake the data does not support.</div>
+</div>
+
+<h2>The same dollars, by what kind of work they buy</h2>
+<p>Every grant also carries a method label: one of the 23 mitigation controls in MIT's draft control taxonomy, or — because that taxonomy has no place for research, talent or advocacy, which is most of what grants pay for — one of seven labels of ours, marked <span class="codes" style="font-family:var(--mono);font-size:12px">X.*</span>.</p>
+<div class="method" id="methods"></div>
+<p style="font-size:13px;color:var(--ink-3)">Bars in blue are our labels; bars in ochre are MIT control subcategories (1.2 risk management &amp; regulation, 3.1 testing &amp; evaluation, 2.1 model security, 4.5 third-party access, 2.3 safety engineering).</p>
+
+<h2>How to read it, and how not to</h2>
+<ul class="caveats">
+  <li><b>Not cost-effectiveness.</b> Nobody has measured what a dollar buys in any subdomain; the MIT mitigation database carries no effectiveness or cost. A low-money, high-severity row is a reason to ask why, not a conclusion.</li>
+  <li><b>Five funders, public records only.</b> Corporate labs, governments, most academic funding and private donors are invisible. Coefficient Giving alone is $305M of the $338M in <em>field</em>; its grants carry a title and an organisation, no description.</li>
+  <li><b>Labels are model-produced</b> against a written rubric, with a second independent labelling of 120 control grants: 91% exact agreement on the subdomain, 93% on the MIT domain. "General support of X" is labelled by what X mainly does — a judgement about the organisation, the largest source of error. A human-labelled control sample is the next step.</li>
+  <li><b>Amounts differ in kind.</b> Coefficient and EA Funds publish granted amounts; SFF and FLI recommended amounts; Manifund the money actually raised. Years are award years.</li>
+  <li><b>The expert number is a mean subjective probability</b> on a five-level harm scale, from 23–116 experts per subdomain; it is not a magnitude, and the "pragmatic mitigations" scenario it was paired with is a single unspecified hypothetical.</li>
+</ul>
+
+<h2>Full table</h2>
+<details><summary>All 24 subdomains plus the three unattributed rows, as numbers</summary>
+<div class="tw"><table class="t" id="tbl"></table></div>
+</details>
+
+<footer>
+  Code, data snapshots, labels, rubrics and the saved result files: <a href="https://github.com/vladmesh/risk-decision-lab">github.com/vladmesh/risk-decision-lab</a> (MIT licence; third-party data under its own terms). Sources: MIT AI Risk Initiative (airisk.mit.edu; arXiv:2408.12622, 2606.04490, 2512.11931); coefficientgiving.org, survivalandflourishing.fund, funds.effectivealtruism.org, manifund.org, futureoflife.org. Snapshots taken 20 August 2026.
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<script id="data" type="application/json">{"rows":[{"label":"1.1","name":"Discrimination","bau":9.1,"se":1.0,"n":68,"concern":12.4,"rank":23,"r05":13,"r95":24,"usd":0.6,"share":0.1,"n_grants":3},{"label":"1.2","name":"Toxic content","bau":9.7,"se":1.2,"n":36,"concern":7.1,"rank":20,"r05":12,"r95":24,"usd":0.0,"share":0.0,"n_grants":0},{"label":"1.3","name":"Unequal performance","bau":9.2,"se":1.5,"n":62,"concern":3.3,"rank":22,"r05":13,"r95":24,"usd":0.0,"share":0.0,"n_grants":0},{"label":"2.1","name":"Loss of privacy","bau":11.2,"se":1.3,"n":69,"concern":10.5,"rank":16,"r05":9,"r95":22,"usd":0.1,"share":0.0,"n_grants":1},{"label":"2.2","name":"AI security vulnerabilities","bau":15.7,"se":1.6,"n":75,"concern":16.2,"rank":8,"r05":3,"r95":14,"usd":33.5,"share":4.2,"n_grants":32},{"label":"3.1","name":"False information","bau":12.8,"se":0.9,"n":43,"concern":21.9,"rank":10,"r05":5,"r95":20,"usd":6.1,"share":0.8,"n_grants":2},{"label":"3.2","name":"Loss of consensus reality","bau":12.6,"se":1.0,"n":66,"concern":8.6,"rank":11,"r05":6,"r95":19,"usd":0.2,"share":0.0,"n_grants":1},{"label":"4.1","name":"Disinformation & influence","bau":12.6,"se":1.2,"n":62,"concern":21.9,"rank":12,"r05":7,"r95":19,"usd":1.1,"share":0.1,"n_grants":3},{"label":"4.2","name":"Weapons & cyberattacks","bau":21.0,"se":2.5,"n":61,"concern":11.9,"rank":2,"r05":1,"r95":6,"usd":2.3,"share":0.3,"n_grants":5},{"label":"4.3","name":"Fraud & scams","bau":11.5,"se":0.7,"n":50,"concern":26.7,"rank":14,"r05":6,"r95":23,"usd":0.6,"share":0.1,"n_grants":4},{"label":"5.1","name":"Overreliance & unsafe use","bau":10.7,"se":0.8,"n":79,"concern":17.6,"rank":17,"r05":11,"r95":22,"usd":1.3,"share":0.2,"n_grants":6},{"label":"5.2","name":"Loss of human agency","bau":11.5,"se":1.0,"n":85,"concern":18.1,"rank":15,"r05":9,"r95":21,"usd":0.1,"share":0.0,"n_grants":1},{"label":"6.1","name":"Power centralization","bau":18.0,"se":1.1,"n":53,"concern":23.8,"rank":3,"r05":1,"r95":12,"usd":5.4,"share":0.7,"n_grants":16},{"label":"6.2","name":"Inequality & unemployment","bau":17.1,"se":1.5,"n":43,"concern":7.6,"rank":4,"r05":1,"r95":14,"usd":5.6,"share":0.7,"n_grants":12},{"label":"6.3","name":"Devaluation of human creativity","bau":9.5,"se":1.1,"n":30,"concern":4.8,"rank":21,"r05":11,"r95":24,"usd":0.3,"share":0.0,"n_grants":2},{"label":"6.4","name":"Competitive dynamics","bau":16.6,"se":1.6,"n":41,"concern":7.1,"rank":7,"r05":2,"r95":12,"usd":13.5,"share":1.7,"n_grants":18},{"label":"6.5","name":"Governance failure","bau":14.4,"se":0.9,"n":116,"concern":11.4,"rank":9,"r05":5,"r95":14,"usd":179.2,"share":22.7,"n_grants":144},{"label":"6.6","name":"Environmental harm","bau":17.1,"se":1.8,"n":23,"concern":2.9,"rank":5,"r05":1,"r95":19,"usd":0.0,"share":0.0,"n_grants":0},{"label":"7.1","name":"AI misalignment","bau":16.6,"se":1.4,"n":85,"concern":18.1,"rank":6,"r05":3,"r95":11,"usd":72.0,"share":9.1,"n_grants":125},{"label":"7.2","name":"Dangerous capabilities","bau":21.5,"se":1.5,"n":80,"concern":21.9,"rank":1,"r05":1,"r95":5,"usd":64.7,"share":8.2,"n_grants":87},{"label":"7.3","name":"Capability & robustness","bau":10.7,"se":1.2,"n":82,"concern":6.2,"rank":18,"r05":10,"r95":22,"usd":17.9,"share":2.3,"n_grants":25},{"label":"7.4","name":"Transparency & interpretability","bau":7.5,"se":0.6,"n":111,"concern":9.5,"rank":24,"r05":20,"r95":24,"usd":33.8,"share":4.3,"n_grants":108},{"label":"7.5","name":"AI welfare","bau":10.1,"se":1.4,"n":35,"concern":1.9,"rank":19,"r05":7,"r95":24,"usd":0.1,"share":0.0,"n_grants":4},{"label":"7.6","name":"Multi-agent risks","bau":12.2,"se":1.4,"n":73,"concern":8.6,"rank":13,"r05":8,"r95":20,"usd":5.6,"share":0.7,"n_grants":16},{"label":"field","name":"(field-building, unattributed)","bau":null,"se":null,"n":null,"concern":null,"rank":null,"r05":null,"r95":null,"usd":338.1,"share":42.8,"n_grants":347},{"label":"not_ai","name":"(not AI risk)","bau":null,"se":null,"n":null,"concern":null,"rank":null,"r05":null,"r95":null,"usd":5.2,"share":0.7,"n_grants":30},{"label":"unknown","name":"(unknown)","bau":null,"se":null,"n":null,"concern":null,"rank":null,"r05":null,"r95":null,"usd":2.3,"share":0.3,"n_grants":13}],"methods":{"X.talent-community":240.0,"1.2":163.6,"X.research-empirical":117.6,"3.1":75.7,"X.advocacy-comms":44.1,"X.forecasting":33.5,"X.research-interp":30.2,"X.research-theory":24.8,"X.none":23.8,"2.1":15.6,"4.5":11.3,"2.3":4.3,"3.2":1.7,"2.2":1.6,"3.5":0.7,"1.7":0.4,"4.4":0.4,"4.3":0.2,"1.5":0.1},"keyrows":{"7.4":{"X.research-interp":30.1,"X.research-empirical":2.9},"7.2":{"2.3":2.3,"3.1":60.8,"X.forecasting":1.0},"7.1":{"2.2":1.1,"3.1":5.4,"X.research-theory":7.3,"X.research-empirical":57.3},"6.5":{"1.2":149.3,"3.1":5.6,"X.advocacy-comms":18.2,"X.talent-community":1.8,"X.none":3.5},"6.1":{"2.3":0.5,"3.2":1.7,"X.advocacy-comms":1.7,"X.none":0.7},"4.2":{"X.forecasting":1.5},"field":{"1.2":3.8,"X.research-theory":1.7,"X.research-empirical":42.9,"X.forecasting":24.7,"X.advocacy-comms":17.4,"X.talent-community":234.3,"X.none":12.8}}}
+</script>
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('data').textContent);
+  var rows = D.rows.filter(function(r){return r.bau!==null;}).sort(function(a,b){return b.bau-a.bau;});
+  var reserved = D.rows.filter(function(r){return r.bau===null;});
+  var flagged = {'6.1':1,'4.2':1,'7.4':1};
+  var W=860, left=230, gap=24, colW=(W-left-gap-20)/2, rowH=22, top=30;
+  var N=rows.length+reserved.length+1;
+  var H=top+N*rowH+16;
+  var svg=document.getElementById('chart'); svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e;}
+  var maxE=30, maxM=65;
+  var xE=function(v){return left+ (v/maxE)*colW;}, xM=function(v){return left+colW+gap+(v/maxM)*colW;};
+  // headers
+  svg.appendChild(el('text',{x:left,y:14,'class':'hdr'},'P(catastrophic, BAU) %'));
+  svg.appendChild(el('text',{x:left+colW+gap,y:14,'class':'hdr'},'Share of $789M, 2024–26'));
+  [0,10,20,30].forEach(function(v){svg.appendChild(el('line',{x1:xE(v),x2:xE(v),y1:top-6,y2:top+(rows.length)*rowH,'class':'grid'}));svg.appendChild(el('text',{x:xE(v),y:top-9,'class':'axis','text-anchor':'middle'},v));});
+  [0,20,40,60].forEach(function(v){svg.appendChild(el('line',{x1:xM(v),x2:xM(v),y1:top-6,y2:top+(N)*rowH-8,'class':'grid'}));svg.appendChild(el('text',{x:xM(v),y:top-9,'class':'axis','text-anchor':'middle'},v+'%'));});
+  var tip=document.getElementById('tip');
+  function show(ev,html){tip.innerHTML=html;tip.classList.add('on');move(ev);}
+  function move(ev){var x=ev.clientX+14,y=ev.clientY+14;if(x+300>window.innerWidth)x=ev.clientX-300;tip.style.left=x+'px';tip.style.top=y+'px';}
+  function hide(){tip.classList.remove('on');}
+  function row(r,i,isRes){
+    var y=top+i*rowH; var g=el('g',{});
+    var hit=el('rect',{x:0,y:y-2,width:W,height:rowH,fill:'transparent'});
+    g.appendChild(hit);
+    if(flagged[r.label]){g.appendChild(el('rect',{x:4,y:y-1,width:W-8,height:rowH-2,rx:3,'class':'flag'}));}
+    g.appendChild(el('text',{x:8,y:y+13,'class':'code'},r.label));
+    g.appendChild(el('text',{x:44,y:y+13,'class':'rowlbl'},r.name));
+    if(!isRes){
+      g.appendChild(el('rect',{x:xE(0),y:y+3,width:Math.max(0,xE(r.bau)-xE(0)),height:12,rx:0,'class':'bar-e'}));
+      if(r.se!=null){g.appendChild(el('line',{x1:xE(Math.max(0,r.bau-r.se)),x2:xE(r.bau+r.se),y1:y+9,y2:y+9,'class':'se'}));}
+      g.appendChild(el('text',{x:xE(r.bau+ (r.se||0))+5,y:y+13,'class':'val'},r.bau.toFixed(1)+'  ['+r.r05+'–'+r.r95+']'));
+    }
+    var wM=Math.max(0,xM(r.share)-xM(0));
+    g.appendChild(el('rect',{x:xM(0),y:y+3,width:wM,height:12,'class':'bar-m'}));
+    g.appendChild(el('text',{x:xM(r.share)+5,y:y+13,'class':'val'},(r.share<0.05&&r.usd>0?'<0.1':r.share.toFixed(1))+'%  $'+r.usd.toFixed(1)+'M'));
+    var html='<b>'+r.label+' '+r.name+'</b><br>'+(isRes?'':('Experts: '+r.bau+'% catastrophic (BAU), ±'+r.se+' pp, n='+r.n+'; rank '+r.rank+' (90% interval '+r.r05+'–'+r.r95+'); top-3 concern for '+r.concern+'%<br>'))+'Money 2024–26: $'+r.usd+'M, '+r.share+'% of total, '+r.n_grants+' grants';
+    g.addEventListener('mousemove',function(ev){show(ev,html);}); g.addEventListener('mouseleave',hide);
+    svg.appendChild(g);
+  }
+  rows.forEach(function(r,i){row(r,i,false);});
+  var ySep=top+rows.length*rowH+4;
+  svg.appendChild(el('line',{x1:8,x2:W-8,y1:ySep,y2:ySep,'class':'grid'}));
+  reserved.forEach(function(r,i){row(r,rows.length+1+i,true);});
+  // methods
+  var mwrap=document.getElementById('methods'); var names={'X.talent-community':'Talent & community','1.2':'Risk management & regulation','X.research-empirical':'Empirical safety research','3.1':'Testing, evaluation & auditing','X.advocacy-comms':'Advocacy & communication','X.forecasting':'Forecasting & strategy','X.research-interp':'Interpretability research','X.research-theory':'Theory & agent foundations','X.none':'No method fits','2.1':'Model & infrastructure security','4.5':'Third-party system access','2.3':'Model safety engineering'};
+  var tot=0; for(var k in D.methods) tot+=D.methods[k];
+  var keys=Object.keys(D.methods).filter(function(k){return D.methods[k]>=1;});
+  var mx=Math.max.apply(null,keys.map(function(k){return D.methods[k];}));
+  keys.forEach(function(k){var v=D.methods[k];var d=document.createElement('div');d.className='mrow';
+    d.innerHTML='<div class="nm">'+(names[k]||k)+'<small>'+k+'</small></div><div class="'+(k.indexOf('X.')===0?'ours':'')+'"><div class="bar" style="width:'+(v/mx*100).toFixed(1)+'%"></div></div><div class="num">$'+v.toFixed(0)+'M · '+(v/tot*100).toFixed(0)+'%</div>';
+    mwrap.appendChild(d);});
+  // table
+  var t=document.getElementById('tbl'); var h='<tr><th>code</th><th>subdomain</th><th class="n">P(cat, BAU) %</th><th class="n">±se</th><th class="n">n experts</th><th class="n">rank [p5–p95]</th><th class="n">top-3 concern %</th><th class="n">$M 2024–26</th><th class="n">share</th><th class="n">grants</th></tr>';
+  rows.concat(reserved).forEach(function(r){h+='<tr><td class="n">'+r.label+'</td><td>'+r.name+'</td><td class="n">'+(r.bau==null?'':r.bau)+'</td><td class="n">'+(r.se==null?'':r.se)+'</td><td class="n">'+(r.n==null?'':r.n)+'</td><td class="n">'+(r.rank==null?'':(r.rank+' ['+r.r05+'–'+r.r95+']'))+'</td><td class="n">'+(r.concern==null?'':r.concern)+'</td><td class="n">'+r.usd+'</td><td class="n">'+r.share+'%</td><td class="n">'+r.n_grants+'</td></tr>';});
+  t.innerHTML=h;
+})();
+</script>
