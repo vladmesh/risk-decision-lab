@@ -140,7 +140,6 @@ assumption_sets/   YAML files for the earlier prototype
 tests/
 ```
 
-See [`PLAN.md`](PLAN.md) for what comes next and what would make the table decision-grade.
 
 ## Licence
 
