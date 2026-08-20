@@ -335,3 +335,27 @@ def test_derive_cross_splits_field_by_method():
     assert out["b"] == "cross", "a non-talent method under field becomes cross"
     assert out["c"] == "7.1", "subdomain labels are untouched"
     assert out["d"] == "field", "no method label: nothing to derive from"
+
+
+def test_gate_splits_keeps_whole_blocks_at_or_above_the_floor():
+    from riskdlab.funding.splits import gate_splits
+
+    splits = pd.DataFrame(
+        {
+            "grantee": ["A", "A", "B", "B", "C"],
+            "dimension": ["risk", "risk", "risk", "method", "risk"],
+            "label": ["7.1", "7.2", "6.5", "1.2", "field"],
+            "share": [0.5, 0.5, 1.0, 1.0, 1.0],
+            "source_url": [""] * 5, "source_year": [""] * 5, "basis": [""] * 5,
+            "confidence": ["high", "low", "medium", "high", "high"],
+            "note": [""] * 5,
+        }
+    )
+    medium = gate_splits(splits, "medium")
+    assert set(map(tuple, medium[["grantee", "dimension"]].drop_duplicates().values)) == {("B", "risk"), ("B", "method"), ("C", "risk")}, (
+        "A's risk block has one low row, so the whole block is dropped"
+    )
+    assert len(gate_splits(splits, "low")) == 5
+    assert set(gate_splits(splits, "high")["grantee"]) == {"B", "C"} and len(gate_splits(splits, "high")) == 2
+    with pytest.raises(ValueError):
+        gate_splits(splits, "certain")

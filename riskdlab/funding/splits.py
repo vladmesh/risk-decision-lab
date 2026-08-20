@@ -93,6 +93,23 @@ def split_eligible(frame: pd.DataFrame) -> pd.Series:
     return general | frame["risk"].isin(("field", "cross"))
 
 
+CONFIDENCE_ORDER = ("low", "medium", "high")
+
+
+def gate_splits(splits: pd.DataFrame, min_confidence: str = "medium") -> pd.DataFrame:
+    """Keep only organisation×dimension blocks whose every share meets `min_confidence`.
+
+    A block is all-or-nothing: dropping one row of a distribution would leave shares that
+    no longer sum to one. "low" keeps everything; "high" keeps only measured splits.
+    """
+    if min_confidence not in CONFIDENCE_ORDER:
+        raise ValueError(f"min_confidence must be one of {CONFIDENCE_ORDER}")
+    floor = CONFIDENCE_ORDER.index(min_confidence)
+    rank = splits["confidence"].map(lambda c: CONFIDENCE_ORDER.index(c) if c in CONFIDENCE_ORDER else -1)
+    passes = rank.groupby([splits["grantee"], splits["dimension"]]).transform("min") >= floor
+    return splits[passes].copy()
+
+
 def _apply_risk_splits(frame: pd.DataFrame, splits: pd.DataFrame) -> pd.DataFrame:
     risk = splits[splits["dimension"] == "risk"][
         ["grantee", "label", "share", "confidence"]

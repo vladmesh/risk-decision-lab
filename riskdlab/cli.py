@@ -39,7 +39,7 @@ from riskdlab.funding.labels import (
     read_methods,
     risk_by_method,
 )
-from riskdlab.funding.splits import DEFAULT_SPLITS_PATH, read_splits
+from riskdlab.funding.splits import CONFIDENCE_ORDER, DEFAULT_SPLITS_PATH, gate_splits, read_splits
 from riskdlab.gapmap import build_gap_map, funding_by_label
 from riskdlab.data import read_delphi
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
@@ -358,14 +358,20 @@ def _money(value: float) -> str:
     return f"{value / 1e6:8.1f}M"
 
 
+def _load_splits(args: argparse.Namespace) -> pd.DataFrame | None:
+    if args.splits is None:
+        return None
+    return gate_splits(read_splits(args.splits), args.splits_min_confidence)
+
+
 def _split_status(table: pd.DataFrame, splits: pd.DataFrame | None) -> str:
     if splits is None:
         return "programme splits: not applied"
     moved = table.attrs.get("split_usd_moved")
     detail = f", ${moved / 1e6:,.1f}M reallocated off the grants' own labels" if moved is not None else ""
     return (
-        f"programme splits: applied to {table.attrs['split_n_grantees']} grantees / "
-        f"${table.attrs['split_usd'] / 1e6:,.1f}M of general-support grants{detail}"
+        f"programme splits (confidence >= {table.attrs.get('split_min_confidence', '?')}): applied to "
+        f"{table.attrs['split_n_grantees']} grantees / ${table.attrs['split_usd'] / 1e6:,.1f}M of general-support grants{detail}"
     )
 
 
@@ -375,7 +381,7 @@ def _cmd_funding(args: argparse.Namespace) -> int:
     # the agreement rate compares what the two labelling runs wrote; `cross` is derived
     # afterwards from the method label and must not count as a disagreement
     labels = derive_cross(raw_labels, read_methods(args.methods))
-    splits = read_splits(args.splits) if args.splits is not None else None
+    splits = _load_splits(args)
     in_scope = grants[grants["ai_scope"]]
     print("# funding")
     print(
@@ -402,6 +408,7 @@ def _cmd_funding(args: argparse.Namespace) -> int:
         f"${table.attrs['usd_total'] / 1e6:,.1f}M reviewed, ${table.attrs['usd_total_ai'] / 1e6:,.1f}M AI-risk "
         "(shares are of the AI-risk total; not_ai is shown against the reviewed total)"
     )
+    table.attrs["split_min_confidence"] = args.splits_min_confidence
     print(_split_status(table, splits))
     shown = table.sort_values("fund_usd", ascending=False).reset_index()
     shown["fund_usd"] = shown["fund_usd"].map(_money)
@@ -428,7 +435,7 @@ def _cmd_methods(args: argparse.Namespace) -> int:
     grants = load_grants()
     methods = read_methods(args.methods)
     labels = derive_cross(read_labels(args.labels), methods)
-    splits = read_splits(args.splits) if args.splits is not None else None
+    splits = _load_splits(args)
     table = risk_by_method(
         grants, labels, methods, splits=splits,
         year_from=args.year_from, year_to=args.year_to,
@@ -440,6 +447,7 @@ def _cmd_methods(args: argparse.Namespace) -> int:
         f"${table.attrs['usd_total'] / 1e6:,.1f}M | columns 1.1–4.6 are MIT mitigation controls, "
         f"X.* are this repository's research/talent/advocacy labels"
     )
+    table.attrs["split_min_confidence"] = args.splits_min_confidence
     print(_split_status(table, splits))
     if table.attrs.get("modelled_cells"):
         print(
@@ -470,7 +478,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
     delphi = read_delphi(args.delphi)
     grants = load_grants()
     labels = derive_cross(read_labels(args.labels), read_methods(args.methods))
-    splits = read_splits(args.splits) if args.splits is not None else None
+    splits = _load_splits(args)
     table = build_gap_map(
         delphi, grants, labels, level=args.level or "catastrophic",
         splits=splits,
@@ -486,6 +494,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
         f"${table.attrs['usd_total'] / 1e6:,.1f}M reviewed, ${table.attrs['usd_total_ai'] / 1e6:,.1f}M AI-risk | expert bootstrap {args.samples} draws, seed {args.seed}: "
         f"pair-order agreement with the point ranking {agree['bau']:.0%} (bau), {agree['reduction']:.0%} (reduction)"
     )
+    table.attrs["split_min_confidence"] = args.splits_min_confidence
     print(_split_status(table, splits))
     print("no column is a priority score; the reserved rows are money that attaches to no subdomain")
     print()
@@ -589,6 +598,11 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--labels", type=Path, default=DEFAULT_LABELS_PATH)
         p.add_argument("--methods", type=Path, default=DEFAULT_METHODS_PATH)
         split = p.add_mutually_exclusive_group()
+        p.add_argument(
+            "--splits-min-confidence", choices=CONFIDENCE_ORDER, default="medium",
+            help="apply only programme splits whose every share has at least this confidence "
+                 "(default medium: measured or reasonably weighted; low applies everything)",
+        )
         split.add_argument(
             "--splits", type=Path,
             default=DEFAULT_SPLITS_PATH if DEFAULT_SPLITS_PATH.exists() else None,
