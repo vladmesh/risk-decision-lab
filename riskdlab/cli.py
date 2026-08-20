@@ -1,4 +1,5 @@
-"""CLI: rank the risk domains under one assumption set, or diff two of them."""
+"""CLI: rank the risk domains under one assumption set, diff two of them, or
+browse the committed mitigation snapshot."""
 
 from __future__ import annotations
 
@@ -10,6 +11,20 @@ import pandas as pd
 
 from riskdlab.assumptions import AssumptionSet
 from riskdlab.data import DEFAULT_DELPHI_PATH, DEFAULT_REPOSITORY_PATH, load_domains
+from riskdlab.mitigations import (
+    ACTION_ID_COLUMN,
+    DEFAULT_DOCUMENTS_PATH,
+    DEFAULT_MITIGATIONS_PATH,
+    DEFAULT_TAXONOMY_PATH,
+    SHORT_REF_COLUMN,
+    SOURCE_COLUMN,
+    check_bibliography,
+    load_mitigations,
+    read_documents,
+    read_taxonomy,
+    source_counts,
+    subcategory_counts,
+)
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
 from riskdlab.stability import DEFAULT_SAMPLES, DEFAULT_SEED, analyze_cost_stability
 
@@ -47,6 +62,47 @@ def format_stability(stability: pd.DataFrame, cutoff: int) -> str:
     share = f"top_{cutoff}_share"
     table[share] = table[share].map(lambda value: f"{value:.1%}")
     return table.to_string(index=False, float_format=_fmt, na_rep="-")
+
+
+def format_mitigation_counts(mitigations: pd.DataFrame) -> str:
+    """Two breakdowns of the same rows: by taxonomy subcategory and by source document."""
+    by_code = subcategory_counts(mitigations).reset_index()
+    by_source = source_counts(mitigations).reset_index()
+    return "\n".join(
+        [
+            "## by category and subcategory",
+            by_code.to_string(index=False),
+            "",
+            "## by source document",
+            by_source.to_string(index=False),
+        ]
+    )
+
+
+def format_subcategory(code: str, taxonomy: pd.DataFrame) -> str:
+    """The reference entry for one subcategory, or a note that it has none."""
+    if code not in taxonomy.index:
+        return (
+            f"{code}: not in the published taxonomy — a catch-all code the database uses "
+            "for mitigations that fit no named subcategory"
+        )
+    entry = taxonomy.loc[code]
+    return "\n".join(
+        [
+            f"{code} {entry['name']} (category {entry['category']} {entry['category_name']})",
+            f"  {entry['description']}",
+            f"  examples: {entry['examples']}",
+        ]
+    )
+
+
+def format_mitigation_list(mitigations: pd.DataFrame, limit: int) -> str:
+    shown = mitigations.head(limit)
+    table = shown[[ACTION_ID_COLUMN, "subcategory", "Action Name"]]
+    lines = [table.to_string(index=False)]
+    if len(mitigations) > limit:
+        lines.append(f"... {len(mitigations) - limit} more (raise --limit to see them)")
+    return "\n".join(lines)
 
 
 def format_header(
@@ -226,6 +282,61 @@ def _cmd_stability(args: argparse.Namespace) -> int:
     return 0
 
 
+def _relative(path: Path) -> str:
+    """Snapshot paths default to inside the repository; print them that way."""
+    try:
+        return str(Path(path).resolve().relative_to(Path(__file__).resolve().parent.parent))
+    except ValueError:
+        return str(path)
+
+
+def _cmd_mitigations(args: argparse.Namespace) -> int:
+    mitigations = load_mitigations(args.mitigations, args.taxonomy)
+    documents = read_documents(args.documents)
+    taxonomy = read_taxonomy(args.taxonomy)
+
+    print("# mitigations")
+    print(f"snapshot: {_relative(args.mitigations)}")
+    catch_all = mitigations[mitigations["uncategorized"]]
+    print(
+        f"{len(mitigations)} mitigations | "
+        f"{mitigations['subcategory'].nunique()} subcategory codes, "
+        f"{catch_all['subcategory'].nunique()} of them catch-alls holding "
+        f"{len(catch_all)} mitigations | {len(documents)} source documents"
+    )
+    print(check_bibliography(mitigations, documents).summary())
+    print(
+        "this dataset carries no risk linkage and no effectiveness or cost estimate; "
+        "nothing below is a priority"
+    )
+
+    total = len(mitigations)
+    filters = []
+    if args.subcategory:
+        mitigations = mitigations[mitigations["subcategory"] == args.subcategory]
+        filters.append(f"subcategory {args.subcategory}")
+    if args.source:
+        mitigations = mitigations[mitigations[SOURCE_COLUMN] == args.source]
+        filters.append(f"source {args.source}")
+    if filters:
+        print(f"filter: {' and '.join(filters)} — {len(mitigations)} of {total} mitigations")
+    if args.subcategory:
+        print(format_subcategory(args.subcategory, taxonomy))
+    print()
+
+    if mitigations.empty:
+        known = ", ".join(sorted(documents[SHORT_REF_COLUMN]))
+        print(f"no mitigation matches this filter. Known sources: {known}")
+        return 1
+
+    print(format_mitigation_counts(mitigations))
+    if args.list:
+        print()
+        print("## mitigations")
+        print(format_mitigation_list(mitigations, args.limit))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="riskdlab",
@@ -266,6 +377,23 @@ def build_parser() -> argparse.ArgumentParser:
         help="report the share of sampled rankings in the top N (default: 3)",
     )
     stability.set_defaults(func=_cmd_stability)
+
+    mitigations = sub.add_parser(
+        "mitigations",
+        help="the committed mitigation snapshot: counts by category and by source",
+    )
+    mitigations.add_argument("--subcategory", default=None,
+                             help="keep only one subcategory code, e.g. 3.1 (or X.X)")
+    mitigations.add_argument("--source", default=None,
+                             help="keep only one source document, e.g. NIST2024")
+    mitigations.add_argument("--list", action="store_true",
+                             help="also print the matching mitigations themselves")
+    mitigations.add_argument("--limit", type=_positive_int, default=20,
+                             help="how many mitigations --list prints (default: 20)")
+    mitigations.add_argument("--mitigations", type=Path, default=DEFAULT_MITIGATIONS_PATH)
+    mitigations.add_argument("--documents", type=Path, default=DEFAULT_DOCUMENTS_PATH)
+    mitigations.add_argument("--taxonomy", type=Path, default=DEFAULT_TAXONOMY_PATH)
+    mitigations.set_defaults(func=_cmd_mitigations)
 
     return parser
 

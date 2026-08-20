@@ -158,3 +158,58 @@ def test_stability_reports_sampled_rank_ranges(delphi_path, repository_path, cap
     assert "not a calibrated real-world probability" in out
     assert "best_rank" in out and "worst_rank" in out and "top_3_share" in out
     assert "Dangerous capabilities" in out
+
+
+def test_mitigations_needs_no_arguments_and_shows_both_breakdowns(capsys):
+    code = main(["mitigations"])
+    out = capsys.readouterr().out
+
+    assert code == 0
+    assert "831 mitigations" in out
+    assert "13 source documents" in out
+    assert "## by category and subcategory" in out
+    assert "## by source document" in out
+    assert "3.1" in out and "Testing & Auditing" in out
+    assert "NIST2024" in out
+    # the catch-alls are shown, not hidden
+    assert "X.X" in out
+    assert "no risk linkage and no effectiveness or cost estimate" in out
+
+
+def test_mitigations_filters_by_subcategory_and_prints_its_description(capsys):
+    code = main(["mitigations", "--subcategory", "3.2"])
+    out = capsys.readouterr().out
+
+    assert code == 0
+    assert "filter: subcategory 3.2 — 57 of 831 mitigations" in out
+    assert "3.2 Data Governance (category 3 Operational Process Controls)" in out
+    assert "examples:" in out
+    assert "Testing & Auditing" not in out
+
+
+def test_mitigations_filters_by_source(capsys):
+    code = main(["mitigations", "--source", "Wiener2024"])
+    out = capsys.readouterr().out
+
+    assert code == 0
+    assert "filter: source Wiener2024 — 10 of 831 mitigations" in out
+    assert "NIST2024" not in out.split("## by source document")[1]
+
+
+def test_mitigations_keeps_the_uncategorised_bucket_reachable(capsys):
+    code = main(["mitigations", "--subcategory", "X.X", "--list", "--limit", "3"])
+    out = capsys.readouterr().out
+
+    assert code == 0
+    assert "filter: subcategory X.X — 11 of 831 mitigations" in out
+    assert "not in the published taxonomy" in out
+    assert "... 8 more" in out
+
+
+def test_mitigations_says_so_when_a_filter_matches_nothing(capsys):
+    code = main(["mitigations", "--source", "NoSuchRef2026"])
+    out = capsys.readouterr().out
+
+    assert code == 1
+    assert "no mitigation matches this filter" in out
+    assert "NIST2024" in out

@@ -1,0 +1,175 @@
+{
+  "source": "https://readyresearch.github.io/mitigation-taxonomy-draft/",
+  "retrieved": "2026-08-20",
+  "source_sha256": "ee92d6e27dae661625e96978c32a6d7f45a59060789bd73e552824db272bfc71",
+  "licence": "unstated on the page; draft taxonomy of the MIT AI Risk Initiative",
+  "note": "The four catch-all codes used by the mitigation CSV (1.X, 2.X, 3.X, X.X) are not part of this taxonomy and have no entry here.",
+  "categories": [
+    {
+      "code": "1",
+      "name": "Governance & Oversight Controls",
+      "description": "Formal organizational structures and policy frameworks that establish human oversight mechanisms and decision protocols to ensure human accountability, ethical conduct, and risk management throughout AI development and deployment.",
+      "subcategories": [
+        {
+          "code": "1.1",
+          "name": "Board Structure & Oversight",
+          "description": "Governance structures and leadership roles that establish executive accountability for AI safety and risk management.",
+          "examples": "Dedicated risk committees, safety teams, ethics boards, crisis simulation training, multi-party authorization protocols, deployment veto powers"
+        },
+        {
+          "code": "1.2",
+          "name": "Risk Management",
+          "description": "Systematic methods that identify, evaluate, and manage AI risks for comprehensive risk governance across organizations.",
+          "examples": "Enterprise risk management frameworks, risk registers with capability thresholds, compliance programs, pre-deployment risk assessments, independent risk assessments"
+        },
+        {
+          "code": "1.3",
+          "name": "Conflict of Interest Protections",
+          "description": "Governance mechanisms that manage financial interests and organizational structures to ensure leadership can prioritize safety over profit motives in critical situations.",
+          "examples": "Background checks for key personnel, windfall profit redistribution plans, stake limitation policies, protections against shareholder pressure"
+        },
+        {
+          "code": "1.4",
+          "name": "Whistleblower Reporting & Protection",
+          "description": "Policies and systems that enable confidential reporting of safety concerns or ethical violations to prevent retaliation and encourage disclosure of risks.",
+          "examples": "Anonymous reporting channels, non-retaliation guarantees, limitations on non-disparagement agreements, external whistleblower handling services"
+        },
+        {
+          "code": "1.5",
+          "name": "Safety Decision Frameworks",
+          "description": "Protocols and commitments that constrain decision-making about model development, deployment, and capability scaling, and govern safety-capability resource allocation to prevent unsafe AI advancement.",
+          "examples": "If-then safety protocols, capability ceilings, deployment pause triggers, safety-capability resource ratios"
+        },
+        {
+          "code": "1.6",
+          "name": "Environmental Impact Management",
+          "description": "Processes for measuring, reporting, and reducing the environmental footprint of AI systems to ensure sustainability and responsible resource use.",
+          "examples": "Carbon footprint assessment, emission offset programs, energy efficiency optimization, resource consumption tracking"
+        },
+        {
+          "code": "1.7",
+          "name": "Societal Impact Assessment",
+          "description": "Processes that assess AI systems' effects on society, including impacts on employment, power dynamics, political processes, and cultural values.",
+          "examples": "Fundamental rights impact assessments, expert consultations on risk domains, stakeholder engagement processes, governance gap analyses"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "name": "Technical & Security Controls",
+      "description": "Technical, physical, and engineering safeguards that secure AI systems and constrain model behaviors to ensure security, safety, alignment with human values, and content integrity.",
+      "subcategories": [
+        {
+          "code": "2.1",
+          "name": "Model & Infrastructure Security",
+          "description": "Technical and physical safeguards that secure AI models, weights, and infrastructure to prevent unauthorized access, theft, tampering, and espionage.",
+          "examples": "Model weight tracking systems, multi-factor authentication protocols, physical access controls, background security checks, compliance with information security standards"
+        },
+        {
+          "code": "2.2",
+          "name": "Model Alignment",
+          "description": "Technical methods to ensure AI systems understand and adhere to human values and intentions.",
+          "examples": "Reinforcement learning from human feedback (RLHF), direct preference optimization (DPO), constitutional AI training, value alignment verification systems"
+        },
+        {
+          "code": "2.3",
+          "name": "Model Safety Engineering",
+          "description": "Technical methods and safeguards that constrain model behaviors and protect against exploitation and vulnerabilities.",
+          "examples": "Safety analysis protocols, capability restriction mechanisms, hazardous knowledge unlearning techniques, input/output filtering systems, defense-in-depth implementations, adversarial robustness training, hierarchical auditing, action replacement"
+        },
+        {
+          "code": "2.4",
+          "name": "Content Safety Controls",
+          "description": "Technical systems and processes that detect, filter, and label AI-generated content to identify misuse and enable content provenance tracking.",
+          "examples": "Synthetic media watermarking, content filtering mechanisms, prohibited content detection, metadata tagging protocols, deepfake creation restrictions"
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "name": "Operational Process Controls",
+      "description": "Processes and management frameworks governing AI system deployment, usage, monitoring, incident handling, and validation, which promote safety, security, and accountability throughout the system lifecycle.",
+      "subcategories": [
+        {
+          "code": "3.1",
+          "name": "Testing & Auditing",
+          "description": "Systematic internal and external evaluations that assess AI systems, infrastructure, and compliance processes to identify risks, verify safety, and ensure performance meets standards.",
+          "examples": "Third-party audits, red teaming, penetration testing, dangerous capability evaluations, bug bounty programs"
+        },
+        {
+          "code": "3.2",
+          "name": "Data Governance",
+          "description": "Policies and procedures that govern responsible data acquisition, curation, and usage to ensure compliance, quality, user privacy, and removal of harmful content.",
+          "examples": "Harmful content filtering protocols, compliance checks for data collection standards, user data privacy controls, data curation processes"
+        },
+        {
+          "code": "3.3",
+          "name": "Access Management",
+          "description": "Operational policies and verification systems that govern who can use AI systems and for what purposes to prevent safety circumvention, deliberate misuse, and deployment in high-risk contexts.",
+          "examples": "KYC verification requirements, API-only access controls, fine-tuning restrictions, acceptable use policies, high-stakes application prohibitions"
+        },
+        {
+          "code": "3.4",
+          "name": "Staged Deployment",
+          "description": "Implementation protocols that deploy AI systems in stages, requiring safety validation before expanding user access or capabilities.",
+          "examples": "Limited API access programs, gradual user base expansion, capability threshold assessments, pre-deployment validation checkpoints, treating model updates as new deployments"
+        },
+        {
+          "code": "3.5",
+          "name": "Post-deployment Monitoring",
+          "description": "Ongoing monitoring processes that track AI behavior, user interactions, and societal impacts post-deployment to detect misuse, emergent dangerous capabilities, and harmful effects.",
+          "examples": "User interaction tracking systems, capability evolution assessments, periodic impact reports, automated misuse detection, usage pattern analysis tools"
+        },
+        {
+          "code": "3.6",
+          "name": "Incident Response & Recovery",
+          "description": "Protocols and technical systems that respond to security incidents, safety failures, or capability misuse to contain harm and restore safe operations.",
+          "examples": "Incident response plans, emergency shutdown/rollback procedures, model containment mechanisms, safety drills, critical infrastructure protection measures"
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "name": "Transparency & Accountability Controls",
+      "description": "Formal disclosure practices and verification mechanisms that communicate AI system information and enable external scrutiny to build trust, facilitate oversight, and ensure accountability to users, regulators, and the public.",
+      "subcategories": [
+        {
+          "code": "4.1",
+          "name": "System Documentation",
+          "description": "Comprehensive documentation protocols that record technical specifications, intended uses, capabilities, and limitations of AI systems to enable informed evaluation and governance.",
+          "examples": "Model cards, system architecture documentation, compute resource disclosures, safety test result reports, system prompt, model specifications"
+        },
+        {
+          "code": "4.2",
+          "name": "Risk Disclosure",
+          "description": "Formal reporting protocols and notification systems that communicate risk information, mitigation plans, safety evaluations, and significant AI activities to enable external oversight and inform stakeholders.",
+          "examples": "Publishing risk assessment summaries, pre-deployment notifications to government, reporting large training runs, disclosing mitigation strategies, notifying affected parties"
+        },
+        {
+          "code": "4.3",
+          "name": "Incident Reporting",
+          "description": "Formal processes and protocols that document and share AI safety incidents, security breaches, near-misses, and relevant threat intelligence with appropriate stakeholders to enable coordinated responses and systemic improvements.",
+          "examples": "Cyber threat intelligence sharing networks, mandatory breach notification procedures, incident database contributions, cross-industry safety reporting mechanisms, standardized near-miss documentation protocols"
+        },
+        {
+          "code": "4.4",
+          "name": "Governance Disclosure",
+          "description": "Formal disclosure mechanisms that communicate governance structures, decision frameworks, and safety commitments to enhance transparency and enable external oversight of high-stakes AI decisions.",
+          "examples": "Published safety and/or alignment strategies, governance documentation, safety cases, model registration protocols, public commitment disclosures"
+        },
+        {
+          "code": "4.5",
+          "name": "Third-Party System Access",
+          "description": "Mechanisms granting controlled system access to vetted external parties to enable independent assessment, validation, and safety research of AI models and capabilities.",
+          "examples": "Researcher access programs, third-party capability assessments, government access provisions, legal safe harbors for public interest evaluations"
+        },
+        {
+          "code": "4.6",
+          "name": "User Rights & Recourse",
+          "description": "Frameworks and procedures that enable users to identify and understand AI system interactions, report issues, request explanations, and seek recourse or remediation when affected by AI systems.",
+          "examples": "User reporting channels, appeal processes, explanation request systems, remediation protocols, content verification"
+        }
+      ]
+    }
+  ]
+}

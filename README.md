@@ -18,9 +18,11 @@ analysis over the imported data.
   propagated to individual risks.
 - **Mitigation Database** (831 mitigations, 13 source documents): published as Airtable
   only, with no programmatic export, so a hand-made snapshot is committed under
-  `snapshots/`. Its taxonomy is 4 categories and 23 named subcategories plus 4 catch-alls.
-  Still no risk↔mitigation linkage and no effectiveness or cost estimates — the two
-  parameters the ranking turns out to depend on.
+  `snapshots/` and read by `riskdlab.mitigations`. Its taxonomy is 4 categories and 23
+  named subcategories plus 4 catch-alls; 127 mitigations sit in `3.1 Testing & Auditing`
+  and 125 in `1.2 Risk Management`, and two documents (NIST2024, UK Government2023)
+  contribute 373 of the 831. Still no risk↔mitigation linkage and no effectiveness or
+  cost estimates — the two parameters the ranking turns out to depend on.
 - **Sensitivity**: an unknown mitigation-cost parameter with a 3x spread across domains
   disrupts the domain ranking more (79% of pairs keep their order) than switching the
   entire scenario from business-as-usual to pragmatic mitigations (86%). The decision is
@@ -44,12 +46,18 @@ curl -sSL "https://osf.io/download/6d58m/" -o data/raw/delphi.zip && unzip -o da
 All three scripts are deterministic (fixed seed in `sensitivity.py`).
 
 The mitigation snapshots need no download step: Airtable blocks programmatic export, so
-they are committed to `snapshots/` instead. Provenance, hashes and the parsing traps are
-in [`snapshots/README.md`](snapshots/README.md).
+they are committed to `snapshots/` instead, together with a snapshot of the draft
+taxonomy page that holds the subcategory descriptions. Provenance, hashes and the parsing
+traps are in [`snapshots/README.md`](snapshots/README.md). Nothing in `riskdlab/` or in
+the tests goes to the network; the one script that does is run by hand:
+
+```bash
+.venv/bin/python experiments/fetch_taxonomy.py   # refetch the taxonomy snapshot
+```
 
 ## Prototype
 
-`riskdlab/` imports both datasets into one domain-level table and ranks the 24 domains
+`riskdlab/` imports the two downloadable datasets into one domain-level table and ranks the 24 domains
 under an **assumption set** — a named file stating the decision question, the scenario,
 the harm level, and the assumed relative mitigation cost per domain. Cost is not in any
 MIT dataset, so it is an assumption by construction; leaving it out is the assumption that
@@ -81,6 +89,38 @@ the output. `--top N` shortens the ranking tables (the diff always covers all do
 `--no-repository` runs on the Delphi file alone, dropping the `n_risk_rows` column that
 says how many repository risk rows each single estimate covers.
 
+## Mitigations
+
+The Mitigation Database is imported by `riskdlab.mitigations`, which reads the committed
+snapshot without any argument and needs no download:
+
+```bash
+.venv/bin/python -m riskdlab mitigations
+.venv/bin/python -m riskdlab mitigations --subcategory 3.1 --list
+.venv/bin/python -m riskdlab mitigations --source NIST2024
+```
+
+The command prints the breakdown by taxonomy subcategory and by source document, the
+description of a subcategory when you filter on one, and — first, every time — the state
+of the only link the data does contain: all 13 `Action Source` values match the 13
+`ShortRef` values in the documents file in both directions, and every `Action ID` has the
+form `A<number>_<Action Source>`. `check_bibliography` is the same check from Python.
+
+`MitigationCode` is split into a category and a subcategory (`3.1 Testing & Auditing` ->
+`3`, `3.1`). Four of the 27 codes are catch-alls — `1.X`, `2.X`, `3.X` and `X.X` — and
+they are kept and flagged as `uncategorized`, not filtered out: the 11 mitigations coded
+`X.X` are as real as the rest. The taxonomy is a lookup from subcategory code to name and
+description (`read_taxonomy`), and it covers the 23 named subcategories only; a catch-all
+code keeps its row with an empty description.
+
+**What is not in this data.** There is no link from a mitigation to a risk or a risk
+domain, and no estimate of a mitigation's effectiveness or cost — MIT collects neither,
+and this repository does not invent them. So the mitigation tables cannot rank
+mitigations, cannot feed the domain ranking, and cannot answer "what should we do first"
+on their own; they say what has been proposed, by whom, and under which heading. The two
+missing parameters are exactly the ones the sensitivity analysis above shows the decision
+depends on.
+
 ## Simple cost-stability analysis
 
 An assumption set may state a `default_cost_range` and domain-specific `cost_ranges`:
@@ -110,7 +150,8 @@ log-uniform sampling rule are assumptions, not observed cost data. A normal one-
 See `PLAN.md` for the path from this simple sensitivity check to a more defensible
 decision model.
 
-Tests run on synthetic fixtures and need no downloaded data:
+Tests run on synthetic fixtures plus the committed mitigation snapshot; they need no
+download and no network:
 
 ```bash
 .venv/bin/python -m pytest
@@ -121,9 +162,9 @@ Tests run on synthetic fixtures and need no downloaded data:
 Code and documentation in this repository: MIT, see [`LICENSE`](LICENSE).
 
 The data does not belong to us. The snapshots in `snapshots/` are the MIT AI Risk
-Initiative's AI Risk Mitigation Database, redistributed unmodified under CC BY 4.0; the
-Repository and Delphi datasets you download yourself carry their own licences (CC BY 4.0
-at the time of writing). Attribution details: [`snapshots/README.md`](snapshots/README.md).
+Initiative's AI Risk Mitigation Database, redistributed unmodified under CC BY 4.0, plus a
+parsed snapshot of its draft taxonomy page; the Repository and Delphi datasets you
+download yourself carry their own licences (CC BY 4.0 at the time of writing). Attribution details: [`snapshots/README.md`](snapshots/README.md).
 
 Sources: [airisk.mit.edu/risks](https://airisk.mit.edu/risks),
 [osf.io/pj2qr](https://osf.io/pj2qr), [arXiv:2606.04490](https://arxiv.org/abs/2606.04490)
