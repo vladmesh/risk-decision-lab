@@ -41,7 +41,7 @@ h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:24px 0 6px}
 p{max-width:68ch;margin:8px 0}
 .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:10px 0 6px}
 .legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.legend .e::before{background:var(--expert)} .legend .m::before{background:var(--money)}
+.legend .e::before{background:var(--expert-soft);border:2px solid var(--expert);width:8px;height:8px;border-radius:50%} .legend .m::before{background:var(--money)}
 .legend .f::before{background:transparent;border:2px solid var(--flag);width:10px;height:10px}
 figure{margin:14px 0 0;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 10px 8px;overflow-x:auto}
 figure svg{display:block;min-width:720px;width:100%;height:auto;font-family:var(--sans)}
@@ -50,7 +50,7 @@ figcaption{font-size:13px;color:var(--ink-3);padding:8px 6px 4px;max-width:none}
 .rowlbl{font-size:12.5px;fill:var(--ink)} .code{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
 .val{font-size:11px;font-family:var(--mono);fill:var(--ink-2)}
 .grid{stroke:var(--rule);stroke-width:1}
-.bar-e{fill:var(--expert)} .bar-m{fill:var(--money)} .se{stroke:var(--ink);stroke-width:1.2;opacity:.6}
+.bar-e-soft{fill:var(--expert-soft)} .pt-e{fill:var(--expert)} .bar-m{fill:var(--money)} .se{stroke:var(--expert);stroke-width:1.5}
 .flag{stroke:var(--flag);stroke-width:2;fill:none}
 .hdr{font-size:12px;font-weight:600;fill:var(--ink-2)}
 .findings{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
@@ -98,7 +98,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--expert);outline-of
 
 <h2>One row per subdomain: what experts expect, and what got funded</h2>
 <p>Left: the mean probability experts put on <em>catastrophic</em> harm in that subdomain if the world continues as it is (business as usual), with the within-expert standard error. Right: share of the 2024–26 dollars labelled to that subdomain. Rows are sorted by the expert side. Hover a row for the numbers.</p>
-<div class="legend"><span class="e">Expert: P(catastrophic harm, BAU), %</span><span class="m">Money: share of $789M, %</span><span class="f">Gap worth asking about</span></div>
+<div class="legend"><span class="e">Expert: P(catastrophic harm, BAU), % — dot is the estimate, whiskers ± one standard error, faint bar to zero</span><span class="m">Money: share of $789M, %</span><span class="f">Gap worth asking about</span></div>
 <figure id="fig">
   <svg id="chart" viewBox="0 0 860 10" role="img" aria-label="Expert severity beside funding share, one row per MIT subdomain"></svg>
   <figcaption>Expert side: MIT AI Risk Initiative Delphi study, round 3 (osf.io/pj2qr), per-expert rows, 23–116 experts per subdomain; bracketed numbers are the 90% bootstrap interval of the rank. Money side: Coefficient Giving, SFF, EA Funds, Manifund and FLI public grant records, labelled against a written rubric. Rows below the line are money that attaches to no subdomain.</figcaption>
@@ -144,7 +144,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--expert);outline-of
   var rows = D.rows.filter(function(r){return r.bau!==null;}).sort(function(a,b){return b.bau-a.bau;});
   var reserved = D.rows.filter(function(r){return r.bau===null;});
   var flagged = {'6.1':1,'4.2':1,'7.4':1};
-  var W=860, left=230, gap=24, colW=(W-left-gap-20)/2, rowH=22, top=30;
+  var W=860, left=230, gap=28, colW=(W-left-gap-20)/2, rowH=22, top=52;
   var N=rows.length+reserved.length+1;
   var H=top+N*rowH+16;
   var svg=document.getElementById('chart'); svg.setAttribute('viewBox','0 0 '+W+' '+H);
@@ -153,10 +153,10 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--expert);outline-of
   var maxE=30, maxM=65;
   var xE=function(v){return left+ (v/maxE)*colW;}, xM=function(v){return left+colW+gap+(v/maxM)*colW;};
   // headers
-  svg.appendChild(el('text',{x:left,y:14,'class':'hdr'},'P(catastrophic, BAU) %'));
-  svg.appendChild(el('text',{x:left+colW+gap,y:14,'class':'hdr'},'Share of $789M, 2024–26'));
-  [0,10,20,30].forEach(function(v){svg.appendChild(el('line',{x1:xE(v),x2:xE(v),y1:top-6,y2:top+(rows.length)*rowH,'class':'grid'}));svg.appendChild(el('text',{x:xE(v),y:top-9,'class':'axis','text-anchor':'middle'},v));});
-  [0,20,40,60].forEach(function(v){svg.appendChild(el('line',{x1:xM(v),x2:xM(v),y1:top-6,y2:top+(N)*rowH-8,'class':'grid'}));svg.appendChild(el('text',{x:xM(v),y:top-9,'class':'axis','text-anchor':'middle'},v+'%'));});
+  svg.appendChild(el('text',{x:left,y:16,'class':'hdr'},'Experts: P(catastrophic harm, BAU), % ± se'));
+  svg.appendChild(el('text',{x:left+colW+gap,y:16,'class':'hdr'},'Money: share of $789M, 2024–26'));
+  [0,10,20,30].forEach(function(v){svg.appendChild(el('line',{x1:xE(v),x2:xE(v),y1:top-4,y2:top+(rows.length)*rowH,'class':'grid'}));svg.appendChild(el('text',{x:xE(v),y:top-10,'class':'axis','text-anchor':'middle'},v));});
+  [0,20,40,60].forEach(function(v){svg.appendChild(el('line',{x1:xM(v),x2:xM(v),y1:top-4,y2:top+(N)*rowH-8,'class':'grid'}));svg.appendChild(el('text',{x:xM(v),y:top-10,'class':'axis','text-anchor':v===0?'start':'middle'},v+'%'));});
   var tip=document.getElementById('tip');
   function show(ev,html){tip.innerHTML=html;tip.classList.add('on');move(ev);}
   function move(ev){var x=ev.clientX+14,y=ev.clientY+14;if(x+300>window.innerWidth)x=ev.clientX-300;tip.style.left=x+'px';tip.style.top=y+'px';}
@@ -169,12 +169,13 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--expert);outline-of
     g.appendChild(el('text',{x:8,y:y+13,'class':'code'},r.label));
     g.appendChild(el('text',{x:44,y:y+13,'class':'rowlbl'},r.name));
     if(!isRes){
-      g.appendChild(el('rect',{x:xE(0),y:y+3,width:Math.max(0,xE(r.bau)-xE(0)),height:12,rx:0,'class':'bar-e'}));
-      if(r.se!=null){g.appendChild(el('line',{x1:xE(Math.max(0,r.bau-r.se)),x2:xE(r.bau+r.se),y1:y+9,y2:y+9,'class':'se'}));}
+      g.appendChild(el('rect',{x:xE(0),y:y+4,width:Math.max(0,xE(r.bau)-xE(0)),height:10,'class':'bar-e-soft'}));
+      if(r.se!=null){var a=xE(Math.max(0,r.bau-r.se)),b=xE(r.bau+r.se);g.appendChild(el('line',{x1:a,x2:b,y1:y+9,y2:y+9,'class':'se'}));g.appendChild(el('line',{x1:a,x2:a,y1:y+5,y2:y+13,'class':'se'}));g.appendChild(el('line',{x1:b,x2:b,y1:y+5,y2:y+13,'class':'se'}));}
+      g.appendChild(el('circle',{cx:xE(r.bau),cy:y+9,r:4,'class':'pt-e'}));
       g.appendChild(el('text',{x:xE(r.bau+ (r.se||0))+5,y:y+13,'class':'val'},r.bau.toFixed(1)+'  ['+r.r05+'–'+r.r95+']'));
     }
     var wM=Math.max(0,xM(r.share)-xM(0));
-    g.appendChild(el('rect',{x:xM(0),y:y+3,width:wM,height:12,'class':'bar-m'}));
+    g.appendChild(el('rect',{x:xM(0),y:y+4,width:wM,height:10,'class':'bar-m'}));
     g.appendChild(el('text',{x:xM(r.share)+5,y:y+13,'class':'val'},(r.share<0.05&&r.usd>0?'<0.1':r.share.toFixed(1))+'%  $'+r.usd.toFixed(1)+'M'));
     var html='<b>'+r.label+' '+r.name+'</b><br>'+(isRes?'':('Experts: '+r.bau+'% catastrophic (BAU), ±'+r.se+' pp, n='+r.n+'; rank '+r.rank+' (90% interval '+r.r05+'–'+r.r95+'); top-3 concern for '+r.concern+'%<br>'))+'Money 2024–26: $'+r.usd+'M, '+r.share+'% of total, '+r.n_grants+' grants';
     g.addEventListener('mousemove',function(ev){show(ev,html);}); g.addEventListener('mouseleave',hide);
