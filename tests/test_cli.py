@@ -220,7 +220,9 @@ def test_funding_command_runs_on_the_committed_snapshots(capsys):
 
     assert main(["funding", "--year-from", "2024"]) == 0
     out = capsys.readouterr().out
-    assert "label agreement on 120 double-labelled grants" in out
+    assert "label agreement on 120 double-labelled grants: exact 91%" in out, (
+        "agreement is measured on the labels as written; the derived cross label must not count"
+    )
     assert "dollars by MIT subdomain, 2024–latest" in out
     assert "not attached to a subdomain" in out
 

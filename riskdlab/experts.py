@@ -43,16 +43,19 @@ def expert_level_table(severity_expert: pd.DataFrame, level: str = DEFAULT_LEVEL
 
 
 def paired_reduction(severity_expert: pd.DataFrame, risks: pd.DataFrame, level: str = DEFAULT_LEVEL) -> pd.DataFrame:
-    """Per domain: mean bau, mean pm, mean within-expert reduction, its SE, and n experts."""
+    """Per domain: mean bau and pm with their SEs, mean within-expert reduction with its SE, n experts."""
     table = expert_level_table(severity_expert, level)
     grouped = table.groupby("risk_number")
+    n = grouped.size()
     out = pd.DataFrame(
         {
             "bau": grouped["bau"].mean(),
+            "bau_se": grouped["bau"].std(ddof=1) / np.sqrt(n),
             "pm": grouped["pm"].mean(),
+            "pm_se": grouped["pm"].std(ddof=1) / np.sqrt(n),
             "reduction": grouped["reduction"].mean(),
-            "reduction_se": grouped["reduction"].std(ddof=1) / np.sqrt(grouped.size()),
-            "n_experts": grouped.size(),
+            "reduction_se": grouped["reduction"].std(ddof=1) / np.sqrt(n),
+            "n_experts": n,
         }
     )
     index = risks.set_index("risk_number")[["taxonomy_id", "short_name"]]

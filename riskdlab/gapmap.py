@@ -96,7 +96,9 @@ def expert_signal(delphi: dict[str, pd.DataFrame], *, level: str = DEFAULT_LEVEL
     out = reduction.rename(
         columns={
             "bau": "delphi_bau_pct",
+            "bau_se": "delphi_bau_se",
             "pm": "delphi_pm_pct",
+            "pm_se": "delphi_pm_se",
             "reduction": "delphi_reduction_pp",
             "reduction_se": "delphi_reduction_se",
             "n_experts": "delphi_n_experts",

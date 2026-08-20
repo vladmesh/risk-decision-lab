@@ -369,7 +369,10 @@ def _split_status(table: pd.DataFrame, splits: pd.DataFrame | None) -> str:
 
 def _cmd_funding(args: argparse.Namespace) -> int:
     grants = load_grants()
-    labels = derive_cross(read_labels(args.labels), read_methods(args.methods))
+    raw_labels = read_labels(args.labels)
+    # the agreement rate compares what the two labelling runs wrote; `cross` is derived
+    # afterwards from the method label and must not count as a disagreement
+    labels = derive_cross(raw_labels, read_methods(args.methods))
     splits = read_splits(args.splits) if args.splits is not None else None
     in_scope = grants[grants["ai_scope"]]
     print("# funding")
@@ -381,7 +384,7 @@ def _cmd_funding(args: argparse.Namespace) -> int:
     print(by_source.assign(usd=by_source["usd"].map(_money)).to_string())
     if Path(args.control).exists():
         control = read_labels(args.control)
-        score = label_agreement(labels, control)
+        score = label_agreement(raw_labels, control)
         print(
             f"label agreement on {score['n']} double-labelled grants: exact {score['exact']:.0%}, "
             f"same MIT domain {score['domain']:.0%}, primary-or-secondary {score['either']:.0%}"
@@ -475,7 +478,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
             "short_name": shown["short_name"],
             "bau%": shown["delphi_bau_pct"].round(1),
             "red pp": shown["delphi_reduction_pp"].round(1),
-            "±se": shown["delphi_reduction_se"].round(1),
+            "±se": shown["delphi_bau_se"].round(1),
             "n_exp": shown["delphi_n_experts"],
             "concern%": shown["delphi_concern_pct"].round(1),
             "rank bau [p5,p95]": [

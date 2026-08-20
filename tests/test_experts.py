@@ -47,6 +47,8 @@ def test_paired_reduction_has_se_and_counts(severity_expert, risks):
     assert list(out.index) == ["4.2", "6.5", "7.1"]
     assert out.loc["7.1", "reduction"] == pytest.approx(20.0)
     assert out.loc["7.1", "reduction_se"] == pytest.approx(0.0)
+    assert out.loc["7.1", "bau_se"] == pytest.approx(0.0), "every expert said 30: no spread"
+    assert out.loc["4.2", "bau_se"] > 0 and out.loc["4.2", "pm_se"] > 0
     assert out.loc["6.5", "reduction"] == pytest.approx(0.0)
     assert out.loc["7.1", "n_experts"] == 20
     assert out.loc["4.2", "reduction_se"] > 0
