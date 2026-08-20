@@ -47,6 +47,7 @@ def funding_by_label(
         on="grant_id",
         how="inner",
     )
+    frame["risk_original"] = frame["risk"]
     if splits is not None:
         from riskdlab.funding.splits import _apply_risk_splits
 
@@ -54,6 +55,8 @@ def funding_by_label(
         frame["weight"] = frame["risk_weight"]
     else:
         frame["weight"] = 1.0
+    # a row is "from the split" when the split moved it off the grant's own label
+    frame["from_split"] = (frame["risk"] != frame["risk_original"])
     if year_from is not None:
         frame = frame[frame["year"] >= year_from]
     if year_to is not None:
@@ -67,22 +70,34 @@ def funding_by_label(
     per_source.columns = [f"fund_usd_{c}" for c in per_source.columns]
     out = pd.DataFrame(index=pd.Index(list(SUBDOMAINS) + list(RESERVED), name="label"))
     out["fund_usd"] = frame.groupby("risk")["amount_share_usd"].sum()
+    out["fund_usd_from_split"] = frame[frame["from_split"]].groupby("risk")["amount_share_usd"].sum()
+    # a split grant touches several rows; the count says how many grants touch the row,
+    # the equivalent adds up their weights so the column sums to the number of grants
     out["fund_n_grants"] = frame.groupby("risk")["grant_id"].nunique()
+    out["fund_grant_equiv"] = frame.groupby("risk")["weight"].sum()
     out["fund_n_low_confidence"] = frame[frame["confidence"] == "low"].groupby("risk")["grant_id"].nunique()
     out = out.join(per_source)
     out = out.fillna(0.0)
     out["fund_n_grants"] = out["fund_n_grants"].astype(int)
     out["fund_n_low_confidence"] = out["fund_n_low_confidence"].astype(int)
     total = out["fund_usd"].sum()
-    out["fund_share"] = out["fund_usd"] / total if total else 0.0
+    # shares are of the AI-risk money: `not_ai` is a scope-audit result, not part of the
+    # portfolio, so it is shown against the full reviewed total and left out of the base
+    total_ai = total - out.loc["not_ai", "fund_usd"]
+    out["fund_share"] = out["fund_usd"] / total_ai if total_ai else 0.0
+    out["fund_share_all"] = out["fund_usd"] / total if total else 0.0
+    out.loc["not_ai", "fund_share"] = float("nan")
     out.attrs["year_from"] = year_from
     out.attrs["year_to"] = year_to
     out.attrs["n_grants"] = int(frame["grant_id"].nunique())
     out.attrs["usd_total"] = float(total)
-    split_grantees = set() if splits is None else set(splits.loc[splits["dimension"] == "risk", "grantee"])
-    affected = frame[frame["grantee"].isin(split_grantees)].drop_duplicates("grant_id")
+    out.attrs["usd_total_ai"] = float(total_ai)
+    # affected = grants the split actually touched (eligible and matched), not every
+    # grant to an organisation that has a split row
+    affected = frame[(frame["weight"] < 1) | frame["from_split"]].drop_duplicates("grant_id")
     out.attrs["split_n_grantees"] = int(affected["grantee"].nunique())
     out.attrs["split_usd"] = float(affected["amount_usd"].sum())
+    out.attrs["split_usd_moved"] = float(frame.loc[frame["from_split"], "amount_share_usd"].sum())
     return out
 
 

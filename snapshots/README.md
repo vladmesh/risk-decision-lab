@@ -50,8 +50,9 @@ are: the package and the tests must never go to the network.
 - **Page sha256 at retrieval:** `ee92d6e27dae661625e96978c32a6d7f45a59060789bd73e552824db272bfc71`,
   recorded inside the snapshot as `source_sha256` so a later fetch can be compared.
 - **Licence:** the page states none. It is a draft published by the same group as the
-  mitigation database; treated here as CC BY 4.0 material of the MIT AI Risk Initiative
-  and reproduced with attribution.
+  mitigation database. The snapshot is kept here as a research copy with attribution; it
+  is not redistributed under any licence of ours, and will be removed or replaced by a
+  link if the authors ask or publish terms that require it.
 - **Status:** explicitly a draft. Do not treat these descriptions as the published
   taxonomy of the preprint.
 

@@ -115,3 +115,31 @@ def test_gap_map_joins_experts_and_money_and_keeps_reserved_rows(delphi, grants,
     assert "pair_agreement" in table.attrs
     # domains with no grants at all are still rows, with zero money
     assert table.loc["1.1", "fund_usd"] == 0.0
+
+
+def test_shares_exclude_not_ai_and_split_attrs_count_only_touched_grants(grants, labels, delphi):
+    from pathlib import Path
+
+    from riskdlab.funding.splits import read_splits
+
+    labels = labels.copy()
+    labels.loc[labels["grant_id"] == "s1", "primary"] = "not_ai"
+    table = funding_by_label(grants, labels)
+    assert table.attrs["usd_total_ai"] == pytest.approx(table.attrs["usd_total"] - 300_000.0)
+    assert table.drop(index="not_ai")["fund_share"].sum() == pytest.approx(1.0)
+    assert np.isnan(table.loc["not_ai", "fund_share"]) and table.loc["not_ai", "fund_share_all"] > 0
+
+    splits = read_splits(Path(__file__).parent / "fixtures" / "programme-splits.csv")
+    table = funding_by_label(grants, labels, splits=splits)
+    assert table.attrs["split_usd"] == 1_000_000.0, "only the grant the split touched, not every grant to that grantee"
+    assert table.attrs["split_usd_moved"] == pytest.approx(table["fund_usd_from_split"].sum())
+    assert table["fund_grant_equiv"].sum() == pytest.approx(table.attrs["n_grants"])
+
+
+def test_gapmap_json_is_strict(tmp_path, monkeypatch, delphi, grants, labels):
+    import json
+
+    table = build_gap_map(delphi, grants, labels, samples=10, seed=1)
+    records = table.reset_index().astype(object).where(pd.notna(table.reset_index()), None).to_dict(orient="records")
+    text = json.dumps({"attrs": table.attrs, "rows": records}, default=float, allow_nan=False)
+    json.loads(text, parse_constant=lambda c: (_ for _ in ()).throw(ValueError(c)))

@@ -21,7 +21,7 @@ riskdlab = "riskdlab.cli:main"
 include = ["riskdlab*"]
 
 [tool.setuptools.package-data]
-riskdlab = ["funding/rubric.md"]
+riskdlab = ["funding/rubric.md", "funding/rubric_methods.md"]
 
 [tool.pytest.ini_options]
 # `experiments/` holds one-off scripts that run against raw data not in git; the suite

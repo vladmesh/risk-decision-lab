@@ -361,9 +361,11 @@ def _money(value: float) -> str:
 def _split_status(table: pd.DataFrame, splits: pd.DataFrame | None) -> str:
     if splits is None:
         return "programme splits: not applied"
+    moved = table.attrs.get("split_usd_moved")
+    detail = f", ${moved / 1e6:,.1f}M reallocated off the grants' own labels" if moved is not None else ""
     return (
         f"programme splits: applied to {table.attrs['split_n_grantees']} grantees / "
-        f"${table.attrs['split_usd'] / 1e6:,.1f}M"
+        f"${table.attrs['split_usd'] / 1e6:,.1f}M of general-support grants{detail}"
     )
 
 
@@ -377,7 +379,7 @@ def _cmd_funding(args: argparse.Namespace) -> int:
     in_scope = grants[grants["ai_scope"]]
     print("# funding")
     print(
-        f"{len(grants)} grants in four snapshots | {len(in_scope)} in AI scope by the funders' "
+        f"{len(grants)} grants in five snapshots | {len(in_scope)} in AI scope by the funders' "
         f"own tags | {len(labels)} labelled"
     )
     by_source = in_scope.groupby("source").agg(n=("grant_id", "size"), usd=("amount_usd", "sum"))
@@ -395,19 +397,30 @@ def _cmd_funding(args: argparse.Namespace) -> int:
         sources=tuple(args.sources) if args.sources else None,
     )
     window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
-    print(f"## dollars by MIT subdomain, {window}: {table.attrs['n_grants']} funded grants, ${table.attrs['usd_total'] / 1e6:,.1f}M")
+    print(
+        f"## dollars by MIT subdomain, {window}: {table.attrs['n_grants']} funded grants, "
+        f"${table.attrs['usd_total'] / 1e6:,.1f}M reviewed, ${table.attrs['usd_total_ai'] / 1e6:,.1f}M AI-risk "
+        "(shares are of the AI-risk total; not_ai is shown against the reviewed total)"
+    )
     print(_split_status(table, splits))
     shown = table.sort_values("fund_usd", ascending=False).reset_index()
     shown["fund_usd"] = shown["fund_usd"].map(_money)
-    shown["fund_share"] = shown["fund_share"].map(lambda v: f"{v:.1%}")
-    cols = ["label", "fund_usd", "fund_share", "fund_n_grants", "fund_n_low_confidence"]
+    shown["fund_share"] = [
+        f"{a:.1%}" if pd.notna(a) else f"({b:.1%} of reviewed)" for a, b in zip(shown["fund_share"], shown["fund_share_all"])
+    ]
+    shown["fund_grant_equiv"] = shown["fund_grant_equiv"].round(1)
+    cols = ["label", "fund_usd", "fund_share", "fund_n_grants", "fund_grant_equiv", "fund_n_low_confidence"]
     cols += [c for c in shown.columns if c.startswith("fund_usd_")]
     for c in cols:
         if c.startswith("fund_usd_"):
             shown[c] = shown[c].map(_money)
     print(shown[cols].to_string(index=False))
-    reserved = table.loc[list(RESERVED), "fund_share"].sum()
-    print(f"\nnot attached to a subdomain (field-building, cross-cutting, not_ai, unknown): {reserved:.1%} of the dollars")
+    reserved = table.loc[["field", "cross", "unknown"], "fund_share"].sum()
+    print(
+        f"\nnot attached to a subdomain (field-building, cross-cutting, unknown): {reserved:.1%} of the AI-risk dollars"
+        " | fund_n_grants counts grants touching a row (a split grant counts in each row it touches); "
+        "fund_grant_equiv adds their weights"
+    )
     return 0
 
 
@@ -428,6 +441,11 @@ def _cmd_methods(args: argparse.Namespace) -> int:
         f"X.* are this repository's research/talent/advocacy labels"
     )
     print(_split_status(table, splits))
+    if table.attrs.get("modelled_cells"):
+        print(
+            "under the split, a cell for a split grant is the product of that organisation's risk "
+            "and method shares (modelled, not observed); row and column totals are what the sources give"
+        )
     print()
     by_method = table.sum(axis=0).sort_values(ascending=False)
     print("## dollars by method")
@@ -465,7 +483,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
     window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
     print(
         f"harm level {table.attrs['level']} | funding window {window}: {table.attrs['n_grants']} funded grants, "
-        f"${table.attrs['usd_total'] / 1e6:,.1f}M | expert bootstrap {args.samples} draws, seed {args.seed}: "
+        f"${table.attrs['usd_total'] / 1e6:,.1f}M reviewed, ${table.attrs['usd_total_ai'] / 1e6:,.1f}M AI-risk | expert bootstrap {args.samples} draws, seed {args.seed}: "
         f"pair-order agreement with the point ranking {agree['bau']:.0%} (bau), {agree['reduction']:.0%} (reduction)"
     )
     print(_split_status(table, splits))
@@ -486,7 +504,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
                 for a, b, c in zip(shown["delphi_bau_point_rank"], shown["delphi_bau_rank_p05"], shown["delphi_bau_rank_p95"])
             ],
             "$M": shown["fund_usd"].map(lambda v: f"{v / 1e6:.1f}"),
-            "share": shown["fund_share"].map(lambda v: f"{v:.1%}"),
+            "share": [f"{v:.1%}" if pd.notna(v) else "" for v in shown["fund_share"]],
             "n_grants": shown["fund_n_grants"],
         }
     )
@@ -496,8 +514,9 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
         path = Path(args.out)
         path.parent.mkdir(parents=True, exist_ok=True)
         if path.suffix.lower() == ".json":
-            payload = {"attrs": table.attrs, "rows": table.reset_index().to_dict(orient="records")}
-            path.write_text(json.dumps(payload, indent=2, default=float) + "\n", encoding="utf-8")
+            records = table.reset_index().astype(object).where(pd.notna(table.reset_index()), None).to_dict(orient="records")
+            payload = {"attrs": table.attrs, "rows": records}
+            path.write_text(json.dumps(payload, indent=2, default=float, allow_nan=False) + "\n", encoding="utf-8")
         else:
             table.to_csv(path)
         print(f"\nwritten: {path}")
@@ -507,7 +526,7 @@ def _cmd_gapmap(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="riskdlab",
-        description="Rank MIT AI risk domains under explicit assumption sets and diff them.",
+        description="Expert signal beside grant money per MIT AI-risk subdomain (funding, methods, gapmap); the assumption-set ranking (rank, compare, stability) is kept as a demonstration.",
     )
     parser.add_argument("--delphi", type=Path, default=DEFAULT_DELPHI_PATH,
                         help="path to delphi_snapshot.rds")
@@ -566,7 +585,7 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--year-from", type=int, default=None, help="first grant year to count")
         p.add_argument("--year-to", type=int, default=None, help="last grant year to count")
         p.add_argument("--sources", nargs="*", default=None,
-                       help="restrict to these sources (coefficient eafunds manifund sff)")
+                       help="restrict to these sources (coefficient eafunds manifund sff fli)")
         p.add_argument("--labels", type=Path, default=DEFAULT_LABELS_PATH)
         p.add_argument("--methods", type=Path, default=DEFAULT_METHODS_PATH)
         split = p.add_mutually_exclusive_group()

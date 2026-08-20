@@ -34,6 +34,10 @@ normalisation and (for SFF) parsing an HTML table into CSV.
   AI-risk work and almost all of those are field-building (MATS, 80,000 Hours, regional
   AI-safety groups), not AI-enabled bio or cyber defence — so the low count for `4.2` is
   what these databases contain, not an artefact of the scope filter.
+- Two Coefficient records for MATS Research, $26,924,000 each, eleven days apart in May
+  2025 with different titles ("General Support", "AI Safety Fellowships"), both under the
+  GCR fund: possibly one grant listed twice. Kept as exported and flagged; not confirmed
+  either way.
 - Five funders is not the field: corporate labs, governments, most academic funders and
   private donors are absent.
 

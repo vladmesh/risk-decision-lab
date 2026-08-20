@@ -161,11 +161,11 @@ def risk_by_method(
         table.attrs["split_n_grantees"] = 0
         table.attrs["split_usd"] = 0.0
     else:
-        affected = grants[grants["grant_id"].isin(frame["grant_id"])]
-        affected = affected[affected["grantee"].isin(set(splits["grantee"]))]
-        affected = affected.drop_duplicates("grant_id")
+        touched = frame.loc[frame["weight"] < 1, "grant_id"].unique()
+        affected = grants[grants["grant_id"].isin(touched)].drop_duplicates("grant_id")
         table.attrs["split_n_grantees"] = int(affected["grantee"].nunique())
         table.attrs["split_usd"] = float(affected["amount_usd"].sum())
+        table.attrs["modelled_cells"] = True
     return table
 
 

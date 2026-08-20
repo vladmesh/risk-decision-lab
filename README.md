@@ -9,21 +9,25 @@ before any of it can be called a priority.
 Current stage: prototype with real data end to end — snapshots, labels, the joined table,
 and a first reading of it. Nothing here is a ranking of what to fund.
 
-## What the table says (2024 – Aug 2026, five funders, $789M)
+## What the table says (2024 – Aug 2026, five funders, $776M of AI-risk grants)
 
 `results/gapmap-2024-2026-catastrophic.csv` and `results/risk-by-method-2024-2026.csv` are
-the outputs; the reading below is ours. The same table as a one-page chart with the
+the outputs (the `-nosplits` files beside them are the same tables on grant labels alone);
+the reading below is ours and, unless it says otherwise, uses the split variant. Shares are
+of the $776M labelled as AI-risk work; $14M labelled `not_ai` is reported but not in the base.
+Coefficient Giving is 89% of the dollars, so this is mostly one funder's portfolio read
+beside four smaller ones. The same table as a one-page chart with the
 findings and caveats: **[vladmesh.github.io/risk-decision-lab](https://vladmesh.github.io/risk-decision-lab/)**
 (source: `docs/index.html`).
 
 | | |
 |---|---|
-| **Where the money is** | After splitting the 21 largest general-support grantees by their own published programme mix (`snapshots/funding/programme-splits-2026-08-20.csv`, an allocation assumption with a source per row, $437M moved): governance (`6.5`) **22%**, field-building proper — talent, courses, hubs, community — **22%**, misalignment (`7.1`) **16%**, evaluations (`7.2`) 9%, cross-cutting AI-safety work whose subdomain the grant text does not say (`cross`, derived from a `field` risk label with a non-talent method label) 6%, AI-system security 6%. On grant labels alone: field-building 30%, cross-cutting 13%, misalignment 9%; governance 23% either way. Both variants are saved under `results/`. |
-| **Where the experts are** | By mean probability of catastrophic harm under business as usual, the Delphi top three are dangerous capabilities (`7.2`, 21.5%), weapons & cyberattacks (`4.2`, 21.0%) and power centralization (`6.1`, 18.0%). By share of experts naming a domain a top-3 concern: fraud & scams (`4.3`, 27%), power centralization (24%), then disinformation, false information and dangerous capabilities (22% each). |
-| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$5.4M / 0.7%** of the money with or without splits (most of it FLI's power-concentration RFP). `4.2` weapons & cyber: rank 2 by severity, **$2.3M / 0.3%** on grant labels, $26M / 3% once MATS's and CBAI's AI-bio tracks are counted — and not an artefact of scope: Coefficient's biosecurity and GCR funds were read grant by grant, and the 87 AI-related grants there are field-building, not AI-enabled bio or cyber defence. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$26–34M** as a *field*. |
-| **Risk vs method** | Every grant also carries a *method* label (MIT's 23 mitigation controls plus seven research/talent/advocacy labels of ours). The cross-table resolves the `7.4` puzzle: its $34M is **$30M of interpretability research** — a method, funded because it serves `7.1`/`7.2`, not because anyone rates opacity as a top harm. Likewise `7.2` is $61M of evaluations (`3.1`), `6.5` is $149M of risk-management and regulation work (`1.2`), `7.1` is $57M of empirical alignment research. By method, the whole portfolio is: talent & community 30%, risk management / regulation 21%, empirical safety research 15%, evaluations 10%, advocacy & communication 6%, forecasting 4%, interpretability 4%, theory 3%. |
+| **Where the money is** | After splitting the largest general-support grantees by their own published programme mix (`snapshots/funding/programme-splits-2026-08-20.csv`; an allocation assumption with a source per row; it touches $293M of general-support grants and moves $195M off their own labels): governance (`6.5`) **23%**, field-building proper — talent, courses, hubs, community — **23%**, misalignment (`7.1`) **17%**, evaluations (`7.2`) 9%, cross-cutting AI-safety work whose subdomain the grant text does not say (`cross`, derived from a `field` risk label with a non-talent method label) 6%, AI-system security 6%. The six largest rows hold 83% of the money (88% on grant labels alone, where field-building is 30%, cross-cutting 13% and misalignment 9%). Governance is 23% either way. |
+| **Where the experts are** | By mean probability of catastrophic harm under business as usual, the Delphi top three are dangerous capabilities (`7.2`, 21.5%), weapons & cyberattacks (`4.2`, 21.0%) and power centralization (`6.1`, 18.0%); together those three rows get 13% of the money, almost all of it `7.2`. By share of experts naming a domain a top-3 concern: fraud & scams (`4.3`, 27%), power centralization (24%), then disinformation, false information and dangerous capabilities (22% each). |
+| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$5.4M / 0.7%** with or without the split and no hidden method bucket behind it (most of it FLI's power-concentration RFP). `4.2` weapons & cyber: rank 2 by severity, **$2.3M / 0.3%** on grant labels, $26M / 3% once MATS's and CBAI's AI-bio tracks are counted at low confidence — not an artefact of scope: Coefficient's biosecurity and GCR funds were read grant by grant, and the 87 AI-related grants there are field-building, not AI-enabled bio or cyber defence. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$26M, sixth among subdomains** by money ($34M and fourth on grant labels alone). |
+| **Risk vs method** | Every grant also carries a *method* label (MIT's 23 mitigation controls plus seven research/talent/advocacy labels of ours). On grant labels alone the cross-table resolves the `7.4` puzzle: its $34M is **$30M of interpretability research** — a method, funded because it serves `7.1`/`7.2`, not because anyone rates opacity as a top harm. Likewise `7.2` is $61M of evaluations (`3.1`), `6.5` is $149M of risk-management and regulation work (`1.2`), `7.1` is $57M of empirical alignment research. (Under the split the cells of split grants are products of an organisation's risk and method shares — modelled, not observed — so the cross-table is read on grant labels.) By method the whole portfolio is: talent & community 32%, risk management / regulation 18%, evaluations 12%, empirical safety research 11%, forecasting 5%, advocacy & communication 5%, interpretability 4%, theory 3%. |
 | **How noisy the expert side is** | Resampling experts within each domain (1,000 draws) keeps 83% of pairwise domain orderings; rank intervals are wide (e.g. `6.6` environmental harm: point rank 5, 90% interval 1–19, from 23 experts). The first seven domains are separated by 5 percentage points with standard errors of 2–5 pp on the estimates themselves (the within-expert BAU−PM reduction has SEs of 1–2.5 pp). |
-| **How noisy the money side is** | A second, independent labelling of 120 control grants agrees with the main labels on the exact subdomain 91% of the time, on the MIT domain 93%. Labels for "General support of X" rest on what X does, not on the grant text. |
+| **How noisy the money side is** | A second, independent labelling of 120 control grants agrees with the main risk labels on the exact subdomain 91% of the time, on the MIT domain 93%; the method labels have no control sample yet. Labels for "General support of X" rest on what X does, not on the grant text. Amounts mix granted (Coefficient, EA Funds), recommended (SFF, FLI) and raised (Manifund) money, by award year, with no cross-funder flow deduplication; two Coefficient records for MATS of $26.9M each, eleven days apart, may be one grant listed twice. |
 
 The table is not cost-effectiveness: nobody has measured what a dollar buys in any
 subdomain, and the mitigation database carries no effectiveness or cost. What it does give
@@ -38,10 +42,10 @@ tests goes to the network.
 **Risk coordinates and expert signal — MIT AI Risk Initiative** ([airisk.mit.edu](https://airisk.mit.edu))
 
 - **AI Risk Repository v4** (arXiv:2408.12622): 2,574 rows extracted from 74 frameworks,
-  classified under a causal and a domain taxonomy. We use the domain taxonomy — 7 domains,
-  24 subdomains `N.N` — as the coordinate system, and the repository row counts per
-  subdomain as a measure of how much literature sits behind each number. No quantitative
-  columns.
+  classified under a causal and a domain taxonomy. The gap map uses the domain taxonomy —
+  7 domains, 24 subdomains `N.N` — as its coordinate system and nothing else from the
+  file; the earlier ranking prototype also carried the repository row count per
+  subdomain. No quantitative columns.
 - **Delphi study, Round 3** (OSF [osf.io/pj2qr](https://osf.io/pj2qr), arXiv:2606.04490):
   209 experts distributing probability over five harm levels per subdomain under two
   scenarios (business as usual, pragmatic mitigations), plus top-3 concerns with an
@@ -54,7 +58,7 @@ tests goes to the network.
   committed in `snapshots/`. It links to no risk subdomain and carries no effectiveness or
   cost, so it stands beside the gap map, not inside it.
 
-**Money — four public grant databases**, `snapshots/funding/` (details and caveats in
+**Money — five public grant databases**, `snapshots/funding/` (details and caveats in
 [`snapshots/funding/README.md`](snapshots/funding/README.md)):
 
 | funder | rows | labelled as AI-risk work | how |
@@ -93,7 +97,9 @@ curl -sSL "https://osf.io/download/6d58m/" -o data/raw/delphi.zip && unzip -o da
 .venv/bin/python -m pytest                                       # synthetic fixtures + committed snapshots, no network
 ```
 
-Only the two MIT downloads are needed; the grant snapshots and labels are in git. The
+Only the two MIT downloads are needed; the grant snapshots and labels are in git. This
+is a repository-run application: the default paths point at `snapshots/` in the checkout,
+so run it from a clone (an installed wheel does not carry the snapshots). The
 expert bootstrap is seeded (`--seed`, `--samples`); `--year-from/--year-to/--sources`
 change the funding window. `gapmap --out` writes the full table as CSV or JSON.
 
@@ -143,4 +149,4 @@ attribution in `snapshots/funding/README.md`.
 Sources: [airisk.mit.edu](https://airisk.mit.edu), [osf.io/pj2qr](https://osf.io/pj2qr),
 [arXiv:2408.12622](https://arxiv.org/abs/2408.12622), [arXiv:2606.04490](https://arxiv.org/abs/2606.04490),
 [arXiv:2512.11931](https://arxiv.org/abs/2512.11931); coefficientgiving.org,
-survivalandflourishing.fund, funds.effectivealtruism.org, manifund.org.
+survivalandflourishing.fund, funds.effectivealtruism.org, manifund.org, futureoflife.org.
