@@ -12,7 +12,9 @@ and a first reading of it. Nothing here is a ranking of what to fund.
 ## What the table says (2024 – Aug 2026, five funders, $789M)
 
 `results/gapmap-2024-2026-catastrophic.csv` and `results/risk-by-method-2024-2026.csv` are
-the outputs; the reading below is ours.
+the outputs; the reading below is ours. The same table as a one-page chart with the
+findings and caveats: **[vladmesh.github.io/risk-decision-lab](https://vladmesh.github.io/risk-decision-lab/)**
+(source: `docs/index.html`).
 
 | | |
 |---|---|
@@ -119,6 +121,7 @@ riskdlab/
   cli.py           funding | methods | gapmap | rank | compare | stability | mitigations
 snapshots/         committed third-party data with provenance (mitigations, funding, labels)
 results/           saved outputs of the commands above, dated
+docs/              the one-page gap map, served by GitHub Pages
 experiments/       one-off scripts: data recon, sensitivity, fetchers (the only code that goes online)
 assumption_sets/   YAML files for the earlier prototype
 tests/
