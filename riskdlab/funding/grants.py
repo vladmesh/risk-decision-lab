@@ -187,3 +187,63 @@ def load_grants(
     if fli_path is not None:
         frames.append(read_fli(fli_path))
     return pd.concat(frames, ignore_index=True)
+
+
+def possible_near_duplicates(
+    grants: pd.DataFrame, *, max_days: int = 30
+) -> pd.DataFrame:
+    """Flag same-source, same-grantee, same-amount records close in time.
+
+    This is an audit signal, not an automatic deduplication rule. Two genuinely
+    separate awards can have the same amount, while a duplicated public record can
+    have a different title and URL. Callers must keep both rows unless the source or
+    grantee confirms that they describe one transfer.
+    """
+    columns = [
+        "source",
+        "grantee",
+        "amount_usd",
+        "days_apart",
+        "left_grant_id",
+        "right_grant_id",
+        "left_date",
+        "right_date",
+        "left_title",
+        "right_title",
+    ]
+    if max_days < 0:
+        raise ValueError("max_days must be non-negative")
+
+    frame = grants.copy()
+    frame["parsed_date"] = pd.to_datetime(frame["date"], errors="coerce")
+    frame = frame[
+        frame["parsed_date"].notna()
+        & frame["amount_usd"].notna()
+        & frame["amount_usd"].gt(0)
+        & frame["grantee"].ne("")
+    ].sort_values(["source", "grantee", "amount_usd", "parsed_date"])
+
+    matches: list[dict[str, object]] = []
+    keys = ["source", "grantee", "amount_usd"]
+    for (source, grantee, amount), group in frame.groupby(keys, sort=False):
+        rows = list(group.itertuples(index=False))
+        for index, left in enumerate(rows):
+            for right in rows[index + 1 :]:
+                days = int((right.parsed_date - left.parsed_date).days)
+                if days > max_days:
+                    break
+                matches.append(
+                    {
+                        "source": source,
+                        "grantee": grantee,
+                        "amount_usd": float(amount),
+                        "days_apart": days,
+                        "left_grant_id": left.grant_id,
+                        "right_grant_id": right.grant_id,
+                        "left_date": left.date,
+                        "right_date": right.date,
+                        "left_title": left.title,
+                        "right_title": right.title,
+                    }
+                )
+    return pd.DataFrame(matches, columns=columns)

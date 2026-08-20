@@ -92,6 +92,13 @@ def funding_by_label(
     out.attrs["n_grants"] = int(frame["grant_id"].nunique())
     out.attrs["usd_total"] = float(total)
     out.attrs["usd_total_ai"] = float(total_ai)
+    # Splits expand a grant into several weighted rows. Amount-kind totals describe
+    # the reviewed source records, so count every funded grant exactly once.
+    reviewed = frame.drop_duplicates("grant_id")
+    out.attrs["amount_kind_usd"] = {
+        str(kind): float(value)
+        for kind, value in reviewed.groupby("amount_kind")["amount_usd"].sum().items()
+    }
     # affected = grants the split actually touched (eligible and matched), not every
     # grant to an organisation that has a split row
     affected = frame[(frame["weight"] < 1) | frame["from_split"]].drop_duplicates("grant_id")

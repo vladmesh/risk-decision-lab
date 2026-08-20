@@ -5,6 +5,11 @@
     "n_grants": 1005,
     "usd_total": 789391174.324,
     "usd_total_ai": 784250696.324,
+    "amount_kind_usd": {
+      "granted": 708296778.23,
+      "raised": 7506009.0940000005,
+      "recommended": 73588387.0
+    },
     "split_n_grantees": 6,
     "split_usd": 43809607.0,
     "split_usd_moved": 36336857.0,

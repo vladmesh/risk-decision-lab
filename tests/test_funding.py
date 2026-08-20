@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from riskdlab.funding.grants import COLUMNS, load_grants, read_coefficient, read_eafunds, read_manifund, read_sff
+from riskdlab.funding.grants import COLUMNS, load_grants, possible_near_duplicates, read_coefficient, read_eafunds, read_manifund, read_sff
 from riskdlab.funding.labels import LABELS, agreement, read_labels
 from riskdlab.funding.splits import apply_splits, read_splits
 from riskdlab.funding.fli import parse_program
@@ -201,6 +201,29 @@ def test_manifund_amount_is_raised_money(snapshot_files):
     assert grants.loc["p1", "amount_usd"] == 7500.0
     assert grants.loc["p1", "amount_kind"] == "raised"
     assert grants.loc["p2", "amount_usd"] == 0.0
+
+
+def test_possible_near_duplicates_flags_but_does_not_modify_rows():
+    grants = pd.DataFrame(
+        {
+            "source": ["coefficient", "coefficient", "coefficient", "sff"],
+            "grant_id": ["a", "b", "c", "d"],
+            "date": ["2025-05-11", "2025-05-22", "2025-07-01", "2025-05-12"],
+            "grantee": ["MATS", "MATS", "MATS", "MATS"],
+            "title": ["General support", "Fellowships", "Later grant", "Other source"],
+            "amount_usd": [26_924_000.0] * 4,
+        }
+    )
+    flagged = possible_near_duplicates(grants)
+    assert len(flagged) == 1
+    assert flagged.iloc[0]["left_grant_id"] == "a"
+    assert flagged.iloc[0]["right_grant_id"] == "b"
+    assert flagged.iloc[0]["days_apart"] == 11
+    assert len(grants) == 4, "the audit must not deduplicate source records"
+
+    unfunded = grants.iloc[[0, 1]].copy()
+    unfunded["amount_usd"] = 0.0
+    assert possible_near_duplicates(unfunded).empty
 
 
 def test_labels_are_validated(tmp_path):

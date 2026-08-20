@@ -27,7 +27,7 @@ from riskdlab.mitigations import (
     subcategory_counts,
 )
 from riskdlab.funding import agreement as label_agreement
-from riskdlab.funding.grants import load_grants
+from riskdlab.funding.grants import load_grants, possible_near_duplicates
 from riskdlab.funding.labels import (
     DEFAULT_CONTROL_PATH,
     DEFAULT_LABELS_PATH,
@@ -410,6 +410,32 @@ def _cmd_funding(args: argparse.Namespace) -> int:
     )
     table.attrs["split_min_confidence"] = args.splits_min_confidence
     print(_split_status(table, splits))
+    kinds = table.attrs.get("amount_kind_usd", {})
+    if kinds:
+        print(
+            "amount kinds (not additive evidence of one comparable flow): "
+            + ", ".join(f"{kind} ${value / 1e6:,.1f}M" for kind, value in sorted(kinds.items()))
+        )
+    duplicates = possible_near_duplicates(
+        grants.merge(raw_labels[["grant_id"]], on="grant_id", how="inner")
+    )
+    if args.year_from is not None:
+        duplicates = duplicates[duplicates["left_date"].str[:4].astype(int) >= args.year_from]
+    if args.year_to is not None:
+        duplicates = duplicates[duplicates["right_date"].str[:4].astype(int) <= args.year_to]
+    if args.sources:
+        duplicates = duplicates[duplicates["source"].isin(args.sources)]
+    if not duplicates.empty:
+        matched = duplicates["amount_usd"].sum()
+        print(
+            f"same-source exact-amount near-match audit: {len(duplicates)} pair(s), "
+            f"${matched / 1e6:,.1f}M in one side of the matched pairs; no automatic deduplication"
+        )
+        print(
+            duplicates[
+                ["source", "grantee", "amount_usd", "days_apart", "left_grant_id", "right_grant_id"]
+            ].to_string(index=False)
+        )
     shown = table.sort_values("fund_usd", ascending=False).reset_index()
     shown["fund_usd"] = shown["fund_usd"].map(_money)
     shown["fund_share"] = [

@@ -53,6 +53,10 @@ def test_funding_by_label_sums_dollars_and_counts_funded_grants(grants, labels):
     assert table.loc["field", "fund_usd_sff"] == 300_000.0
     assert table["fund_share"].sum() == pytest.approx(1.0)
     assert table.attrs["n_grants"] == 4
+    assert table.attrs["amount_kind_usd"] == {
+        "granted": 1_520_000.0,
+        "recommended": 300_000.0,
+    }
 
 
 def test_funding_by_label_year_window_and_sources(grants, labels):
