@@ -36,11 +36,12 @@ def funding_by_label(
 ) -> pd.DataFrame:
     """Dollars and grant counts per label, total and per source.
 
-    Only labelled, in-scope grants count. Manifund rows count their raised amount, which
-    is zero for unfunded proposals; they still count towards `fund_n_grants` only when
-    money moved, so a proposal nobody funded is not a grant.
+    A grant counts if and only if it carries a label — the label is the scope decision,
+    whether the funder tagged the grant as AI or not. Manifund rows count their raised
+    amount, which is zero for unfunded proposals; they count towards `fund_n_grants`
+    only when money moved, so a proposal nobody funded is not a grant.
     """
-    frame = grants[grants["ai_scope"]].merge(labels[["grant_id", "primary", "confidence"]], on="grant_id", how="inner")
+    frame = grants.merge(labels[["grant_id", "primary", "confidence"]], on="grant_id", how="inner")
     if year_from is not None:
         frame = frame[frame["year"] >= year_from]
     if year_to is not None:

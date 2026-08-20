@@ -7,7 +7,16 @@ import pytest
 
 from riskdlab.funding.grants import COLUMNS, load_grants, read_coefficient, read_eafunds, read_manifund, read_sff
 from riskdlab.funding.labels import LABELS, agreement, read_labels
+from riskdlab.funding.fli import parse_program
 from riskdlab.funding.sff import parse_round, parse_rounds
+
+FLI_PAGE = """
+<h1>Some programme</h1><p>In 2024, FLI called for proposals.</p>
+<div class="ct-div-block oxel_accordion width--full"><div>Project title</div><h4><span>AI Impacts</span></h4>
+<div>Amount recommended</div><div>$162,000.00</div><div>Details</div><div>Project Summary</div><p>General support. AI Impacts performs research related to the future of AI.</p></div>
+<div class="ct-div-block oxel_accordion width--full"><div>Project title</div><h4><span>Another Org</span></h4>
+<div>Amount recommended</div><div>$1,000.00</div><div>Project Summary</div><p>Something else.</p></div>
+"""
 
 TABLE_PAGE = """
 <html><body><table>
@@ -77,6 +86,16 @@ def test_sff_page_without_header_is_an_error():
         parse_round("<table><tr><td>no header</td></tr></table>", "2019")
 
 
+def test_fli_program_page_parses_grantee_amount_summary_and_year():
+    frame = parse_program(FLI_PAGE, "some-programme")
+    assert frame["grantee"].tolist() == ["AI Impacts", "Another Org"]
+    assert frame["amount_usd"].tolist() == [162000.0, 1000.0]
+    assert frame["summary"].iloc[0].startswith("General support. AI Impacts")
+    assert frame["year"].iloc[0] == 2024 and frame["year_basis"].iloc[0] == "intro"
+    slug_year = parse_program(FLI_PAGE, "2023-grants")
+    assert slug_year["year"].iloc[0] == 2023 and slug_year["year_basis"].iloc[0] == "slug"
+
+
 def test_parse_rounds_concatenates():
     frame = parse_rounds({"2019": TABLE_PAGE, "2025": GRID_PAGE})
     assert sorted(frame["round"].unique()) == ["2019", "2025"]
@@ -144,7 +163,7 @@ def snapshot_files(tmp_path):
             "year": ["2025", "2025"],
         }
     ).to_csv(sff, index=False)
-    return {"coefficient_path": coefficient, "eafunds_path": eafunds, "manifund_path": manifund, "sff_path": sff}
+    return {"coefficient_path": coefficient, "eafunds_path": eafunds, "manifund_path": manifund, "sff_path": sff, "fli_path": None}
 
 
 def test_each_reader_returns_the_common_columns(snapshot_files):
@@ -213,3 +232,34 @@ def test_agreement_counts_exact_domain_and_either():
     assert score["exact"] == pytest.approx(0.25)
     assert score["domain"] == pytest.approx(0.75)
     assert score["either"] == pytest.approx(0.5)
+
+
+def test_methods_are_validated_and_crossed_with_risk(tmp_path):
+    from riskdlab.funding.labels import read_methods, risk_by_method
+
+    path = tmp_path / "methods.csv"
+    pd.DataFrame(
+        {"grant_id": ["a", "b", "c"], "method": ["X.research-interp", "3.1", "X.talent-community"],
+         "confidence": ["high", "high", "medium"], "basis": ["", "", ""]}
+    ).to_csv(path, index=False)
+    methods = read_methods(path)
+    assert len(methods) == 3
+
+    bad = tmp_path / "bad.csv"
+    pd.DataFrame({"grant_id": ["a"], "method": ["5.9"], "confidence": ["high"], "basis": [""]}).to_csv(bad, index=False)
+    with pytest.raises(ValueError, match="unknown method"):
+        read_methods(bad)
+
+    grants = pd.DataFrame(
+        {"grant_id": ["a", "b", "c"], "year": pd.array([2025, 2025, 2023], dtype="Int64"),
+         "amount_usd": [100.0, 50.0, 25.0], "source": ["x"] * 3}
+    )
+    labels = pd.DataFrame(
+        {"grant_id": ["a", "b", "c"], "primary": ["7.4", "7.2", "field"], "secondary": [""] * 3,
+         "confidence": ["high"] * 3, "basis": [""] * 3}
+    )
+    table = risk_by_method(grants, labels, methods, year_from=2024)
+    assert table.loc["7.4", "X.research-interp"] == 100.0
+    assert table.loc["7.2", "3.1"] == 50.0
+    assert "field" not in table.index, "the 2023 grant is outside the window"
+    assert table.attrs["usd_total"] == 150.0

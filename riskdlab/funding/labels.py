@@ -29,9 +29,30 @@ RESERVED = ("field", "not_ai", "unknown")
 LABELS = SUBDOMAINS + RESERVED
 CONFIDENCES = ("high", "medium", "low")
 
+#: Method labels: the 23 MIT mitigation-control subcategories plus seven of our own,
+#: see `rubric_methods.md`. The MIT control taxonomy has no place for research, talent
+#: or advocacy, which is most of what grants pay for; the `X.*` labels are marked as ours.
+MIT_CONTROLS = (
+    "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7",
+    "2.1", "2.2", "2.3", "2.4",
+    "3.1", "3.2", "3.3", "3.4", "3.5", "3.6",
+    "4.1", "4.2", "4.3", "4.4", "4.5", "4.6",
+)
+OWN_METHODS = (
+    "X.research-interp",
+    "X.research-theory",
+    "X.research-empirical",
+    "X.forecasting",
+    "X.advocacy-comms",
+    "X.talent-community",
+    "X.none",
+)
+METHODS = MIT_CONTROLS + OWN_METHODS
+
 LABELS_DATE = "2026-08-20"
 DEFAULT_LABELS_PATH = SNAPSHOT_DIR / f"labels-mit-subdomains-{LABELS_DATE}.csv"
 DEFAULT_CONTROL_PATH = SNAPSHOT_DIR / f"labels-control-{LABELS_DATE}.csv"
+DEFAULT_METHODS_PATH = SNAPSHOT_DIR / f"labels-methods-{LABELS_DATE}.csv"
 
 
 def read_labels(path: Path | str = DEFAULT_LABELS_PATH) -> pd.DataFrame:
@@ -75,3 +96,55 @@ def agreement(labels: pd.DataFrame, control: pd.DataFrame) -> dict[str, float | 
         "domain": float(domain.mean()),
         "either": float(either.mean()),
     }
+
+
+def read_methods(path: Path | str = DEFAULT_METHODS_PATH) -> pd.DataFrame:
+    """The method labels table, validated: known methods and confidences, unique ids."""
+    frame = pd.read_csv(path, dtype=str, keep_default_na=False)
+    expected = ["grant_id", "method", "confidence", "basis"]
+    missing = [c for c in expected if c not in frame.columns]
+    if missing:
+        raise ValueError(f"{path}: missing column(s) {missing}")
+    bad = sorted(set(frame["method"]) - set(METHODS))
+    if bad:
+        raise ValueError(f"{path}: unknown method label(s) {bad}")
+    bad = sorted(set(frame["confidence"]) - set(CONFIDENCES))
+    if bad:
+        raise ValueError(f"{path}: unknown confidence value(s) {bad}")
+    duplicated = frame["grant_id"][frame["grant_id"].duplicated()].tolist()
+    if duplicated:
+        raise ValueError(f"{path}: duplicate grant_id {duplicated[:5]}")
+    return frame[expected]
+
+
+def risk_by_method(
+    grants: pd.DataFrame,
+    labels: pd.DataFrame,
+    methods: pd.DataFrame,
+    *,
+    year_from: int | None = None,
+    year_to: int | None = None,
+) -> pd.DataFrame:
+    """Dollars in a risk-label × method-label table, for grants that carry both.
+
+    This is the answer to "is subdomain X under-funded or just filed under a method":
+    a row is a risk label, a column a method, a cell the dollars of funded grants that
+    carry both. Reserved risk rows and `X.*` methods are kept, not dropped.
+    """
+    frame = grants.merge(labels[["grant_id", "primary"]], on="grant_id").merge(
+        methods[["grant_id", "method"]], on="grant_id"
+    )
+    if year_from is not None:
+        frame = frame[frame["year"] >= year_from]
+    if year_to is not None:
+        frame = frame[frame["year"] <= year_to]
+    frame = frame[frame["amount_usd"].fillna(0) > 0]
+    table = frame.pivot_table(
+        index="primary", columns="method", values="amount_usd", aggfunc="sum", fill_value=0.0
+    )
+    table = table.reindex(index=[l for l in LABELS if l in table.index])
+    table = table.reindex(columns=[m for m in METHODS if m in table.columns])
+    table.index.name = "risk"
+    table.attrs["n_grants"] = int(len(frame))
+    table.attrs["usd_total"] = float(frame["amount_usd"].sum())
+    return table

@@ -28,7 +28,16 @@ from riskdlab.mitigations import (
 )
 from riskdlab.funding import agreement as label_agreement
 from riskdlab.funding.grants import load_grants
-from riskdlab.funding.labels import DEFAULT_CONTROL_PATH, DEFAULT_LABELS_PATH, RESERVED, read_labels
+from riskdlab.funding.labels import (
+    DEFAULT_CONTROL_PATH,
+    DEFAULT_LABELS_PATH,
+    DEFAULT_METHODS_PATH,
+    OWN_METHODS,
+    RESERVED,
+    read_labels,
+    read_methods,
+    risk_by_method,
+)
 from riskdlab.gapmap import build_gap_map, funding_by_label
 from riskdlab.data import read_delphi
 from riskdlab.ranking import diff_rankings, pair_order_agreement, rank_domains
@@ -386,6 +395,38 @@ def _cmd_funding(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_methods(args: argparse.Namespace) -> int:
+    grants = load_grants()
+    labels = read_labels(args.labels)
+    methods = read_methods(args.methods)
+    table = risk_by_method(grants, labels, methods, year_from=args.year_from, year_to=args.year_to)
+    window = f"{args.year_from or 'start'}–{args.year_to or 'latest'}"
+    print("# risk x method")
+    print(
+        f"{window}: {table.attrs['n_grants']} funded grants with both labels, "
+        f"${table.attrs['usd_total'] / 1e6:,.1f}M | columns 1.1–4.6 are MIT mitigation controls, "
+        f"X.* are this repository's research/talent/advocacy labels"
+    )
+    print()
+    by_method = table.sum(axis=0).sort_values(ascending=False)
+    print("## dollars by method")
+    shown = pd.DataFrame({"method": by_method.index, "usd": by_method.map(_money), "share": (by_method / by_method.sum()).map(lambda v: f"{v:.1%}")})
+    print(shown.to_string(index=False))
+    print()
+    print(f"## risk x method, $M (rows with at least ${args.min_row_musd:g}M)")
+    rows = table[table.sum(axis=1) >= args.min_row_musd * 1e6]
+    cols = [c for c in table.columns if table[c].sum() >= args.min_col_musd * 1e6]
+    cross = (rows[cols] / 1e6).round(1)
+    cross.columns = [c.replace("X.", "X.") for c in cross.columns]
+    print(cross.to_string())
+    if args.out:
+        path = Path(args.out)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        table.to_csv(path)
+        print(f"\nwritten: {path}")
+    return 0
+
+
 def _cmd_gapmap(args: argparse.Namespace) -> int:
     delphi = read_delphi(args.delphi)
     grants = load_grants()
@@ -509,6 +550,14 @@ def build_parser() -> argparse.ArgumentParser:
     funding.add_argument("--control", type=Path, default=DEFAULT_CONTROL_PATH,
                          help="second labelling of the control sample, for the agreement rate")
     funding.set_defaults(func=_cmd_funding)
+
+    methods = sub.add_parser("methods", help="dollars by method label and the risk x method table")
+    _window(methods)
+    methods.add_argument("--methods", type=Path, default=DEFAULT_METHODS_PATH)
+    methods.add_argument("--min-row-musd", type=float, default=1.0, help="hide risk rows below this many $M")
+    methods.add_argument("--min-col-musd", type=float, default=1.0, help="hide method columns below this many $M")
+    methods.add_argument("--out", type=Path, default=None, help="also write the full table (.csv)")
+    methods.set_defaults(func=_cmd_methods)
 
     gapmap = sub.add_parser("gapmap", help="expert signal beside money, one row per subdomain")
     _window(gapmap)

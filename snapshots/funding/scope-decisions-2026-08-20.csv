@@ -1,0 +1,662 @@
+grant_id,ai_scope,primary,secondary,confidence,basis
+fli/2015-grant-program/0,true,field,,high,AI forecasting and timelines research
+fli/2015-grant-program/1,true,7.1,,high,aligning superintelligence with human interests
+fli/2015-grant-program/10,true,7.1,,high,keeping advanced machines robustly benevolent
+fli/2015-grant-program/11,true,7.4,,high,explanations for complex autonomous AI systems
+fli/2015-grant-program/12,true,7.1,,medium,building moral judgement into robust AI
+fli/2015-grant-program/13,true,7.1,,high,inferring human values and preferences
+fli/2015-grant-program/14,true,7.1,,medium,self-policing agents enforcing ethical values
+fli/2015-grant-program/15,true,7.6,,medium,mechanism design for many interacting AIs
+fli/2015-grant-program/16,true,6.2,,high,economics of transition to automated economy
+fli/2015-grant-program/17,true,7.3,,high,failure detection and robustness for deployment
+fli/2015-grant-program/18,true,6.5,,high,regulation and policy for autonomous agents
+fli/2015-grant-program/19,true,7.3,7.4,high,anomaly detection and explanation for robustness
+fli/2015-grant-program/2,true,7.1,,high,formal verification of self-improving agents
+fli/2015-grant-program/20,true,7.3,,high,robust inference for autonomous agents
+fli/2015-grant-program/21,true,field,,medium,forecasting acceleration after general AI
+fli/2015-grant-program/22,true,2.2,,high,security evaluation of machine learning systems
+fli/2015-grant-program/23,true,field,,high,rationality training for AI researchers
+fli/2015-grant-program/24,true,7.1,,high,stability of neuromorphic motivational systems
+fli/2015-grant-program/25,true,field,,medium,strategic research centre on AI
+fli/2015-grant-program/26,true,field,,medium,rationality and cognition summer programme
+fli/2015-grant-program/27,true,7.1,,high,teaching AI human values via concepts
+fli/2015-grant-program/28,true,6.5,,medium,code of ethics for AI research
+fli/2015-grant-program/29,true,7.3,,high,uncertainty-aware safer inductive learning
+fli/2015-grant-program/3,true,6.2,,medium,AI and the future of work
+fli/2015-grant-program/30,true,7.6,7.3,medium,AI threats and cascading failures in finance
+fli/2015-grant-program/31,true,7.3,,high,predicting when deep networks fail
+fli/2015-grant-program/32,true,7.1,,high,value alignment and moral metareasoning
+fli/2015-grant-program/33,true,7.1,,medium,verifying mathematical safety properties of AI
+fli/2015-grant-program/4,true,7.1,,medium,embedding ethics into planning algorithms
+fli/2015-grant-program/5,true,field,,medium,coordinating research on controllable autonomous machines
+fli/2015-grant-program/6,true,7.1,,high,meaningful human oversight of goal-directed systems
+fli/2015-grant-program/7,true,field,,high,prioritisation research for AI safety
+fli/2015-grant-program/8,true,7.3,,low,program synthesis for valid intended behaviour
+fli/2015-grant-program/9,true,7.1,,medium,modelling safe superintelligence development pathways
+fli/2018-grant-program/0,true,7.1,7.6,medium,moral feedback for safe robot teamwork
+fli/2018-grant-program/1,true,7.1,,high,factored cognition for scalable AGI oversight
+fli/2018-grant-program/2,true,6.5,,high,governance of AI programme
+fli/2018-grant-program/3,true,6.4,,high,safety agreement compliance in AI race
+fli/2018-grant-program/4,true,field,,medium,survey of AGI paradigms and risks
+fli/2018-grant-program/5,true,7.6,,medium,cooperation between AI agents
+fli/2018-grant-program/6,true,7.3,7.1,medium,safe learning and verification of human-AI systems
+fli/2018-grant-program/7,true,7.1,,high,control problem for universal AI
+fli/2018-grant-program/8,true,7.1,,high,utility functions for AGI theory
+fli/2018-grant-program/9,true,7.1,7.6,high,value alignment via multi-agent inverse RL
+fli/2021-grants/0,true,3.2,,medium,news platform countering filter bubbles
+fli/2021-grants/1,true,6.5,,high,aligning AI through better governance
+fli/2021-grants/2,false,,,,biodiversity conservation not AI
+fli/2022-grants/0,false,,,,broad tech futurism no AI
+fli/2022-grants/1,true,6.5,,high,AI policy hub research and fellowships
+fli/2022-grants/2,true,field,,medium,existential risk centre spanning several risks
+fli/2022-grants/3,true,field,4.2,medium,entertainment storylines on irresponsible AI uses
+fli/2022-grants/4,false,,,,biodiversity conservation not AI
+fli/2023-grants/0,true,field,,high,AI strategy and forecasting research
+fli/2023-grants/1,true,field,,medium,sociotechnical AI dynamics and collective deliberation
+fli/2023-grants/10,true,7.1,,medium,delegating high-quality reasoning to ML systems
+fli/2023-grants/11,true,6.4,,high,US-China competition risks from AI
+fli/2023-grants/12,true,7.1,,high,theoretical and applied alignment research
+fli/2023-grants/13,true,6.5,,high,aligning AI through better governance
+fli/2023-grants/14,true,field,,medium,existential risk field building at university
+fli/2023-grants/15,true,6.5,,high,AI policy hub research and fellowships
+fli/2023-grants/2,true,7.2,,high,dangerous capability evaluations for frontier models
+fli/2023-grants/3,true,7.1,,medium,support for CHAI alignment research collaboration
+fli/2023-grants/4,true,field,,high,general support for AI safety centre
+fli/2023-grants/5,true,field,,medium,AI policy work and xrisk messaging
+fli/2023-grants/6,true,6.5,,high,think tank improving governance of extreme risks
+fli/2023-grants/7,true,6.5,,high,alignment assemblies for legitimate AI governance
+fli/2023-grants/8,true,field,,high,neglected AI safety research agendas
+fli/2023-grants/9,false,,,,broad tech futurism no AI
+fli/2024-grants/0,true,6.5,,medium,youth mobilising policymakers on AI
+fli/2024-grants/1,true,4.2,6.5,medium,AI nexus with nuclear bio cyber autonomy
+fli/2024-grants/2,true,field,,high,association for safe and ethical AI
+fli/2024-grants/3,true,field,,high,journalism on current and future AI harms
+fli/2024-grants/4,false,,,,general leadership project no AI
+fli/2024-grants/5,true,6.2,,high,economics of transformative AI
+fli/2025-grants/0,true,field,6.1,medium,investigative journalism on systemic AI threats
+fli/2025-grants/1,true,field,,medium,AI risk management and alignment research
+fli/2025-grants/2,true,field,,high,faith community engagement on AI
+fli/2025-grants/3,false,,,,broad tech futurism no AI
+fli/2025-grants/4,true,field,,medium,guiding AI to protect family interests
+fli/2025-grants/5,true,field,,high,association for safe and ethical AI
+fli/2025-grants/6,true,field,,high,fellowship building European AI policy talent
+fli/global-institutions-governing-ai/0,true,6.5,,high,global AGI agency institutional design
+fli/global-institutions-governing-ai/1,true,6.5,,high,fair trade certification mechanism for AI
+fli/global-institutions-governing-ai/2,true,6.5,,high,international AI agency and CERN for AI
+fli/global-institutions-governing-ai/3,true,6.5,7.1,high,treaty prohibiting misaligned AGI
+fli/global-institutions-governing-ai/4,true,6.5,,high,UN treaty-based international AI governance organisation
+fli/global-institutions-governing-ai/5,true,6.5,,high,multilateral network of public AI laboratories
+fli/impact-of-ai-on-sdgs/0,true,field,,low,AI impact on climate education SDG
+fli/impact-of-ai-on-sdgs/1,true,field,,low,AI applications for climate resilience SDG
+fli/impact-of-ai-on-sdgs/2,true,6.2,,medium,AI impact on poverty alleviation SDG
+fli/impact-of-ai-on-sdgs/3,true,field,,low,AI role in heat mitigation SDG
+fli/impact-of-ai-on-sdgs/4,true,6.2,,medium,AI impact on poverty in low-resource contexts
+fli/impact-of-ai-on-sdgs/5,true,field,,low,AI impact on health outcomes Nigeria
+fli/impact-of-ai-on-sdgs/6,true,field,,low,AI impact on maternal mortality SDG
+fli/impact-of-ai-on-sdgs/7,true,6.2,,high,AI labour market impact and inequality
+fli/impact-of-ai-on-sdgs/8,true,field,,low,AI impact on health Ethiopia
+fli/impact-of-ai-on-sdgs/9,true,field,,low,AI role in reducing maternal mortality
+fli/mitigate-ai-driven-power-concentration/0,true,6.1,,high,how AI developers gain political power
+fli/mitigate-ai-driven-power-concentration/1,true,6.1,,high,mapping who controls AI development
+fli/mitigate-ai-driven-power-concentration/2,true,6.1,,high,index of AI-enabled authoritarianism risks
+fli/mitigate-ai-driven-power-concentration/3,true,6.1,,high,concentration of economic power in AI
+fli/mitigate-ai-driven-power-concentration/4,true,6.1,,high,forecasting AI-enabled power lock-in scenarios
+fli/mitigate-ai-driven-power-concentration/5,true,6.1,6.5,high,antitrust guidance for AI companies
+fli/mitigate-ai-driven-power-concentration/6,true,4.1,6.1,high,AI manipulation of pre-election discourse
+fli/mitigate-ai-driven-power-concentration/7,true,6.1,6.3,medium,data provider control and compensation infrastructure
+fli/mitigate-ai-driven-power-concentration/8,true,4.1,6.1,high,AI-enabled mass surveillance and emergency powers
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/0,true,6.2,,medium,labour union engagement on AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/1,true,6.2,,medium,mobilising trade unions against AI misuse
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/10,true,field,,medium,awareness of strategic superhuman AI risks
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/11,true,6.4,,high,pause advocacy on powerful AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/12,true,6.4,,medium,grassroots organising for AI pause
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/13,true,6.5,,medium,youth-led AI policy framework and coalition
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/2,true,5.1,,medium,children's AI use and parent-led safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/3,true,6.1,,high,challenging Big Tech dominance in AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/4,true,6.1,,medium,AI corporate accountability hub
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/5,true,6.4,,high,international AI scaling moratorium advocacy
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/6,true,field,,high,educating religious communities on AI ethics
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/7,true,6.5,4.2,medium,trilateral dialogue on military AI safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/8,true,field,,high,Buddhist engagement on AI safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/9,true,6.3,,high,AI impact on creative economy
+fli/nuclear-war-research/0,false,,,,nuclear war food systems
+fli/nuclear-war-research/1,false,,,,nuclear war fire emissions
+fli/nuclear-war-research/2,false,,,,nuclear war ozone destruction
+fli/nuclear-war-research/3,false,,,,nuclear war agriculture food security
+fli/nuclear-war-research/4,false,,,,nuclear conflict crop losses
+fli/nuclear-war-research/5,false,,,,nuclear conflict stratospheric aerosols
+fli/nuclear-war-research/6,false,,,,nuclear conflict environmental impacts
+fli/nuclear-war-research/7,false,,,,nuclear war scenario tool
+fli/nuclear-war-research/8,false,,,,postnuclear ultraviolet radiation impacts
+fli/nuclear-war-research/9,false,,,,nuclear urban fire simulations
+fli/rfp-on-religious-projects/0,true,field,,high,engaging Christian clergy on AI impacts
+fli/rfp-on-religious-projects/1,true,field,,medium,Orthodox scholars on AI and family
+fli/rfp-on-religious-projects/10,true,field,,high,Catholic event opposing inhuman powerful AI
+fli/rfp-on-religious-projects/11,true,field,,high,educating churches on AI capabilities and risks
+fli/rfp-on-religious-projects/12,true,field,,high,Reform Jewish education on AI impacts
+fli/rfp-on-religious-projects/13,true,6.5,,high,red lines guiding global AI governance
+fli/rfp-on-religious-projects/14,true,field,,medium,Catholic leaders understanding AI and dignity
+fli/rfp-on-religious-projects/15,true,5.1,,high,pastors on dangers of social AI
+fli/rfp-on-religious-projects/2,true,field,,high,Latter-day Saint conference and multifaith AI council
+fli/rfp-on-religious-projects/3,true,field,,high,evangelical media on theological AI use
+fli/rfp-on-religious-projects/4,true,field,,high,Orthodox theological perspective on AI
+fli/rfp-on-religious-projects/5,true,field,,high,Islamic ethical guidance on AI
+fli/rfp-on-religious-projects/6,true,field,,high,African religious leaders engaging AI challenges
+fli/rfp-on-religious-projects/7,true,field,,high,Hindu perspectives and moral boundaries for AI
+fli/rfp-on-religious-projects/8,true,field,,high,evangelical leadership discussions on AI
+fli/rfp-on-religious-projects/9,true,field,,high,Islamic declaration on AI principles
+grants-10134-0,false,,,,general science video content
+grants-10352-0,false,,,,COVID documentary
+grants-10385-0,false,,,,thin individual career grant
+grants-10430-0,false,,,,essay contest
+grants-10443-0,false,,,,effective giving pledge organisation
+grants-10462-0,false,,,,general rationality video animation
+grants-10467-0,false,,,,gene drive biosecurity research
+grants-10483-0,false,,,,general forecasting platform development
+grants-10632-0,false,,,,individual longtermism projects
+grants-10638-0,true,field,,medium,career advice steering toward AI safety
+grants-10640-0,true,field,,medium,80000 Hours; AI-risk career pipeline
+grants-1069-0,true,field,,medium,FHI scholars; AI safety and governance research
+grants-1071-0,false,,,,academic catastrophic risk work
+grants-10927-0,false,,,,EA psychology course
+grants-10939-0,false,,,,pathogen sequencing roadmap
+grants-10942-0,false,,,,effective altruism university course
+grants-10987-0,false,,,,EA community building
+grants-10996-0,false,,,,bioweapons convention verification
+grants-1106-0,false,,,,pandemic policy lessons
+grants-11091-0,false,,,,biodefense commission
+grants-11116-0,false,,,,student group organiser fellowship
+grants-1121-0,false,,,,geopolitical forecasting research
+grants-1126-0,false,,,,biosecurity planning grant
+grants-1127-0,false,,,,COVID vaccine modelling
+grants-1132-0,false,,,,EA debate championship
+grants-1136-0,false,,,,general catastrophic risk education
+grants-1145-0,false,,,,COVID forecasting contract
+grants-11458-0,false,,,,general longtermist fellowship
+grants-1149-0,false,,,,Esvelt biosecurity research
+grants-11494-0,false,,,,biodefense policy commission
+grants-1151-0,false,,,,effective giving advisory
+grants-11582-0,false,,,,biosecurity coworking space
+grants-11585-0,false,,,,global priorities philosophy research
+grants-11590-0,false,,,,book translation project
+grants-11672-0,false,,,,EA blog
+grants-11675-0,false,,,,general longtermist conference
+grants-11683-0,false,,,,climate change research
+grants-11687-0,false,,,,EA group organisers
+grants-11691-0,false,,,,university group organising
+grants-11733-0,false,,,,EA coworking space
+grants-11738-0,false,,,,EA fund operating expenses
+grants-11768-0,false,,,,book publicity
+grants-1179-0,false,,,,EA community infrastructure
+grants-11797-0,false,,,,student EA group
+grants-11827-0,false,,,,biological risk estimation
+grants-11874-0,false,,,,thin policy fellowship description
+grants-11876-0,false,,,,far-UVC sterilisation research
+grants-11878-0,false,,,,general youth EA outreach
+grants-11904-0,false,,,,henipavirus antiviral science
+grants-11910-0,false,,,,EA translation projects
+grants-11924-0,false,,,,BWC retreat
+grants-11932-0,false,,,,rationality maths programme
+grants-11941-0,false,,,,global priorities research blog
+grants-11967-0,true,field,,high,BlueDot AI safety courses
+grants-12004-0,false,,,,existential risk course
+grants-12044-0,false,,,,EA economics course
+grants-12115-0,false,,,,EA infrastructure regranting
+grants-12122-0,false,,,,EA content creation
+grants-12131-0,false,,,,EA community organising
+grants-12135-0,false,,,,longtermism course development
+grants-12201-0,false,,,,forecasting tournament planning
+grants-12215-0,true,field,,medium,Lightcone AI-safety community infrastructure
+grants-12329-0,false,,,,solar geoengineering initiative
+grants-12336-0,false,,,,health security degree programme
+grants-12385-0,false,,,,BWC conference travel
+grants-1242-0,false,,,,biological weapons prevention policy
+grants-1243-0,false,,,,health security conference
+grants-12448-0,false,,,,health security policy
+grants-12459-0,false,,,,general EA talent programme
+grants-1252-0,true,field,,medium,FLI work dominated by AI risk
+grants-12531-0,false,,,,catastrophic biological risk reduction
+grants-1256-0,false,,,,COVID testing platform
+grants-12574-0,false,,,,pandemic preparedness centre
+grants-12578-0,false,,,,general existential risk academia
+grants-12603-0,false,,,,event venue
+grants-12628-0,false,,,,personal assistant hiring agency
+grants-12632-0,false,,,,biosecurity fellowships and policy
+grants-1264-0,false,,,,DNA synthesis screening
+grants-12654-0,false,,,,antiviral science
+grants-12678-0,false,,,,bat cell line science
+grants-12689-0,false,,,,EA-themed science bowl
+grants-12714-0,false,,,,EA operations support
+grants-12763-0,false,,,,far-UVC convening
+grants-12766-0,false,,,,rationality summer programme
+grants-12781-0,false,,,,magazine publishing
+grants-12795-0,false,,,,film project scoping
+grants-12881-0,false,,,,EA fellowship in Africa
+grants-1289-0,false,,,,biosecurity science advisory body
+grants-12905-0,false,,,,existential risk university courses
+grants-1292-0,false,,,,COVID vaccine development
+grants-12928-0,false,,,,influenza antiviral testing
+grants-12932-0,false,,,,genetic engineering attribution
+grants-12971-0,false,,,,EA communications fellowship
+grants-13019-0,false,,,,general EA career consulting
+grants-13082-0,false,,,,career transition support; unspecified
+grants-13087-0,false,,,,undergraduate scholarships
+grants-13100-0,false,,,,biosecurity scholarships
+grants-1314-0,false,,,,geopolitical forecasting research
+grants-13181-0,false,,,,thin individual career grant
+grants-13184-0,true,field,,medium,FHI operations; substantial AI-risk research
+grants-1321-0,false,,,,COVID drug research
+grants-13258-0,false,,,,general forecasting science research
+grants-13266-0,false,,,,DNA vaccine platform
+grants-13278-0,false,,,,far-UVC convening
+grants-13319-0,false,,,,biosecurity research
+grants-13370-0,false,,,,longtermist magazine
+grants-13376-0,false,,,,disease dynamics research
+grants-13396-0,false,,,,biosecurity research
+grants-13448-0,false,,,,legal litigation research
+grants-13451-0,false,,,,medical student community building
+grants-13462-0,true,field,,medium,EffiSciences ML4Good AI safety bootcamps
+grants-13495-0,false,,,,general existential risk fellowship
+grants-13544-0,false,,,,general EA course
+grants-13553-0,true,field,,medium,careers org focused on AI risk
+grants-13567-0,false,,,,general x-risk workshops
+grants-13699-0,false,,,,drug development acceleration
+grants-13730-0,true,field,,medium,Successif; mid-career transitions into AI risk
+grants-1374-0,true,field,,low,FHI scholars; substantial AI-risk research
+grants-13741-0,false,,,,animal welfare research
+grants-1375-0,false,,,,biosecurity and biosafety work
+grants-13850-0,false,,,,global priorities philosophy research
+grants-13853-0,false,,,,office space
+grants-1395-0,false,,,,synthetic biology safety
+grants-13970-0,false,,,,philosophy researcher support
+grants-13972-0,false,,,,philosophy research support
+grants-13974-0,false,,,,general existential risk projects
+grants-13977-0,false,,,,EA book rights
+grants-1402-0,false,,,,population-level bioethics research
+grants-1411-0,false,,,,empirical biosafety research
+grants-14141-0,false,,,,EA fund regranting
+grants-14202-0,false,,,,general consulting services
+grants-14225-0,false,,,,EA umbrella organisation support
+grants-14249-0,false,,,,biosecurity workshop
+grants-14253-0,false,,,,university scholarships
+grants-14340-0,false,,,,longtermism book promotion
+grants-14343-0,false,,,,longtermist book support
+grants-14394-0,false,,,,EA operations fellowships
+grants-1440-0,false,,,,EA office space
+grants-14410-0,false,,,,health security org incubation
+grants-1443-0,false,,,,biosecurity programme
+grants-14446-0,false,,,,global priorities research
+grants-14464-0,false,,,,henipavirus antiviral science
+grants-14467-0,false,,,,biosecurity and health security
+grants-1448-0,true,field,,medium,LessWrong AI-safety discussion infrastructure
+grants-1455-0,false,,,,nuclear conflict climate modelling
+grants-14635-0,false,,,,forecasting platform development
+grants-14639-0,false,,,,general existential risk fellowship
+grants-14643-0,true,field,,low,fellowship pipeline largely AI safety
+grants-14652-0,false,,,,general rationality video content
+grants-14715-0,true,7.1,,high,Forecasting review on power-seeking AI
+grants-14722-0,false,,,,EA web content production
+grants-14733-0,false,,,,broad-spectrum antiviral research
+grants-14737-0,true,field,,medium,careers org focused on AI risk
+grants-14775-0,false,,,,biosecurity programme
+grants-14780-0,false,,,,general talent fellowship
+grants-14796-0,false,,,,economist survey; no AI framing
+grants-1480-0,false,,,,global health security centre
+grants-14804-0,false,,,,nonprofit tech support
+grants-14811-0,false,,,,debate camp scholarships
+grants-1485-0,true,field,,low,FHI DPhils; substantial AI-risk research
+grants-14872-0,false,,,,H5N1 pandemic forecasting
+grants-14883-0,false,,,,general magazine support
+grants-14890-0,false,,,,henipavirus science research
+grants-14909-0,false,,,,EA community infrastructure
+grants-14920-0,true,field,,medium,career advice steering toward AI safety
+grants-1494-0,false,,,,biological weapons prevention
+grants-15004-0,false,,,,essay contest; no AI angle
+grants-1503-0,false,,,,biosecurity programme
+grants-15035-0,false,,,,EA regranting and operations
+grants-15039-0,false,,,,essay contest on longtermism
+grants-15046-0,false,,,,biological threat detection research
+grants-15080-0,false,,,,social science prediction platform
+grants-15083-0,false,,,,general youth fellowship
+grants-15086-0,false,,,,EA community organisation support
+grants-1511-0,false,,,,biosecurity degree programmes
+grants-15137-0,false,,,,biosecurity policy
+grants-1520-0,false,,,,COVID forecasting contract
+grants-1521-0,false,,,,longtermist book support
+grants-1525-0,false,,,,rationality org; no AI framing
+grants-1538-0,false,,,,biodefense policy commission
+grants-15426-0,false,,,,EA fundraising event
+grants-15431-0,true,field,,high,forecasting AI progress and timelines
+grants-15437-0,false,,,,BWC paper publishing fees
+grants-15497-0,false,,,,consulting career advising
+grants-15505-0,false,,,,responsible life sciences research
+grants-1554-0,false,,,,early general EA careers advice
+grants-15570-0,true,field,,medium,Constellation AI-safety research space
+grants-15639-0,false,,,,science video production
+grants-15655-0,false,,,,EA community growth
+grants-1575-0,false,,,,general EA community building
+grants-1584-0,false,,,,global health security centre
+grants-1587-0,false,,,,general EA scholarships
+grants-1588-0,false,,,,biosecurity scholarship support
+grants-16057-0,false,,,,biosecurity organisation
+grants-16161-0,false,,,,thin graduate student support
+grants-1636-0,false,,,,general GCR education
+grants-16419-0,false,,,,pathogen early warning
+grants-16422-0,false,,,,multi-risk forecasting tournament
+grants-16545-0,false,,,,general EA community infrastructure
+grants-16597-0,false,,,,general impact talent programme
+grants-16693-0,true,field,,medium,EffiSciences runs AI safety programmes
+grants-16711-0,false,,,,EA coworking space
+grants-16771-0,false,,,,EA summer camp Brazil
+grants-16775-0,true,6.5,field,medium,longtermist law work centred on AI governance
+grants-16794-0,false,,,,EA coworking space
+grants-16810-0,false,,,,EA community infrastructure
+grants-16814-0,true,field,,high,BlueDot AI safety courses
+grants-16818-0,true,field,,high,BlueDot runs AI safety courses
+grants-16839-0,false,,,,biosecurity projects
+grants-1689-0,true,field,,medium,FLI is primarily an AI risk org
+grants-17041-0,true,field,,high,ML4Good AI safety bootcamp
+grants-17064-0,false,,,,general longtermist video production
+grants-1711-0,false,,,,general EA community building
+grants-1734-0,false,,,,biosecurity and health security
+grants-1765-0,false,,,,rationality summer programme
+grants-1798-0,true,7.6,field,medium,s-risk and multi-agent AI cooperation research
+grants-18347-0,false,,,,university group support
+grants-18369-0,false,,,,EA regranting and operations
+grants-18399-0,false,,,,analysis of historical forecasts
+grants-1841-0,false,,,,general GCR scholarships
+grants-18443-0,false,,,,youth fellowship programme
+grants-18463-0,false,,,,EA groups support
+grants-18465-0,false,,,,EA groups support
+grants-1852-0,false,,,,biological risk prevention
+grants-1853-0,false,,,,Esvelt biosecurity research
+grants-18605-0,false,,,,career support; unspecified focus
+grants-18615-0,false,,,,longtermist philanthropy advising
+grants-18625-0,false,,,,student group expenses
+grants-18651-0,false,,,,global priorities philosophy research
+grants-18654-0,false,,,,general existential risk courses
+grants-18657-0,false,,,,biosecurity fellowships
+grants-18691-0,false,,,,general rationality video content
+grants-18778-0,false,,,,advertising campaign
+grants-1882-0,false,,,,general GCR research
+grants-18848-0,true,field,,medium,careers org focused on AI risk
+grants-18983-0,false,,,,fellowship; unclear focus
+grants-19031-0,false,,,,general EA community infrastructure
+grants-19036-0,false,,,,general EA community infrastructure
+grants-1908-0,false,,,,bioweapons research campaign
+grants-19082-0,false,,,,general existential risk initiative
+grants-19133-0,true,field,,medium,AI safety and governance research fellowship
+grants-19159-0,false,,,,biosecurity course and club
+grants-19230-0,false,,,,student summer programme
+grants-19322-0,false,,,,forecasting competitions
+grants-19377-0,false,,,,effective giving information sharing
+grants-19430-0,false,,,,unclear grantee; no AI signal
+grants-19432-0,false,,,,rationality camps
+grants-19534-0,false,,,,influenza antiviral research
+grants-1960-0,false,,,,early general EA careers advice
+grants-19858-0,false,,,,office space for EA
+grants-1986-0,false,,,,viral diagnostics science
+grants-19861-0,false,,,,office space
+grants-19880-0,false,,,,general existential risk workshops
+grants-19882-0,false,,,,open source biosafety articles
+grants-2004-0,false,,,,academic biosecurity research
+grants-20157-0,false,,,,general forecasting platform development
+grants-20213-0,true,field,,medium,Sage forecasting tools; AI forecasting focus
+grants-20218-0,true,field,,medium,career transitions into AI risk work
+grants-20225-0,false,,,,EA brand research
+grants-2023-0,false,,,,synthetic biology safety
+grants-20270-0,false,,,,general x-risk fellowship
+grants-2029-0,false,,,,global health security conference
+grants-2032-0,false,,,,global catastrophic biological risks
+grants-20453-0,false,,,,EA course development
+grants-20563-0,false,,,,coworking space
+grants-2072-0,false,,,,biosecurity doctoral support
+grants-20850-0,false,,,,biosecurity networking event
+grants-20853-0,true,field,,high,ML4Good AI safety bootcamp
+grants-2122-0,true,field,,medium,FHI GCR work includes AI risk
+grants-2133-0,false,,,,synthetic biology meeting
+grants-2140-0,false,,,,global health security index
+grants-2147-0,true,field,,medium,FLI is primarily an AI risk org
+grants-21477-0,false,,,,life sciences governance
+grants-21481-0,false,,,,health security scholars
+grants-2164-0,false,,,,general forecasting research contract
+grants-21640-0,true,field,,medium,80000 Hours; AI-risk career pipeline
+grants-21901-0,false,,,,general magazine support
+grants-21911-0,false,,,,general EA community infrastructure
+grants-21923-0,false,,,,EA organisational spinout costs
+grants-21925-0,false,,,,EA organisational spinout costs
+grants-2196-0,false,,,,biological risk scholarships
+grants-22119-0,true,field,,high,BlueDot AI safety courses
+grants-2221-0,false,,,,EA discretionary fund
+grants-22251-0,false,,,,coworking space
+grants-22307-0,false,,,,BWC retreat
+grants-2233-0,false,,,,EA community infrastructure
+grants-2240-0,false,,,,pandemic policy project
+grants-22434-0,false,,,,forecasting workshops
+grants-22461-0,false,,,,history conference fellowships
+grants-22547-0,true,field,,medium,Meridian AI safety community space
+grants-22565-0,false,,,,general EA career consulting
+grants-22577-0,false,,,,general EA career fellowship
+grants-2261-0,false,,,,global health security centre
+grants-2265-0,false,,,,early general EA careers advice
+grants-22651-0,false,,,,rationality maths programme
+grants-22758-0,false,,,,career mentorship and courses
+grants-2281-0,false,,,,biodefense panel support
+grants-2283-0,false,,,,EA fundraising infrastructure
+grants-2287-0,false,,,,rationality training general support
+grants-2291-0,false,,,,rationality summer programme
+grants-2316-0,false,,,,biothreats scientific meeting
+grants-23185-0,false,,,,biosecurity fellowships and policy
+grants-23254-0,false,,,,general EA infrastructure org
+grants-23257-0,true,field,,low,fellowship pipeline largely AI safety
+grants-23319-0,false,,,,biosecurity organisation
+grants-2335-0,false,,,,biotech security perspectives research
+grants-23370-0,true,field,,medium,AI forecasting research programme
+grants-2385-0,false,,,,biosecurity programme
+grants-23979-0,false,,,,longtermist philanthropy advising
+grants-2398-0,false,,,,BWC side event
+grants-23986-0,false,,,,existential risk university courses
+grants-24043-0,true,field,,medium,career advice steering toward AI safety
+grants-24119-0,false,,,,EA funds operations
+grants-2439-0,false,,,,geoengineering governance
+grants-2447-0,false,,,,DIY biology safety
+grants-24538-0,true,7.2,2.2,medium,Pattern Labs does frontier cyber capability evals
+grants-24637-0,false,,,,pathogen early detection
+grants-24714-0,false,,,,cash transfer economics
+grants-24891-0,false,,,,general x-risk workshops
+grants-24901-0,false,,,,essay contest on longtermism
+grants-2492-0,false,,,,Tetlock forecasting project
+grants-24937-0,false,,,,biosecurity organisation general support
+grants-24956-0,true,field,,medium,Lightcone AI-safety community infrastructure
+grants-25032-0,false,,,,general forecasting research
+grants-2506-0,false,,,,DIY biology safety
+grants-25101-0,false,,,,biosecurity lab support
+grants-25153-0,false,,,,biosecurity course and club
+grants-25220-0,false,,,,biodefense policy commission
+grants-2541-0,true,field,,medium,FLI is primarily an AI risk org
+grants-2543-0,false,,,,rationality summer programme
+grants-2545-0,false,,,,synthetic biology biosecurity meeting
+grants-2561-0,false,,,,DIY biology and FBI
+grants-2567-0,false,,,,dual-use research governance meeting
+grants-25677-0,false,,,,coworking space
+grants-25703-0,false,,,,far-UVC study
+grants-25705-0,false,,,,general research mentorship; no AI focus
+grants-25733-0,false,,,,geopolitical forecasting session
+grants-25757-0,false,,,,pandemic centre support
+grants-2580-0,false,,,,EA community infrastructure
+grants-25984-0,false,,,,forecasting tooling; not AI risk
+grants-26105-0,true,field,,medium,marketing for AI safety career pipeline
+grants-26121-0,false,,,,general x-risk fellowship
+grants-2617-0,false,,,,early general EA careers advice
+grants-26244-0,false,,,,longtermist project incubator
+grants-26250-0,false,,,,longtermist project incubator
+grants-26302-0,false,,,,EA groups infrastructure
+grants-26347-0,false,,,,forecasting platform
+grants-2641-0,false,,,,global health security centre
+grants-26449-0,false,,,,translation work
+grants-2648-0,false,,,,cooling efficiency climate programme
+grants-2651-0,false,,,,biosecurity and pandemic work
+grants-2654-0,false,,,,global health security index
+grants-2656-0,false,,,,museum outbreak exhibit
+grants-2660-0,false,,,,biodefense panel
+grants-2752-0,false,,,,biosecurity research
+grants-2760-0,false,,,,EA fundraising infrastructure
+grants-2763-0,false,,,,EA university course
+grants-2764-0,false,,,,health security and biosecurity
+grants-2772-0,false,,,,biodefense panel
+grants-2787-0,false,,,,biosecurity leadership initiative
+grants-2789-0,false,,,,solar geoengineering research
+grants-28349-0,false,,,,biosecurity regranting
+grants-28353-0,false,,,,biosecurity policy advocacy
+grants-28355-0,false,,,,biosecurity organisation support
+grants-28367-0,true,field,,high,MATS AI alignment talent programme
+grants-28738-0,false,,,,youth EA outreach exit grant
+grants-2875-0,false,,,,geomagnetic storm research
+grants-2878-0,false,,,,rationality training organisation
+grants-28807-0,true,field,,high,AI safety org management consulting
+grants-2882-0,false,,,,maths camp for teenagers
+grants-2901-0,false,,,,synthetic biology safety
+grants-2915-0,false,,,,Tetlock forecasting projects
+grants-2916-0,false,,,,climate engineering working group
+grants-2943-0,false,,,,solar geoengineering governance
+grants-2966-0,true,field,,medium,FLI is primarily an AI risk org
+grants-2973-0,false,,,,biodefense policy panel
+grants-33360-0,false,,,,general forecasting platform
+grants-33362-0,true,field,,medium,Sage; AI forecasting and AI Digest
+grants-33448-0,false,,,,quantitative estimation tools
+grants-34823-0,false,,,,mirror life biosecurity dialogues
+grants-34831-0,false,,,,climate engineering governance
+grants-36420-0,false,,,,biosecurity research
+grants-36423-0,false,,,,biosecurity research
+grants-36425-0,false,,,,biosecurity fellowship
+grants-36434-0,false,,,,biosecurity fellowship
+grants-36436-0,false,,,,biosecurity fellowship
+grants-36439-0,false,,,,protective equipment advocacy
+grants-36441-0,false,,,,health security scholars
+grants-36444-0,false,,,,biosecurity staff capacity
+grants-36447-0,false,,,,protective equipment advocacy
+grants-36476-0,false,,,,biosecurity equipment support
+grants-36478-0,false,,,,protective equipment R&D
+grants-36480-0,false,,,,biosecurity centre
+grants-36483-0,true,4.2,field,high,AI x biosecurity research fellowship
+grants-36485-0,false,,,,pandemic preparedness work
+grants-36506-0,false,,,,health security scholars
+grants-36530-0,false,,,,forecasting tooling; not AI risk
+grants-36544-0,false,,,,mirror life biosecurity dialogues
+grants-36546-0,false,,,,biological risk and infrastructure
+grants-36548-0,false,,,,biosecurity policy advocacy
+grants-36931-0,false,,,,general forecasting workshops
+grants-37793-0,true,field,,high,AI safety and governance fellowship
+grants-37795-0,false,,,,unspecified research expenses
+grants-37799-0,false,,,,Spanish-language EA careers org
+grants-37801-0,false,,,,biosecurity hub support
+grants-37803-0,true,field,,high,AI safety conference day
+grants-37805-0,true,field,,medium,AI safety ML upskilling bootcamp
+grants-37807-0,true,field,,high,AI safety community building South Africa
+grants-37809-0,true,field,,high,AI safety mentorship programme
+grants-37811-0,true,field,,medium,Toronto AI safety hub space
+grants-37813-0,true,field,,medium,career transitions into AI safety
+grants-37815-0,false,,,,multi-cause research mentorship
+grants-37817-0,true,field,,high,AI safety mentorship programme
+grants-37819-0,true,field,,high,AI safety community building Hungary
+grants-37821-0,true,field,,medium,careers org focused on AI risk
+grants-37823-0,false,,,,EA office space
+grants-37837-0,true,field,,medium,Kairos runs AI safety group programmes
+grants-37839-0,true,field,,high,Kairos runs SPAR alignment mentorship
+grants-37841-0,true,field,,high,SPAR alignment research mentorship programme
+grants-37843-0,false,,,,biosecurity coworking space
+grants-37845-0,true,field,,high,journalism centre covering AI risk
+grants-38051-0,false,,,,mirror biology risk
+grants-38055-0,false,,,,health security centre support
+grants-38057-0,false,,,,pathogen detection
+grants-38059-0,false,,,,biosecurity research centre
+grants-38063-0,false,,,,biosecurity project
+grants-38065-0,false,,,,indoor air cleaning
+grants-38068-0,true,7.2,4.2,high,SecureBio AI team; model bio-uplift evaluation
+grants-38070-0,false,,,,biosecurity grantmaking
+grants-38106-0,false,,,,general existential risk courses
+grants-38108-0,true,field,,high,AI safety community building
+grants-38110-0,true,7.2,field,medium,course on evaluating AI models
+grants-38112-0,false,,,,university events and course
+grants-38114-0,true,field,,high,AI alignment student field-building org
+grants-38116-0,true,field,,high,ML and AI safety bootcamp
+grants-38118-0,true,field,,high,AI alignment winter fellowship
+grants-38120-0,false,,,,coworking space; no AI signal
+grants-38122-0,true,field,,high,AI safety headhunting and career support
+grants-38124-0,true,field,,high,AI safety community building
+grants-38126-0,true,field,,high,AI safety community building ANZ
+grants-38128-0,true,field,,high,The Curve AI conference
+grants-38130-0,true,2.2,field,medium,AI security capacity building
+grants-38133-0,true,field,,high,AI governance and safety community
+grants-38135-0,true,field,,medium,Meridian AI safety community space
+grants-38199-0,false,,,,health security early career award
+grants-38201-0,false,,,,mirror biology policy
+grants-38497-0,true,field,,high,Zurich AI safety group support
+grants-38499-0,false,,,,EA community organisation support
+grants-38501-0,false,,,,biosecurity field-building events
+grants-38664-0,true,field,,high,AI research fellowships; ML upskilling
+grants-38666-0,true,field,,high,AI safety summer fellowship
+grants-38669-0,true,field,,high,AI safety research fellowships
+grants-38723-0,true,field,,high,LISA is an AI safety research hub
+grants-38725-0,true,7.1,,high,AI alignment research programme
+grants-38727-0,false,,,,EA coworking space
+grants-38729-0,true,field,,high,AI safety mentorship programme
+grants-39460-0,false,,,,particle sensor development
+grants-39462-0,false,,,,airborne hazard building protections
+grants-39464-0,false,,,,indoor air quality competition
+grants-39466-0,false,,,,biodefense research fellowship
+grants-39468-0,false,,,,biosecurity event
+grants-39470-0,false,,,,biosecurity research assistantship
+grants-39472-0,false,,,,biosecurity science accelerator
+grants-39474-0,false,,,,biosecurity research organisation
+grants-39476-0,false,,,,school air quality pilot
+grants-39478-0,false,,,,biosecurity organisation general support
+grants-39480-0,false,,,,biosecurity investigative journalism
+grants-39482-0,true,6.5,4.2,high,international dialogues on AI-bio governance
+grants-39484-0,false,,,,biosecurity equipment support
+grants-39486-0,false,,,,biosecurity conference session
+grants-39491-0,false,,,,pandemic threat analytics
+grants-39579-0,false,,,,biosecurity and biosafety
+grants-39590-0,false,,,,pandemic supplies financing advisory
+grants-39599-0,false,,,,bioresilience company incubation
+grants-39892-0,false,,,,airborne hazard building protections
+grants-39894-0,false,,,,airborne hazard building protections
+grants-39896-0,false,,,,biosecurity regranting
+grants-39898-0,false,,,,biosecurity capacity building
+grants-39914-0,false,,,,EA marketing agency support
+grants-4969-0,false,,,,forecasting platforms; no AI angle
+grants-7044-0,false,,,,biosecurity research project
+grants-7049-0,false,,,,pandemic ballot initiative
+grants-7058-0,true,field,,high,tournament forecasting AI progress
+grants-7059-0,true,field,,high,forecasting tournament on AI progress
+grants-7076-0,false,,,,biosecurity scholarship support
+grants-8287-0,false,,,,solar geoengineering in developing countries
+grants-8385-0,false,,,,general longtermist video production
+grants-8388-0,false,,,,biosecurity individual support
+grants-8389-0,false,,,,forecasting course development
+grants-8422-0,false,,,,EA infrastructure regranting
+grants-8429-0,false,,,,general longtermist scholarships
+grants-8430-0,false,,,,thin individual work and study
+grants-8443-0,false,,,,thin scholarship description
+grants-8470-0,false,,,,general talent scholarships
+grants-8494-0,false,,,,biological weapons convention verification
+grants-8515-0,false,,,,pandemic preparedness
+grants-8599-0,false,,,,EA debate curriculum
+grants-8633-0,false,,,,biosecurity regranting
+grants-8645-0,false,,,,EA debate tournament
+grants-8683-0,false,,,,climate overshoot governance
+grants-8912-0,false,,,,general existential risk fellowship
+grants-9469-0,false,,,,nuclear security grantmaking
+grants-9480-0,false,,,,EA fund regranting
+grants-9496-0,false,,,,course development support
+grants-9498-0,false,,,,course development support
+grants-9506-0,false,,,,biosecurity research support
+grants-9525-0,false,,,,COVID antiviral studies
+grants-9534-0,false,,,,course development support
+grants-9536-0,false,,,,longtermism video production
+grants-9538-0,true,field,,high,forecasting AI progress contract
+grants-9550-0,true,field,,medium,LessWrong is AI alignment discussion infrastructure
+grants-9556-0,false,,,,European biosecurity policy
+grants-9558-0,false,,,,course development support
+grants-9560-0,false,,,,lipid nanoparticle science
+grants-9882-0,false,,,,biosecurity scholarships

@@ -1285,10 +1285,143 @@ fe6db9e0-46c8-9df9-a749-75758148fcb7,7.1,,high,technical alignment deconfusion r
 fe75c54c-ef2a-fb57-4540-517a8f025656,5.2,,high,human independence in normative decisions with AI
 fed1be98-50c3-4aa8-456d-7cd572e8db34,field,7.1,medium,contest eliciting short-timeline AGI safety plans
 ff3f7d6b-f5e8-b27e-f0e5-acddd8a5188f,7.1,7.6,medium,agent behaviour under real survival stakes; self-preservation
+fli/2015-grant-program/0,field,,high,AI forecasting and timelines research
+fli/2015-grant-program/1,7.1,,high,aligning superintelligence with human interests
+fli/2015-grant-program/10,7.1,,high,keeping advanced machines robustly benevolent
+fli/2015-grant-program/11,7.4,,high,explanations for complex autonomous AI systems
+fli/2015-grant-program/12,7.1,,medium,building moral judgement into robust AI
+fli/2015-grant-program/13,7.1,,high,inferring human values and preferences
+fli/2015-grant-program/14,7.1,,medium,self-policing agents enforcing ethical values
+fli/2015-grant-program/15,7.6,,medium,mechanism design for many interacting AIs
+fli/2015-grant-program/16,6.2,,high,economics of transition to automated economy
+fli/2015-grant-program/17,7.3,,high,failure detection and robustness for deployment
+fli/2015-grant-program/18,6.5,,high,regulation and policy for autonomous agents
+fli/2015-grant-program/19,7.3,7.4,high,anomaly detection and explanation for robustness
+fli/2015-grant-program/2,7.1,,high,formal verification of self-improving agents
+fli/2015-grant-program/20,7.3,,high,robust inference for autonomous agents
+fli/2015-grant-program/21,field,,medium,forecasting acceleration after general AI
+fli/2015-grant-program/22,2.2,,high,security evaluation of machine learning systems
+fli/2015-grant-program/23,field,,high,rationality training for AI researchers
+fli/2015-grant-program/24,7.1,,high,stability of neuromorphic motivational systems
+fli/2015-grant-program/25,field,,medium,strategic research centre on AI
+fli/2015-grant-program/26,field,,medium,rationality and cognition summer programme
+fli/2015-grant-program/27,7.1,,high,teaching AI human values via concepts
+fli/2015-grant-program/28,6.5,,medium,code of ethics for AI research
+fli/2015-grant-program/29,7.3,,high,uncertainty-aware safer inductive learning
+fli/2015-grant-program/3,6.2,,medium,AI and the future of work
+fli/2015-grant-program/30,7.6,7.3,medium,AI threats and cascading failures in finance
+fli/2015-grant-program/31,7.3,,high,predicting when deep networks fail
+fli/2015-grant-program/32,7.1,,high,value alignment and moral metareasoning
+fli/2015-grant-program/33,7.1,,medium,verifying mathematical safety properties of AI
+fli/2015-grant-program/4,7.1,,medium,embedding ethics into planning algorithms
+fli/2015-grant-program/5,field,,medium,coordinating research on controllable autonomous machines
+fli/2015-grant-program/6,7.1,,high,meaningful human oversight of goal-directed systems
+fli/2015-grant-program/7,field,,high,prioritisation research for AI safety
+fli/2015-grant-program/8,7.3,,low,program synthesis for valid intended behaviour
+fli/2015-grant-program/9,7.1,,medium,modelling safe superintelligence development pathways
+fli/2018-grant-program/0,7.1,7.6,medium,moral feedback for safe robot teamwork
+fli/2018-grant-program/1,7.1,,high,factored cognition for scalable AGI oversight
+fli/2018-grant-program/2,6.5,,high,governance of AI programme
+fli/2018-grant-program/3,6.4,,high,safety agreement compliance in AI race
+fli/2018-grant-program/4,field,,medium,survey of AGI paradigms and risks
+fli/2018-grant-program/5,7.6,,medium,cooperation between AI agents
+fli/2018-grant-program/6,7.3,7.1,medium,safe learning and verification of human-AI systems
+fli/2018-grant-program/7,7.1,,high,control problem for universal AI
+fli/2018-grant-program/8,7.1,,high,utility functions for AGI theory
+fli/2018-grant-program/9,7.1,7.6,high,value alignment via multi-agent inverse RL
+fli/2021-grants/0,3.2,,medium,news platform countering filter bubbles
+fli/2021-grants/1,6.5,,high,aligning AI through better governance
+fli/2022-grants/1,6.5,,high,AI policy hub research and fellowships
+fli/2022-grants/2,field,,medium,existential risk centre spanning several risks
+fli/2022-grants/3,field,4.2,medium,entertainment storylines on irresponsible AI uses
+fli/2023-grants/0,field,,high,AI strategy and forecasting research
+fli/2023-grants/1,field,,medium,sociotechnical AI dynamics and collective deliberation
+fli/2023-grants/10,7.1,,medium,delegating high-quality reasoning to ML systems
+fli/2023-grants/11,6.4,,high,US-China competition risks from AI
+fli/2023-grants/12,7.1,,high,theoretical and applied alignment research
+fli/2023-grants/13,6.5,,high,aligning AI through better governance
+fli/2023-grants/14,field,,medium,existential risk field building at university
+fli/2023-grants/15,6.5,,high,AI policy hub research and fellowships
+fli/2023-grants/2,7.2,,high,dangerous capability evaluations for frontier models
+fli/2023-grants/3,7.1,,medium,support for CHAI alignment research collaboration
+fli/2023-grants/4,field,,high,general support for AI safety centre
+fli/2023-grants/5,field,,medium,AI policy work and xrisk messaging
+fli/2023-grants/6,6.5,,high,think tank improving governance of extreme risks
+fli/2023-grants/7,6.5,,high,alignment assemblies for legitimate AI governance
+fli/2023-grants/8,field,,high,neglected AI safety research agendas
+fli/2024-grants/0,6.5,,medium,youth mobilising policymakers on AI
+fli/2024-grants/1,4.2,6.5,medium,AI nexus with nuclear bio cyber autonomy
+fli/2024-grants/2,field,,high,association for safe and ethical AI
+fli/2024-grants/3,field,,high,journalism on current and future AI harms
+fli/2024-grants/5,6.2,,high,economics of transformative AI
+fli/2025-grants/0,field,6.1,medium,investigative journalism on systemic AI threats
+fli/2025-grants/1,field,,medium,AI risk management and alignment research
+fli/2025-grants/2,field,,high,faith community engagement on AI
+fli/2025-grants/4,field,,medium,guiding AI to protect family interests
+fli/2025-grants/5,field,,high,association for safe and ethical AI
+fli/2025-grants/6,field,,high,fellowship building European AI policy talent
+fli/global-institutions-governing-ai/0,6.5,,high,global AGI agency institutional design
+fli/global-institutions-governing-ai/1,6.5,,high,fair trade certification mechanism for AI
+fli/global-institutions-governing-ai/2,6.5,,high,international AI agency and CERN for AI
+fli/global-institutions-governing-ai/3,6.5,7.1,high,treaty prohibiting misaligned AGI
+fli/global-institutions-governing-ai/4,6.5,,high,UN treaty-based international AI governance organisation
+fli/global-institutions-governing-ai/5,6.5,,high,multilateral network of public AI laboratories
+fli/impact-of-ai-on-sdgs/0,field,,low,AI impact on climate education SDG
+fli/impact-of-ai-on-sdgs/1,field,,low,AI applications for climate resilience SDG
+fli/impact-of-ai-on-sdgs/2,6.2,,medium,AI impact on poverty alleviation SDG
+fli/impact-of-ai-on-sdgs/3,field,,low,AI role in heat mitigation SDG
+fli/impact-of-ai-on-sdgs/4,6.2,,medium,AI impact on poverty in low-resource contexts
+fli/impact-of-ai-on-sdgs/5,field,,low,AI impact on health outcomes Nigeria
+fli/impact-of-ai-on-sdgs/6,field,,low,AI impact on maternal mortality SDG
+fli/impact-of-ai-on-sdgs/7,6.2,,high,AI labour market impact and inequality
+fli/impact-of-ai-on-sdgs/8,field,,low,AI impact on health Ethiopia
+fli/impact-of-ai-on-sdgs/9,field,,low,AI role in reducing maternal mortality
+fli/mitigate-ai-driven-power-concentration/0,6.1,,high,how AI developers gain political power
+fli/mitigate-ai-driven-power-concentration/1,6.1,,high,mapping who controls AI development
+fli/mitigate-ai-driven-power-concentration/2,6.1,,high,index of AI-enabled authoritarianism risks
+fli/mitigate-ai-driven-power-concentration/3,6.1,,high,concentration of economic power in AI
+fli/mitigate-ai-driven-power-concentration/4,6.1,,high,forecasting AI-enabled power lock-in scenarios
+fli/mitigate-ai-driven-power-concentration/5,6.1,6.5,high,antitrust guidance for AI companies
+fli/mitigate-ai-driven-power-concentration/6,4.1,6.1,high,AI manipulation of pre-election discourse
+fli/mitigate-ai-driven-power-concentration/7,6.1,6.3,medium,data provider control and compensation infrastructure
+fli/mitigate-ai-driven-power-concentration/8,4.1,6.1,high,AI-enabled mass surveillance and emergency powers
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/0,6.2,,medium,labour union engagement on AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/1,6.2,,medium,mobilising trade unions against AI misuse
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/10,field,,medium,awareness of strategic superhuman AI risks
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/11,6.4,,high,pause advocacy on powerful AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/12,6.4,,medium,grassroots organising for AI pause
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/13,6.5,,medium,youth-led AI policy framework and coalition
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/2,5.1,,medium,children's AI use and parent-led safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/3,6.1,,high,challenging Big Tech dominance in AI
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/4,6.1,,medium,AI corporate accountability hub
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/5,6.4,,high,international AI scaling moratorium advocacy
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/6,field,,high,educating religious communities on AI ethics
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/7,6.5,4.2,medium,trilateral dialogue on military AI safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/8,field,,high,Buddhist engagement on AI safety
+fli/multistakeholder-engagement-for-safe-and-prosperous-ai/9,6.3,,high,AI impact on creative economy
+fli/rfp-on-religious-projects/0,field,,high,engaging Christian clergy on AI impacts
+fli/rfp-on-religious-projects/1,field,,medium,Orthodox scholars on AI and family
+fli/rfp-on-religious-projects/10,field,,high,Catholic event opposing inhuman powerful AI
+fli/rfp-on-religious-projects/11,field,,high,educating churches on AI capabilities and risks
+fli/rfp-on-religious-projects/12,field,,high,Reform Jewish education on AI impacts
+fli/rfp-on-religious-projects/13,6.5,,high,red lines guiding global AI governance
+fli/rfp-on-religious-projects/14,field,,medium,Catholic leaders understanding AI and dignity
+fli/rfp-on-religious-projects/15,5.1,,high,pastors on dangers of social AI
+fli/rfp-on-religious-projects/2,field,,high,Latter-day Saint conference and multifaith AI council
+fli/rfp-on-religious-projects/3,field,,high,evangelical media on theological AI use
+fli/rfp-on-religious-projects/4,field,,high,Orthodox theological perspective on AI
+fli/rfp-on-religious-projects/5,field,,high,Islamic ethical guidance on AI
+fli/rfp-on-religious-projects/6,field,,high,African religious leaders engaging AI challenges
+fli/rfp-on-religious-projects/7,field,,high,Hindu perspectives and moral boundaries for AI
+fli/rfp-on-religious-projects/8,field,,high,evangelical leadership discussions on AI
+fli/rfp-on-religious-projects/9,field,,high,Islamic declaration on AI principles
 grants-10487-0,field,,medium,trends in machine learning; forecasting
+grants-10638-0,field,,medium,career advice steering toward AI safety
+grants-10640-0,field,,medium,80000 Hours; AI-risk career pipeline
 grants-10659-0,field,,high,AI timelines forecasting and analysis
 grants-10671-0,field,,high,summer research fellowship programme
 grants-10681-0,field,,high,Epoch general support; AI trends research
+grants-1069-0,field,,medium,FHI scholars; AI safety and governance research
 grants-1070-0,7.3,,high,adversarial robustness research
 grants-1075-0,not_ai,,high,farm animal welfare
 grants-1091-0,6.5,,medium,AI policy training programme
@@ -1315,17 +1448,20 @@ grants-11744-0,7.1,,medium,alignment projects with deep learning systems
 grants-11794-0,field,,high,AI Safety Hub startup costs; field building
 grants-11865-0,not_ai,,low,security clearance report; no AI risk
 grants-11929-0,6.5,,high,Centre for the Governance of AI
+grants-11967-0,field,,high,BlueDot AI safety courses
 grants-12027-0,field,,high,x-risk research support infrastructure org
 grants-12040-0,6.5,,high,compute governance strategy workshop at GovAI
 grants-1210-0,7.1,,high,CHAI works on human-compatible AI alignment
 grants-1219-0,2.2,,high,machine learning security research
 grants-12198-0,field,,medium,AI Index measurement and trends
+grants-12215-0,field,,medium,Lightcone AI-safety community infrastructure
 grants-1226-0,6.5,,medium,CSET is an AI policy think tank
 grants-1241-0,field,,high,AI Impacts forecasts AI timelines and progress
 grants-12437-0,7.4,,low,tracking and documenting foundation models
 grants-12441-0,field,,medium,independent journalism on AI
 grants-12465-0,7.4,,high,large language model interpretability research
 grants-1248-0,field,,medium,Thompson AI trends and impacts forecasting
+grants-1252-0,field,,medium,FLI work dominated by AI risk
 grants-12567-0,field,,high,student AI safety hub
 grants-12571-0,6.5,,medium,AI policy training for officials
 grants-12588-0,field,,high,MATS talent and training programme
@@ -1350,6 +1486,7 @@ grants-13075-0,field,,medium,AI policy talent fellowship placement
 grants-1309-0,6.4,6.5,medium,AI accident risk and technology competition
 grants-13138-0,6.5,,high,tech policy fellowship
 grants-13177-0,field,,high,AI Safety Hub student research labs
+grants-13184-0,field,,medium,FHI operations; substantial AI-risk research
 grants-13188-0,field,,high,MATS scholars talent programme
 grants-13306-0,field,,high,AI alignment bootcamp
 grants-13309-0,7.1,,medium,alignment research collaboration with David Krueger
@@ -1360,13 +1497,17 @@ grants-13392-0,field,,high,MATS programme in London
 grants-13409-0,7.1,,medium,academic AI alignment research
 grants-13455-0,field,,medium,AI course development
 grants-13459-0,field,,high,alignment hackathons; talent and community building
+grants-13462-0,field,,medium,EffiSciences ML4Good AI safety bootcamps
 grants-13498-0,7.3,,high,adversarial robustness research
 grants-1352-0,6.5,,high,AI policy seminar series
+grants-13553-0,field,,medium,careers org focused on AI risk
 grants-13563-0,field,,medium,AI incident database spanning many harm types
 grants-13593-0,field,,high,CAIS fellowship and prizes; talent programme
 grants-1364-0,7.3,,high,paper on machine learning model robustness
 grants-13663-0,field,,medium,research consultancy; forecasting and AI safety work
 grants-13696-0,6.5,,high,AI policy development at the OECD
+grants-13730-0,field,,medium,Successif; mid-career transitions into AI risk
+grants-1374-0,field,,low,FHI scholars; substantial AI-risk research
 grants-13744-0,field,,high,office space for alignment community initiative
 grants-13763-0,7.1,,low,generic academic AI safety research
 grants-13766-0,6.5,,medium,law and ethics of AI course
@@ -1388,16 +1529,22 @@ grants-14449-0,field,6.5,medium,AI governance workshop
 grants-14452-0,7.4,,high,AI interpretability research
 grants-14470-0,field,,high,Epoch general support; trends and forecasting
 grants-14474-0,field,,low,machine learning self-study; no focus stated
+grants-1448-0,field,,medium,LessWrong AI-safety discussion infrastructure
 grants-1453-0,field,,medium,AI fellowship talent programme
+grants-14643-0,field,,low,fellowship pipeline largely AI safety
 grants-14649-0,6.5,,high,AI governance research
+grants-14715-0,7.1,,high,Forecasting review on power-seeking AI
 grants-14719-0,field,,high,ARENA technical AI safety training programme
 grants-14725-0,field,,high,AI safety retreat community building
+grants-14737-0,field,,medium,careers org focused on AI risk
 grants-1479-0,7.2,,low,scaling laws and capability trend research
 grants-14823-0,field,,medium,AI policy talent fellowship
 grants-14826-0,field,,medium,philosophy of AI course development
 grants-14836-0,7.1,,high,independent AI alignment research
 grants-14842-0,field,,high,student AI safety labs programme
+grants-1485-0,field,,low,FHI DPhils; substantial AI-risk research
 grants-14860-0,field,,high,AI safety field-building programme
+grants-14920-0,field,,medium,career advice steering toward AI safety
 grants-14951-0,6.5,,medium,RAND emerging technology policy fellowships
 grants-14992-0,7.1,,high,AI alignment research grant
 grants-1505-0,field,,medium,AI safety seminar; education
@@ -1412,6 +1559,7 @@ grants-15372-0,field,,medium,university course on human-AI alignment
 grants-15408-0,5.1,,medium,complementary human-AI decision making and reliance
 grants-15414-0,6.5,,high,GovAI policy research
 grants-15417-0,field,,high,CAIS general support; multi-domain safety org
+grants-15431-0,field,,high,forecasting AI progress and timelines
 grants-15444-0,field,,medium,BERI lab retreat; community infrastructure
 grants-15548-0,field,,high,expert survey forecasting AI progress
 grants-15554-0,field,,high,FAR AI general support
@@ -1419,6 +1567,7 @@ grants-1556-0,field,,medium,promotion of Human Compatible; public AI-risk commun
 grants-15563-0,unknown,,low,AI research; text thin
 grants-15565-0,7.2,7.1,high,Apollo Research does deception evaluations
 grants-15567-0,7.1,,high,Redwood Research
+grants-15570-0,field,,medium,Constellation AI-safety research space
 grants-1558-0,field,,high,BERI general support; x-risk research infrastructure
 grants-15598-0,7.1,,high,shutdown problem contest; corrigibility
 grants-15652-0,field,,low,psychology research; thin description
@@ -1447,15 +1596,22 @@ grants-16605-0,7.1,,high,scalable oversight dataset
 grants-1662-0,7.1,,medium,CHAI value alignment research
 grants-16644-0,6.5,,high,AI governance roundtables
 grants-16689-0,7.2,,medium,language model evaluations; HELM benchmark work
+grants-16693-0,field,,medium,EffiSciences runs AI safety programmes
 grants-16695-0,field,,medium,AI Impacts forecasts AI progress and timelines
 grants-16736-0,field,,high,AI safety summer camp and bootcamp
+grants-16775-0,6.5,field,medium,longtermist law work centred on AI governance
 grants-16791-0,field,,high,university collaboration programme; capacity building
 grants-16796-0,6.5,,high,AI safety policy advocacy
 grants-16798-0,field,,high,alignment research and governance workshop
+grants-16814-0,field,,high,BlueDot AI safety courses
+grants-16818-0,field,,high,BlueDot runs AI safety courses
 grants-16826-0,7.1,,medium,technical alignment programme at Conjecture
 grants-16829-0,field,,high,AI safety technical training programme
+grants-1689-0,field,,medium,FLI is primarily an AI risk org
+grants-17041-0,field,,high,ML4Good AI safety bootcamp
 grants-17062-0,7.2,,high,AI evaluations research
 grants-1720-0,7.3,,high,robustness of machine learning models
+grants-1798-0,7.6,field,medium,s-risk and multi-agent AI cooperation research
 grants-18353-0,field,,low,generic machine learning research support
 grants-18368-0,field,,high,university alignment field-building workshop
 grants-18386-0,field,,high,university AI alignment community building
@@ -1475,7 +1631,9 @@ grants-18710-0,field,,medium,AI worldviews essay contest prizes
 grants-18754-0,7.3,,high,adversarial robustness research
 grants-18758-0,field,,medium,AI documentary for public awareness
 grants-18845-0,7.2,,medium,language model capabilities benchmarking
+grants-18848-0,field,,medium,careers org focused on AI risk
 grants-18855-0,7.1,,high,AI alignment research projects
+grants-19133-0,field,,medium,AI safety and governance research fellowship
 grants-19155-0,7.2,,medium,benchmark evaluating language model forecasting capability
 grants-19248-0,field,,high,Astra fellowship talent programme
 grants-19282-0,6.5,,medium,AI risk management frameworks and standards
@@ -1508,7 +1666,9 @@ grants-20114-0,7.1,,high,scalable oversight research
 grants-20125-0,field,,low,LLM use case database; unclear risk focus
 grants-20131-0,6.5,,high,AI standards and risk management frameworks
 grants-20150-0,5.1,,low,research on LLM use; thin description
+grants-20213-0,field,,medium,Sage forecasting tools; AI forecasting focus
 grants-20215-0,field,,high,explainers making AI safety accessible
+grants-20218-0,field,,medium,career transitions into AI risk work
 grants-20230-0,2.2,field,medium,information security talent pipeline
 grants-20334-0,field,,low,documentary and wargame about AI
 grants-2034-0,7.1,,medium,academic AI safety research group
@@ -1521,14 +1681,18 @@ grants-20671-0,7.2,,medium,software engineering benchmark; AI R&D capability
 grants-2075-0,6.5,,medium,CNAS outreach on technological risk policy
 grants-2084-0,7.1,,medium,goal specification for reinforcement learning
 grants-20840-0,7.2,5.1,medium,evaluating AI persuasiveness capability
+grants-20853-0,field,,high,ML4Good AI safety bootcamp
 grants-21056-0,7.2,,low,benchmark of LLM research capabilities
 grants-21072-0,7.2,,high,LLM persuasiveness evaluation
 grants-21076-0,7.3,,low,legal automation benchmark; capability reliability
 grants-21083-0,field,,low,LLM use case database; unclear risk focus
+grants-2122-0,field,,medium,FHI GCR work includes AI risk
 grants-2129-0,6.5,,medium,AI policy seminar series for policymakers
 grants-2137-0,6.5,6.4,medium,research on global politics of AI
 grants-21464-0,7.2,,high,Palisade Research; demonstrations of dangerous capabilities
+grants-2147-0,field,,medium,FLI is primarily an AI risk org
 grants-2162-0,field,,high,MIRI retraining programme; talent pipeline
+grants-21640-0,field,,medium,80000 Hours; AI-risk career pipeline
 grants-2171-0,field,,high,AI Impacts; timelines forecasting and epistemics
 grants-21738-0,7.2,,low,report on LLM model-based planning capability
 grants-21760-0,7.2,,high,LLM cybersecurity capability benchmark
@@ -1541,12 +1705,14 @@ grants-21956-0,7.2,,medium,benchmark measuring model capabilities
 grants-21977-0,field,,high,ARENA technical AI safety training programme
 grants-2204-0,2.2,,high,workshop on machine learning security
 grants-22117-0,6.2,,low,economics of AI scaling effects
+grants-22119-0,field,,high,BlueDot AI safety courses
 grants-22220-0,field,6.5,medium,fellowship placing talent into EU AI policy
 grants-22236-0,6.5,,medium,global AI risks governance initiative
 grants-22328-0,7.2,,medium,software engineering capability benchmark
 grants-22369-0,7.4,,high,interpretability work
 grants-22465-0,6.5,,medium,CLTR does UK risk policy
 grants-22486-0,7.1,,medium,MIT Algorithmic Alignment Group technical alignment
+grants-22547-0,field,,medium,Meridian AI safety community space
 grants-22549-0,field,,low,LLM research replication; unclear subdomain
 grants-22579-0,6.5,,high,Latin American AI policy work
 grants-22608-0,field,,high,Australian AI safety forum; community convening
@@ -1564,11 +1730,13 @@ grants-23196-0,7.2,,low,benchmark of LLM research capability
 grants-23198-0,7.2,,high,language model capabilities benchmarking
 grants-23217-0,6.5,,high,AI governance initiative
 grants-23222-0,7.2,,low,chemistry capability benchmark for models
+grants-23257-0,field,,low,fellowship pipeline largely AI safety
 grants-23276-0,6.5,,low,policy-oriented responsible innovation centre
 grants-23279-0,6.5,,high,AI governance and policy initiatives
 grants-23358-0,6.5,,high,AI law and policy field building
 grants-23360-0,not_ai,,medium,abundance conference; no AI risk focus
 grants-23362-0,7.2,,high,tripwire capability evaluations
+grants-23370-0,field,,medium,AI forecasting research programme
 grants-23374-0,6.5,,high,GovAI governance research
 grants-2359-0,7.1,,medium,factored cognition and scalable oversight research
 grants-23693-0,field,,high,ARENA technical upskilling programme
@@ -1585,12 +1753,14 @@ grants-24014-0,field,,high,MATS talent programme
 grants-24016-0,field,,high,MATS talent programme
 grants-24037-0,field,,high,AI safety university group support
 grants-24039-0,field,,high,student AI safety groups
+grants-24043-0,field,,medium,career advice steering toward AI safety
 grants-24045-0,field,,high,SPAR research mentorship
 grants-24073-0,6.5,,high,AI safety policy research and advocacy
 grants-2410-0,7.1,,high,MIRI general support; misalignment research
 grants-2414-0,7.1,,medium,Berkeley value alignment and human-compatible AI research
 grants-24218-0,field,,high,AI safety research programme operations
 grants-24221-0,field,,medium,Constellation hosts AI safety researchers
+grants-24538-0,7.2,2.2,medium,Pattern Labs does frontier cyber capability evals
 grants-2458-0,6.5,6.4,low,CNAS national security and technology policy
 grants-24598-0,field,,high,student AI safety group office access
 grants-24626-0,6.2,,low,research on AI economic impacts and automation
@@ -1606,6 +1776,7 @@ grants-24909-0,6.5,,high,GovAI governance research
 grants-24914-0,field,,high,national AI safety capacity building
 grants-24917-0,field,,medium,conference prizes for AI safety research
 grants-24925-0,field,,medium,research and governance workshop; field building
+grants-24956-0,field,,medium,Lightcone AI-safety community infrastructure
 grants-25075-0,2.2,,medium,cybersecurity services for AI safety organisations
 grants-2508-0,6.5,,high,AI governance work at a law school
 grants-25177-0,field,,high,shallow review of AI safety research
@@ -1615,6 +1786,7 @@ grants-25302-0,7.1,,medium,academic AI safety research on reward learning
 grants-2537-0,7.3,,low,Liang works on model robustness and evaluation
 grants-25401-0,field,,high,MATS talent programme research expenses
 grants-25406-0,7.4,,medium,Timaeus does developmental interpretability
+grants-2541-0,field,,medium,FLI is primarily an AI risk org
 grants-25642-0,field,,medium,AI safety competition prizes; field building
 grants-25644-0,field,,medium,CBAI bootcamp; talent pipeline building
 grants-25646-0,field,,high,AI safety coworking space
@@ -1640,6 +1812,7 @@ grants-26092-0,6.5,,high,semiconductor and compute policy work
 grants-26096-0,7.2,4.2,high,AI biological capability benchmarks
 grants-26098-0,7.2,4.2,high,dashboard tracking AI biological capabilities
 grants-26103-0,field,,medium,AI governance field-building
+grants-26105-0,field,,medium,marketing for AI safety career pipeline
 grants-26188-0,6.5,,high,AI policy development
 grants-26192-0,field,,high,AI safety conference
 grants-26199-0,field,,medium,compute resources for AI safety research
@@ -1662,6 +1835,7 @@ grants-28281-0,field,,medium,university institute; broad safety and alignment in
 grants-28351-0,field,,medium,AI journalism centre operating costs
 grants-28363-0,field,,medium,governance research fellowship talent programme
 grants-28365-0,field,,high,AGI conference organised by alignment initiative
+grants-28367-0,field,,high,MATS AI alignment talent programme
 grants-28370-0,field,,high,FAR AI research and field-building
 grants-28728-0,7.2,,medium,Palisade demonstrates dangerous AI capabilities
 grants-28730-0,6.4,6.5,medium,AI national security and strategic stability
@@ -1679,6 +1853,7 @@ grants-28788-0,6.5,,high,academic AI governance lab
 grants-28792-0,2.2,,high,research on prompt injection attacks
 grants-2880-0,7.1,,high,CHAI alignment research centre
 grants-28804-0,7.3,,low,robust and reliable machine learning lab
+grants-28807-0,field,,high,AI safety org management consulting
 grants-28811-0,2.2,,medium,cybersecurity bootcamp for AI security talent
 grants-28813-0,7.4,,high,research on encoded reasoning in LLMs
 grants-28815-0,2.2,7.2,medium,secure enclaves protecting weights during evaluation
@@ -1698,7 +1873,9 @@ grants-29005-0,field,6.5,medium,AI governance workshop
 grants-29007-0,7.1,,high,Redwood alignment and control research
 grants-29009-0,7.2,,medium,unlearning to remove dangerous model capabilities
 grants-29017-0,field,,high,FAR AI communications and outreach
+grants-2966-0,field,,medium,FLI is primarily an AI risk org
 grants-2977-0,field,,medium,broad AI risk reduction organisation
+grants-33362-0,field,,medium,Sage; AI forecasting and AI Digest
 grants-35598-0,field,,low,operating expenses of AI safety organisation
 grants-35705-0,7.1,,high,research on emergent misalignment
 grants-35708-0,7.1,,high,alignment faking research
@@ -1737,6 +1914,7 @@ grants-35989-0,7.4,,high,mechanistic interpretability research
 grants-36029-0,7.4,,high,Timaeus developmental interpretability
 grants-36031-0,7.3,7.1,medium,off-target effects of fine-tuning LLMs
 grants-36407-0,field,,high,RCT on technical AI safety grantmaking impact
+grants-36483-0,4.2,field,high,AI x biosecurity research fellowship
 grants-36552-0,7.2,7.3,medium,concept unlearning method for hazardous knowledge
 grants-36976-0,2.2,,medium,RAND AI security research; model and system security
 grants-36979-0,2.2,,medium,RAND AI security research; weights and systems
@@ -1780,7 +1958,21 @@ grants-37353-0,7.4,,high,mechanistic interpretability library
 grants-37355-0,7.1,,high,reward hacking research
 grants-37360-0,7.1,,high,model organisms of reward hacking
 grants-37759-0,6.5,,high,law and AI policy institute
+grants-37793-0,field,,high,AI safety and governance fellowship
 grants-37797-0,field,,high,review of AI safety research landscape
+grants-37803-0,field,,high,AI safety conference day
+grants-37805-0,field,,medium,AI safety ML upskilling bootcamp
+grants-37807-0,field,,high,AI safety community building South Africa
+grants-37809-0,field,,high,AI safety mentorship programme
+grants-37811-0,field,,medium,Toronto AI safety hub space
+grants-37813-0,field,,medium,career transitions into AI safety
+grants-37817-0,field,,high,AI safety mentorship programme
+grants-37819-0,field,,high,AI safety community building Hungary
+grants-37821-0,field,,medium,careers org focused on AI risk
+grants-37837-0,field,,medium,Kairos runs AI safety group programmes
+grants-37839-0,field,,high,Kairos runs SPAR alignment mentorship
+grants-37841-0,field,,high,SPAR alignment research mentorship programme
+grants-37845-0,field,,high,journalism centre covering AI risk
 grants-37876-0,field,,low,unspecified AI safety research projects
 grants-37881-0,7.1,,medium,analysis of moral preferences of AI systems
 grants-37884-0,7.3,,high,verifiably robust conformal probes
@@ -1803,6 +1995,19 @@ grants-38006-0,7.3,,medium,inductive biases and generalisation of LLMs
 grants-38008-0,2.2,,high,red-teaming backdoor attacks on LLMs
 grants-38010-0,7.4,,high,mechanistic interpretability research
 grants-38012-0,7.1,7.4,high,sleeper agent deception techniques
+grants-38068-0,7.2,4.2,high,SecureBio AI team; model bio-uplift evaluation
+grants-38108-0,field,,high,AI safety community building
+grants-38110-0,7.2,field,medium,course on evaluating AI models
+grants-38114-0,field,,high,AI alignment student field-building org
+grants-38116-0,field,,high,ML and AI safety bootcamp
+grants-38118-0,field,,high,AI alignment winter fellowship
+grants-38122-0,field,,high,AI safety headhunting and career support
+grants-38124-0,field,,high,AI safety community building
+grants-38126-0,field,,high,AI safety community building ANZ
+grants-38128-0,field,,high,The Curve AI conference
+grants-38130-0,2.2,field,medium,AI security capacity building
+grants-38133-0,field,,high,AI governance and safety community
+grants-38135-0,field,,medium,Meridian AI safety community space
 grants-38244-0,7.1,7.2,medium,benchmark for model sabotage behaviour
 grants-38246-0,6.5,,high,BERI regranting for AI governance work
 grants-38252-0,6.5,field,medium,AI governance fellowships
@@ -1818,6 +2023,7 @@ grants-38277-0,2.2,,medium,AI cybersecurity research and workshop
 grants-38279-0,7.2,,medium,predicting and forecasting AI capabilities
 grants-38281-0,6.5,,high,hardware-enabled mechanisms for compute governance compliance
 grants-38317-0,field,,high,AI x-risk research podcast production
+grants-38497-0,field,,high,Zurich AI safety group support
 grants-38506-0,6.5,,high,GovAI is an AI governance research centre
 grants-38524-0,6.4,6.5,medium,frontier AI geopolitics; state competition
 grants-38526-0,field,,low,AI safety strategy work; thin description
@@ -1826,6 +2032,12 @@ grants-38541-0,7.4,7.1,high,detecting hidden knowledge inside language models
 grants-38605-0,4.3,7.2,medium,benchmark of AI-generated phishing
 grants-38612-0,field,,low,generic AI safety projects at Mila
 grants-38614-0,2.2,,high,frontier AI security; model weight protection
+grants-38664-0,field,,high,AI research fellowships; ML upskilling
+grants-38666-0,field,,high,AI safety summer fellowship
+grants-38669-0,field,,high,AI safety research fellowships
+grants-38723-0,field,,high,LISA is an AI safety research hub
+grants-38725-0,7.1,,high,AI alignment research programme
+grants-38729-0,field,,high,AI safety mentorship programme
 grants-39037-0,7.2,4.2,high,cyber capability evaluations for critical infrastructure
 grants-39085-0,field,,medium,mid-career transition grants into AI safety
 grants-39102-0,7.2,,medium,agent capability leaderboard and benchmarking
@@ -1840,6 +2052,7 @@ grants-39164-0,7.1,,high,techniques for containing misaligned AI
 grants-39166-0,2.2,,high,defences against LLM backdoors
 grants-39168-0,7.1,,high,research on exploration hacking; misalignment
 grants-39199-0,6.2,,medium,AI productivity and labour impacts
+grants-39482-0,6.5,4.2,high,international dialogues on AI-bio governance
 grants-39498-0,7.1,,low,detecting unsafe LLM behaviours
 grants-39507-0,7.1,,high,research on alignment faking
 grants-39509-0,7.1,,high,model organisms of reward hacking
@@ -1887,6 +2100,8 @@ grants-7033-0,field,,high,SERI summer fellowships; talent programme
 grants-7039-0,6.5,,high,CSET does AI policy and security analysis
 grants-7051-0,7.3,,high,adversarial robustness research
 grants-7055-0,7.3,,high,adversarial robustness research
+grants-7058-0,field,,high,tournament forecasting AI progress
+grants-7059-0,field,,high,forecasting tournament on AI progress
 grants-7075-0,6.5,,high,AI governance research contract
 grants-8214-0,7.1,,high,Redwood Research does alignment and control
 grants-8418-0,field,6.5,medium,GovAI field building grant
@@ -1908,6 +2123,8 @@ grants-9521-0,6.5,,high,Carnegie Endowment AI governance research
 grants-9531-0,2.2,,medium,workshop on security of machine learning systems
 grants-9532-0,6.5,,high,AI policy analysis think tank
 grants-9537-0,7.3,,high,adversarial robustness research
+grants-9538-0,field,,high,forecasting AI progress contract
+grants-9550-0,field,,medium,LessWrong is AI alignment discussion infrastructure
 grants-9553-0,7.1,,high,language model misalignment research
 grants-9563-0,7.3,,high,adversarial robustness research
 grants-9698-0,2.1,,high,privacy-enhancing technologies research

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import html
 import json
 import os
 import sys
@@ -32,6 +33,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from riskdlab.funding.fli import PAGE_URL as FLI_PAGE_URL, PROGRAMS, read_program_files  # noqa: E402
 from riskdlab.funding.sff import ROUNDS, PAGE_URL, read_round_files  # noqa: E402
 
 RAW = ROOT / "data" / "raw" / "funding"
@@ -72,6 +74,10 @@ def fetch(today: str) -> None:
         page = _get(PAGE_URL.format(round=name))
         (RAW / f"sff_{name.replace('/', '_')}.html").write_bytes(page)
     print(f"SFF: {len(ROUNDS)} round pages")
+
+    for slug in PROGRAMS:
+        (RAW / f"fli_{slug}.html").write_bytes(_get(FLI_PAGE_URL.format(slug=slug)))
+    print(f"FLI: {len(PROGRAMS)} programme pages")
 
     app_id = os.environ.get("COEFFICIENT_ALGOLIA_APP_ID")
     key = os.environ.get("COEFFICIENT_ALGOLIA_KEY")
@@ -128,10 +134,10 @@ def build(today: str) -> None:
                 "award_date": dt.datetime.fromtimestamp(int(hit["award_date"]), dt.UTC).date().isoformat()
                 if hit.get("award_date") else "",
                 "award_year": hit.get("award_year"),
-                "organization": "; ".join(hit.get("organization_name") or []),
-                "title": hit.get("title", ""),
+                "organization": "; ".join(html.unescape(o) for o in (hit.get("organization_name") or [])),
+                "title": html.unescape(hit.get("title", "")),
                 "amount_usd": hit.get("grant_amount"),
-                "focus_areas": "; ".join(hit.get("focus-area") or []),
+                "focus_areas": "; ".join(html.unescape(a) for a in (hit.get("focus-area") or [])),
                 "funding_type": "; ".join(hit.get("funding_type") or []),
                 "url": hit.get("url", ""),
             }
@@ -175,6 +181,10 @@ def build(today: str) -> None:
     sff = read_round_files(RAW)
     sff.to_csv(SNAPSHOTS / f"sff-recommendations-{today}.csv", index=False)
     print(f"sff: {len(sff)} rows, ${sff['amount_usd'].sum():,.0f}")
+
+    fli = read_program_files(RAW)
+    fli.to_csv(SNAPSHOTS / f"fli-grants-{today}.csv", index=False)
+    print(f"fli: {len(fli)} rows, ${fli['amount_usd'].sum():,.0f}")
 
 
 def main() -> int:

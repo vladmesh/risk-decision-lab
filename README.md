@@ -2,22 +2,24 @@
 
 A gap map over AI risk: what experts expect, beside where the money goes, in the same
 24 coordinates. The MIT AI Risk Repository gives the coordinates (its 24 risk subdomains)
-and an expert survey over them; four funders' public grant databases give the money. This
+and an expert survey over them; five funders' public grant databases give the money. This
 repository joins the two, shows the uncertainty on both sides, and says what is missing
 before any of it can be called a priority.
 
 Current stage: prototype with real data end to end — snapshots, labels, the joined table,
 and a first reading of it. Nothing here is a ranking of what to fund.
 
-## What the table says (2024 – Aug 2026, four funders, $650M)
+## What the table says (2024 – Aug 2026, five funders, $789M)
 
-`results/gapmap-2024-2026-catastrophic.csv` is the output; the reading below is ours.
+`results/gapmap-2024-2026-catastrophic.csv` and `results/risk-by-method-2024-2026.csv` are
+the outputs; the reading below is ours.
 
 | | |
 |---|---|
-| **Where the money is** | 34% of the dollars are field-building and general support that attach to no subdomain; 27% governance (`6.5`); 11% misalignment (`7.1`); 8% dangerous-capability evaluations (`7.2`); 5% interpretability (`7.4`); 5% AI-system security (`2.2`). Six labels hold 90% of the money. |
+| **Where the money is** | 43% of the dollars are field-building and general support that attach to no subdomain (MATS, 80,000 Hours, regional AI-safety groups, community infrastructure); 23% governance (`6.5`); 9% misalignment (`7.1`); 8% dangerous-capability evaluations (`7.2`); 4% interpretability (`7.4`); 4% AI-system security (`2.2`). Six labels hold 91% of the money. |
 | **Where the experts are** | By mean probability of catastrophic harm under business as usual, the Delphi top three are dangerous capabilities (`7.2`, 21.5%), weapons & cyberattacks (`4.2`, 21.0%) and power centralization (`6.1`, 18.0%). By share of experts naming a domain a top-3 concern: fraud & scams (`4.3`, 27%), power centralization (24%), then disinformation, false information and dangerous capabilities (22% each). |
-| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$1.1M / 0.2%** of the money. `4.2` weapons & cyber: rank 2 by severity, **$0.4M** — partly by construction, because Coefficient funds bio and cyber defence from programmes outside our AI scope. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$34M and 108 grants** as a *field* — a category mismatch between a taxonomy of harms and a portfolio of methods, and the clearest case where this table must not be read as "over-funded". |
+| **The mismatches** | `6.1` power centralization: rank 3 by expected severity, rank 2 by concern, **$5.4M / 0.7%** of the money (most of it FLI's power-concentration RFP). `4.2` weapons & cyber: rank 2 by severity, **$2.3M / 0.3%** — and not an artefact of scope: Coefficient's biosecurity and GCR funds were read grant by grant, and the 87 AI-related grants there are field-building, not AI-enabled bio or cyber defence. `7.4` interpretability: rank **24 of 24** as a *risk* in the expert survey, **$34M and 108 grants** as a *field*. |
+| **Risk vs method** | Every grant also carries a *method* label (MIT's 23 mitigation controls plus seven research/talent/advocacy labels of ours). The cross-table resolves the `7.4` puzzle: its $34M is **$30M of interpretability research** — a method, funded because it serves `7.1`/`7.2`, not because anyone rates opacity as a top harm. Likewise `7.2` is $61M of evaluations (`3.1`), `6.5` is $149M of risk-management and regulation work (`1.2`), `7.1` is $57M of empirical alignment research. By method, the whole portfolio is: talent & community 30%, risk management / regulation 21%, empirical safety research 15%, evaluations 10%, advocacy & communication 6%, forecasting 4%, interpretability 4%, theory 3%. |
 | **How noisy the expert side is** | Resampling experts within each domain (1,000 draws) keeps 83% of pairwise domain orderings; rank intervals are wide (e.g. `6.6` environmental harm: point rank 5, 90% interval 1–19, from 23 experts). The first seven domains are separated by 5 percentage points with standard errors of 1–2.5 pp. |
 | **How noisy the money side is** | A second, independent labelling of 120 control grants agrees with the main labels on the exact subdomain 91% of the time, on the MIT domain 93%. Labels for "General support of X" rest on what X does, not on the grant text. |
 
@@ -53,17 +55,22 @@ tests goes to the network.
 **Money — four public grant databases**, `snapshots/funding/` (details and caveats in
 [`snapshots/funding/README.md`](snapshots/funding/README.md)):
 
-| funder | rows | in AI scope | $ in scope | how |
-|---|---|---|---|---|
-| Coefficient Giving (ex-Open Philanthropy) | 2,889 | 629 (*Navigating Transformative AI*) | $960M | Algolia index behind the site |
-| Survival and Flourishing Fund | 515 | 515 (no funder tag; all rows labelled) | $138M | 11 round pages parsed |
-| EA Funds | 1,663 | 693 (*Long-Term Future Fund*) | $30M | `api/grants` |
-| Manifund | 1,436 | 771 (`tais`, `ai-gov`) | $9M raised | `api/v0/projects` |
+| funder | rows | labelled as AI-risk work | how |
+|---|---|---|---|
+| Coefficient Giving (ex-Open Philanthropy) | 2,889 | 716: all 629 of *Navigating Transformative AI* + 87 found by reading the Biosecurity, GCR and Forecasting funds grant by grant | Algolia index behind the site |
+| Survival and Flourishing Fund | 515 | 515 (no funder tag; every row labelled) | 11 round pages parsed |
+| EA Funds | 1,663 | 693 (*Long-Term Future Fund*) | `api/grants` |
+| Manifund | 1,436 | 771 (`tais`, `ai-gov`) | `api/v0/projects` |
+| Future of Life Institute | 146 | 130 (nuclear and non-AI rows excluded per grant) | 13 programme pages parsed |
 
-**Labels** — `snapshots/funding/labels-mit-subdomains-2026-08-20.csv`: every in-scope
-grant mapped to one subdomain (or `field`, `not_ai`, `unknown`) by a language model
-reading the grant text against [`riskdlab/funding/rubric.md`](riskdlab/funding/rubric.md),
-with a second independent labelling of 120 control grants committed beside it.
+**Labels** — `snapshots/funding/labels-mit-subdomains-2026-08-20.csv`: 2,825 grants mapped
+to one subdomain (or `field`, `not_ai`, `unknown`) by a language model reading the grant
+text against [`riskdlab/funding/rubric.md`](riskdlab/funding/rubric.md), with a second
+independent labelling of 120 control grants beside it; `labels-methods-2026-08-20.csv`:
+the same grants mapped to a method against
+[`riskdlab/funding/rubric_methods.md`](riskdlab/funding/rubric_methods.md);
+`scope-decisions-2026-08-20.csv`: the per-grant in/out decision for the grants outside
+the funders' own AI tags, so exclusions are auditable.
 
 ## Reproduce
 
@@ -75,6 +82,7 @@ curl -sSL "https://docs.google.com/spreadsheets/d/15LeHcpeuZC9txkvcaMoh3sUhkMvdM
 curl -sSL "https://osf.io/download/6d58m/" -o data/raw/delphi.zip && unzip -o data/raw/delphi.zip -d data/raw/delphi
 
 .venv/bin/python -m riskdlab funding --year-from 2024           # dollars by subdomain, label agreement
+.venv/bin/python -m riskdlab methods --year-from 2024           # dollars by method, risk x method table
 .venv/bin/python -m riskdlab gapmap  --year-from 2024 --out results/gapmap.csv
 .venv/bin/python -m pytest                                       # synthetic fixtures + committed snapshots, no network
 ```
@@ -105,10 +113,10 @@ riskdlab/
   data.py          MIT Repository + Delphi -> one domain table (download step)
   experts.py       per-expert Delphi rows: paired reduction, bootstrap ranks, top concerns
   mitigations.py   the mitigation snapshot and its taxonomy
-  funding/         grant snapshots -> one table; SFF page parser; labels + agreement; rubric.md
+  funding/         grant snapshots -> one table; SFF and FLI page parsers; labels, methods, agreement; rubrics
   gapmap.py        subdomain x {expert signal, dollars by source, reserved rows}
   assumptions.py, ranking.py, stability.py   the earlier ranking prototype
-  cli.py           funding | gapmap | rank | compare | stability | mitigations
+  cli.py           funding | methods | gapmap | rank | compare | stability | mitigations
 snapshots/         committed third-party data with provenance (mitigations, funding, labels)
 results/           saved outputs of the commands above, dated
 experiments/       one-off scripts: data recon, sensitivity, fetchers (the only code that goes online)
